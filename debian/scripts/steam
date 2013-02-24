@@ -1,0 +1,27 @@
+#!/bin/sh
+# Copyright (C) 2013 Michael Gilbert <mgilbert@debian.org>
+# License: MIT
+set -e
+
+real=/usr/games/steam.real
+config=$HOME/.steam
+root=$config/root
+sdk32=$config/sdk32
+steam=$config/steam
+path=$config/ubuntu12_32
+exe=$path/steam
+
+# this probably looks a bit weird, but it forces steam to store data in its
+# own ~/.steam directory instead of a buch of non-standard paths of its
+# choosing
+test ! -d $config && rm -rf $config && mkdir -p $config || true
+test ! -d $path && rm -rf $path && mkdir -p $path || true
+test ! -h $root && rm -rf $root && ln -s $config $root || true
+test ! -h $sdk32 && rm -rf $sdk32 && ln -s $path $sdk32 || true
+test ! -h $steam && rm -rf $steam && ln -s $config $steam || true
+
+# launch steam / do an initial update when the exe does not already exist
+cd $path
+export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
+test ! -x $exe && rm -rf $exe && cp $real $exe && ./steam || true
+./steam $@

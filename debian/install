@@ -1,0 +1,8 @@
+steam.real usr/games
+debian/scripts/steam usr/games
+steam.desktop usr/share/applications
+icons/16/steam.png usr/share/icons/hicolor/16x16/apps
+icons/24/steam.png usr/share/icons/hicolor/24x24/apps
+icons/32/steam.png usr/share/icons/hicolor/32x32/apps
+icons/48/steam.png usr/share/icons/hicolor/48x48/apps
+icons/256/steam.png usr/share/icons/hicolor/256x256/apps

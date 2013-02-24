@@ -1,0 +1,33 @@
+#!/usr/bin/python
+# Copyright (C) 2013 Michael Gilbert <mgilbert@debian.org>
+# License: MIT
+
+import sys
+
+if len( sys.argv ) < 3:
+    sys.stderr.write( 
+            'usage: %s <minified copyright file> <debian copyright file>\n'
+            % sys.argv[0] )
+    sys.exit( 1 )
+
+mincopyright = open( sys.argv[1] , 'r' )
+copyright = open( sys.argv[2] , 'w' )
+for cline in mincopyright.readlines():
+    if cline.strip().startswith( 'License-File:' ):
+        info = cline.split()
+        start = 0
+        if len( info ) > 2:
+            start = int( info[2] )
+        license = open( info[1] , 'rU' ) # U does dos2unix
+        for line in license.readlines()[start:]:
+	     copyright.write( line )
+#            if line.strip() == '':
+#                copyright.write( ' .\n' )
+#            else:
+#                copyright.write( ' ' )
+#                copyright.write( line )
+        license.close()
+    else:
+        copyright.write( cline )
+mincopyright.close()
+copyright.close()

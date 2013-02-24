@@ -1,0 +1,17 @@
+Format: Mostly copyright-format 1.0
+#       http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+#       This file does not entirely adhere to copyright-format 1.0 since
+#       that would require reformating the steam license agreement (adding
+#       spaces, dots, and word-wrapping), and  modifications to the license
+#       are explicitly disallowed by section 1.B.(ii).
+Upstream-Name: steam
+
+Files: *
+Copyright: Valve Corporation <linux@steampowered.com>
+License: Steam_Install_Agreement
+License-File: steam_install_agreement.txt
+
+Files: debian/*
+Copyright: 2013 Michael Gilbert <mgilbert@debian.org>
+License: MIT 
+License-File: debian/mit-license

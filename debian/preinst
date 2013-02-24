@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+if [ "$1" = "install" ]; then
+    db_input high steam/license
+    db_input high steam/question
+    db_go
+    db_get steam/question
+    test "$RET" = "I AGREE"
+fi
+
+#DEBHELPER#

@@ -1,0 +1,32 @@
+#!/usr/bin/python
+
+header = '''\
+Template: steam/question
+Type: select
+Choices: I DECLINE, I AGREE
+Description: Do you agree to all terms of the Steam License Agreement?
+ STEAM LICENSE AGREEMENT
+
+Template: steam/purge
+Type: note
+Description: STEAM PURGE NOTE 
+ Purging is not entirely complete.  Steam's working files are still located
+ in your home directories at ~/.steam.  If you intended to remove the
+ entire application, you will need to remove those directories manually.
+
+Template: steam/license
+Type: note
+Description: STEAM LICENSE AGREEMENT (ARROW keys scroll, TAB key to move to "Ok")
+'''
+
+template = open( 'debian/templates' , 'w' )
+template.write( header )
+license = open( 'steam_install_agreement.txt' , 'rU' )
+for line in license.readlines():
+    line = line.strip()
+    if line == '':
+        template.write( ' .\n' )
+    else:
+        template.write( ' %s\n' % line)
+license.close()
+template.close()

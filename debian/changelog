@@ -1,0 +1,5 @@
+steam (1.0.0.33-1) experimental; urgency=low
+
+  * Intitial release (closes: #440607).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 24 Feb 2013 16:59:29 +0000

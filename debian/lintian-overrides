@@ -1,0 +1,4 @@
+steam: embedded-library usr/games/steam.real: zlib
+steam: using-first-person-in-templates steam/license
+steam: too-long-extended-description-in-templates steam/license
+steam: hardening-no-relro usr/games/steam.real

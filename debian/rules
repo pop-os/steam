@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+
+uversion=$(shell uscan --report | head -2 | tail -1 | cut -d\  -f7 | cut -d, -f1)
+keepers=icons steam steam.6 steam.desktop steam_install_agreement.txt
+orig=../steam_$(uversion).orig.tar.xz
+dst=steam-$(uversion)
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	cp steam steam.real
+	python debian/scripts/templates-helper
+
+override_dh_clean:
+	dh_clean
+	rm -rf steam.real debian/templates
+	python debian/scripts/copyright-helper \
+	    debian/copyright.in debian/copyright
+
+get-orig-source:
+	@test "$(uversion)" = "" && \
+	    echo "There is no new upstream source file." && exit 1 || true 
+	rm -f $(orig)
+	uscan --force-download --no-symlink
+	mkdir -p $(dst)
+	tar xf ../steam_$(uversion).tar.gz --strip-components=1 -C $(dst)
+	rm -f $(dst)/steam
+	cd $(dst) && tar xf bootstrap*.tar.* --strip-components=1
+	cd $(dst) && for file in *; do \
+	    echo $(keepers) | grep -q $$file || rm -rf $$file; done
+	tar cJf $(orig) $(dst)
+	rm -rf $(dst)
+	@echo "Successfully created new upstream source file: $(orig)"

@@ -5,23 +5,11 @@ set -e
 
 real=/usr/games/steam.real
 config=$HOME/.steam
-root=$config/root
-sdk32=$config/sdk32
-steam=$config/steam
-path=$config/ubuntu12_32
-exe=$path/steam
-
-# this probably looks a bit weird, but it forces steam to store data in its
-# own ~/.steam directory instead of a buch of non-standard paths of its
-# choosing
-test ! -d $config && rm -rf $config && mkdir -p $config || true
-test ! -d $path && rm -rf $path && mkdir -p $path || true
-test ! -h $root && rm -rf $root && ln -s $config $root || true
-test ! -h $sdk32 && rm -rf $sdk32 && ln -s $path $sdk32 || true
-test ! -h $steam && rm -rf $steam && ln -s $config $steam || true
+ubuntu32=$config/ubuntu12_32
+exe=$ubuntu32/steam
 
 # launch steam / do an initial update when the exe does not already exist
-cd $path
-export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
-test ! -x $exe && rm -rf $exe && cp $real $exe && ./steam || true
-./steam $@
+test ! -d $config && rm -rf $config && mkdir -p $config || true
+test ! -d $ubuntu32 && rm -rf $ubuntu32 && mkdir -p $ubuntu32 || true
+test ! -x $exe && rm -rf $exe && cp $real $exe && $ubuntu32/steam || true
+$config/steam.sh $@

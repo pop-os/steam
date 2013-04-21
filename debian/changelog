@@ -1,3 +1,10 @@
+steam (1.0.0.36-1) experimental; urgency=low
+
+  * New upstream release.
+  * Fix paths in steam wrapper script (closes: #705334).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 20 Apr 2013 21:13:31 -0400
+
 steam (1.0.0.33-1) experimental; urgency=low
 
   * Intitial release (closes: #440607).

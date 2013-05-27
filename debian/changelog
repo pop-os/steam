@@ -1,3 +1,13 @@
+steam (1.0.0.39-1) unstable; urgency=low
+
+  * New upstream release.
+  * Only build on i386 (closes: #706677).
+  * Ensure steam.sh is in place (closes: #706857).
+  * Add missing x11 build dependencies (closes: #706970).
+    - Thanks to Stephen Kitt.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 27 May 2013 18:19:20 +0000
+
 steam (1.0.0.36-1) experimental; urgency=low
 
   * New upstream release.

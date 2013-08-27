@@ -1,3 +1,9 @@
+steam (1.0.0.39-2) unstable; urgency=medium
+
+  * Install steam_tray_mono.png (closes: #711535).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 27 Aug 2013 01:54:48 +0000
+
 steam (1.0.0.39-1) unstable; urgency=low
 
   * New upstream release.

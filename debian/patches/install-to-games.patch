@@ -1,8 +1,9 @@
-Description: Install binaries to /usr/games instead of /usr/bin.
-Author: Michael Gilbert <mgilbert@debian.org>
---- steam-1.0.0.28.orig/steam.desktop	2013-02-18 21:21:30.062644639 -0500
-+++ steam-1.0.0.28/steam.desktop	2013-02-18 21:55:20.000000000 -0500
-@@ -1,7 +1,7 @@
+description: install binaries to /usr/games instead of /usr/bin.
+author: Michael Gilbert <mgilbert@debian.org>
+
+--- a/steam.desktop	2014-01-26 20:59:02.663523245 +0000
++++ b/steam.desktop	2014-01-26 21:09:15.447521738 +0000
+@@ -1,13 +1,14 @@
  [Desktop Entry]
  Name=Steam
  Comment=Application for managing and playing games on Steam
@@ -11,3 +12,10 @@ Author: Michael Gilbert <mgilbert@debian.org>
  Icon=steam
  Terminal=false
  Type=Application
+ Categories=Network;FileTransfer;Game;
+ MimeType=x-scheme-handler/steam;
+ Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
++Keywords=Games
+ 
+ [Desktop Action Store]
+ Name=Store

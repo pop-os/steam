@@ -1,4 +1,10 @@
-steam: using-first-person-in-templates steam/license
-steam: too-long-extended-description-in-templates steam/license
-steam: hardening-no-relro usr/games/steam.real
-steam: spelling-error-in-binary
+# the license uses Valve's wording and is unchangable
+using-first-person-in-templates steam/license
+too-long-extended-description-in-templates steam/license
+# no upstream changelog included
+no-upstream-changelog
+# Valve builds the executables, so there is nothing we can do about these
+embedded-library
+spelling-error-in-binary
+hardening-no-relro
+hardening-no-fortify-functions

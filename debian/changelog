@@ -1,3 +1,14 @@
+steam (1.0.0.45-1) unstable; urgency=medium
+
+  * New upstream release (closes: #733103).
+  * Add xz-utils dependency (closes: #727839).
+  * Recommend fonts-liberation (closes: #736455).
+  * Add libtxc-dxtn-s2tc0 dependency (closes: #736663).
+  * Add x-terminal-emulator dependency (closes: #733601).
+  * Improve build failure message on unsupported architectures.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 26 Jan 2014 20:08:56 +0000
+
 steam (1.0.0.39-2) unstable; urgency=medium
 
   * Install steam_tray_mono.png (closes: #711535).

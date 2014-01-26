@@ -1,11 +1,17 @@
 #!/usr/bin/make -f
 
+export DH_VERBOSE=1
+
 uversion=$(shell uscan --report | head -2 | tail -1 | cut -d\  -f7 | cut -d, -f1)
 keepers=icons steam steam.6 steam.desktop steam_install_agreement.txt
 orig=../steam_$(uversion).orig.tar.xz
 dst=steam-$(uversion)
 
 %:
+ifneq ($(DEB_BUILD_ARCH), i386)
+	@echo "error: $(DEB_BUILD_ARCH) is not a supported architecture"
+	@exit 1
+endif
 	dh $@
 
 override_dh_auto_configure:

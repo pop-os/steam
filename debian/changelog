@@ -1,3 +1,13 @@
+steam (1.0.0.47-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Redirect stderr to ~/.steam/error.log.
+  * Better checking for steam updater failures.
+  * Add libxinerama1 dependency (closes: #730629).
+  * Depend libtxc-dxtn0 instead of libtxc-dxtn-s2tc0 (closes: #737300).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 29 Mar 2014 03:05:53 +0000
+
 steam (1.0.0.45-1) unstable; urgency=medium
 
   * New upstream release (closes: #733103).

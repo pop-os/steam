@@ -23,9 +23,10 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  xz-utils,
+ libtxc-dxtn0,
+ libxinerama1,
  libgl1-mesa-dri,
  libgl1-mesa-glx,
- libtxc-dxtn-s2tc0,
  xterm | x-terminal-emulator,
 Recommends:
  zenity,

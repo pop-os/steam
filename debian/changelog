@@ -1,3 +1,9 @@
+steam (1.0.0.47-2) unstable; urgency=medium
+
+  * Add libudev1 dependency (closes: #730629).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 09 Apr 2014 01:30:34 +0000
+
 steam (1.0.0.47-1) unstable; urgency=medium
 
   * New upstream release.

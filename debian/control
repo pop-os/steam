@@ -26,6 +26,7 @@ Depends:
  libudev1,
  libxinerama1,
  libtxc-dxtn0,
+ libc6 (>= 2.15),
  libgl1-mesa-dri,
  libgl1-mesa-glx,
  xterm | x-terminal-emulator,

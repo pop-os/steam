@@ -1,9 +1,26 @@
+steam (1.0.0.48-2) unstable; urgency=medium
+
+  * Add README.debian with some audio configuration tips (closes: #724971).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 08 Aug 2014 17:45:30 +0000
+
 steam (1.0.0.48-1) unstable; urgency=medium
 
-  * New upstream release
-  * Add libudev1 dependency (closes: #730629).
+  * New upstream release.
 
  -- Michael Gilbert <mgilbert@debian.org>  Sun, 29 Jun 2014 07:06:46 +0000
+
+steam (1.0.0.47-3) unstable; urgency=medium
+
+  * Explicitly set libc6 dependency (closes: #751145).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 29 Jun 2014 06:45:27 +0000
+
+steam (1.0.0.47-2) unstable; urgency=medium
+
+  * Add libudev1 dependency (closes: #730629).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 09 Apr 2014 01:30:34 +0000
 
 steam (1.0.0.47-1) unstable; urgency=medium
 

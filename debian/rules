@@ -3,9 +3,9 @@
 export DH_VERBOSE=1
 
 uversion=$(shell uscan --report | head -2 | tail -1 | cut -d\  -f7 | cut -d, -f1)
-keepers=icons steam steam.6 steam.desktop steam_install_agreement.txt
+keepers=icons lib steam.6 steam.real steam.desktop steam_install_agreement.txt
 orig=../steam_$(uversion).orig.tar.xz
-dst=steam-$(uversion)
+dest=../steam-$(uversion).orig
 
 %:
 	dh $@
@@ -15,25 +15,25 @@ ifneq ($(DEB_BUILD_ARCH), i386)
 endif
 
 override_dh_auto_configure:
-	cp steam steam.real
 	python debian/scripts/templates-helper
 
 override_dh_clean:
-	dh_clean -- steam.real debian/templates
+	dh_clean -- debian/templates
 	python debian/scripts/copyright-helper \
 	    debian/copyright.in debian/copyright
 
 get-orig-source:
 	@test "$(uversion)" = "" && \
 	    echo "There is no new upstream source file." && exit 1 || true 
-	rm -f $(orig)
 	uscan --force-download --no-symlink
-	mkdir -p $(dst)
-	tar xf ../steam_$(uversion).tar.gz --strip-components=1 -C $(dst)
-	rm -f $(dst)/steam
-	cd $(dst) && tar xf bootstrap*.tar.* --strip-components=1
-	cd $(dst) && for file in *; do \
+	rm -f $(orig)
+	mkdir -p $(dest)
+	tar xf ../steam_$(uversion).tar.gz --strip-components=1 -C $(dest)
+	rm -f $(dest)/steam
+	cd $(dest) && tar xf bootstrap*.tar.* --strip-components=1
+	mv $(dest)/steam $(dest)/steam.real
+	cd $(dest) && for file in *; do \
 	    echo $(keepers) | grep -q $$file || rm -rf $$file; done
-	tar cJf $(orig) $(dst)
-	rm -rf $(dst)
+	tar cJf $(orig) $(dest)
+	rm -rf $(dest)
 	@echo "Successfully created new upstream source file: $(orig)"

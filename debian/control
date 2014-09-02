@@ -5,10 +5,6 @@ Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:
  debhelper (>= 9),
- libxcb1,
- libxau6,
- libx11-6,
- libxdmcp6,
  python-dev,
 Standards-Version: 3.9.5
 Homepage: http://www.steampowered.com
@@ -18,7 +14,7 @@ Architecture: i386
 Multi-Arch: foreign
 Pre-Depends:
  debconf,
- multiarch-support,
+ ${misc:Pre-Depends},
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},

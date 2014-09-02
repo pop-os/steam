@@ -12,6 +12,6 @@ License: Steam_Install_Agreement
 License-File: steam_install_agreement.txt
 
 Files: debian/*
-Copyright: 2013 Michael Gilbert <mgilbert@debian.org>
+Copyright: 2013-2014 Michael Gilbert <mgilbert@debian.org>
 License: MIT 
 License-File: debian/mit-license

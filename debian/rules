@@ -4,21 +4,23 @@ export DH_VERBOSE=1
 
 uversion=$(shell uscan --report | head -2 | tail -1 | cut -d\  -f7 | cut -d, -f1)
 keepers=icons lib steam.6 steam.real steam.desktop steam_install_agreement.txt
+
+files=$(shell find debian -name \*.i386 | sed s/\\.i386//g)
+
 orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig
 
 %:
 	dh $@
-ifneq ($(DEB_BUILD_ARCH), i386)
-	@echo "error: $(DEB_BUILD_ARCH) is not a supported architecture"
-	@exit 1
-endif
 
 override_dh_auto_configure:
 	python debian/scripts/templates-helper
+ifeq ($(DEB_BUILD_ARCH), i386)
+	for file in $(files); do cp $$file.i386 $$file; done
+endif
 
 override_dh_clean:
-	dh_clean -- debian/templates
+	dh_clean -- debian/templates $(files)
 	python debian/scripts/copyright-helper \
 	    debian/copyright.in debian/copyright
 

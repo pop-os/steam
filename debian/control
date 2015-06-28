@@ -10,7 +10,7 @@ Standards-Version: 3.9.6
 Homepage: http://www.steampowered.com
 
 Package: steam
-Architecture: i386 amd64
+Architecture: i386
 Multi-Arch: foreign
 Pre-Depends:
  debconf,
@@ -18,18 +18,17 @@ Pre-Depends:
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- xz-utils [i386],
- libudev1 [i386],
- libxinerama1 [i386],
- libtxc-dxtn0 [i386],
- libc6 (>= 2.15) [i386],
- libgl1-mesa-dri [i386],
- libgl1-mesa-glx [i386],
- xterm [i386] | x-terminal-emulator [i386],
- steam-multiarch [amd64]
+ xz-utils,
+ libudev1,
+ libxinerama1,
+ libtxc-dxtn0,
+ libc6 (>= 2.15),
+ libgl1-mesa-dri,
+ libgl1-mesa-glx,
+ xterm | x-terminal-emulator,
 Recommends:
- zenity [i386],
- fonts-liberation [i386],
+ zenity,
+ fonts-liberation,
 Description: Valve's Steam digital software delivery system
  Steam (http://www.steampowered.com) is a software content delivery system
  developed by Valve software (http://www.valvesoftware.com).  There is
@@ -43,20 +42,3 @@ Description: Valve's Steam digital software delivery system
  parts of the application that differ from the original agreement.  In
  other words, pay attention and read carefully if you're worried about your
  rights.
-
-Package: steam-multiarch
-Architecture: amd64
-Depends:
- ${misc:Depends}
-Description: multiarch helper
- Provide multiarch automation
-
-Package: steam-helper
-Architecture: amd64
-Pre-Depends:
- steam-multiarch,
-Depends:
- ${misc:Depends},
- steam:i386,
-Description: additional helper
- Final step for multiarch automation

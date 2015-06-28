@@ -1,9 +1,13 @@
-steam (1.0.0.49-2) experimental; urgency=medium
+steam (1.0.0.50-1) unstable; urgency=medium
 
-  * Try automating multiarch configuration.
-  * Use C locale by default (closes: #764311).
+  * New upstream release.
+  * Use C locale by default (closes: #764311)
+  * Better fix for steam including libstdc++ (closes: #781454).
+  * Install steam executable to /usr/lib/steam (closes: #776183).
+  * More robust handling of debconf selections (closes: #772598).
+    - Thanks to Chris Kuehl.
 
- -- Michael Gilbert <mgilbert@debian.org>  Sat, 11 Oct 2014 02:30:31 +0000
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 28 Jun 2015 21:37:40 +0000
 
 steam (1.0.0.49-1) unstable; urgency=medium
 

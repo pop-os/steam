@@ -7,7 +7,7 @@ ubuntu32=$config/ubuntu12_32
 steam=$ubuntu32/steam
 runtime=$ubuntu32/steam-runtime
 
-real=/usr/games/steam.real
+real=/usr/lib/steam/steam
 
 # use C locale (bug #764311)
 export LANG=C
@@ -21,10 +21,9 @@ test ! -e $runtime.tar.xz && cat $runtime.tar.xz.part* > $runtime.tar.xz || true
 test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
     md5sum steam-runtime.tar.xz > steam-runtime/checksum || true
 
-# remove steam-runtime's libstdc++, which is incompatible with newer mesa drivers
-# (https://bugs.freedesktop.org/78242)
-rm -f $ubuntu32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6*
-rm -f $ubuntu32/steam-runtime/amd64/usr/lib/x86_64-linux-gnu/libstdc++.so.6*
+# remove steam-runtime's libstdc++ files, which are incompatible with
+# newer mesa drivers (https://bugs.freedesktop.org/78242)
+find $config -name libstdc++.so.6\* -execdir rm -f {} \;
 
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

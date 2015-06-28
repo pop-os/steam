@@ -10,7 +10,7 @@ if [ "$1" = "abort-install" ]; then
 fi
 
 if [ "$1" = "purge" ]; then
-    db_input high steam/purge
+    db_input high steam/purge || true
     db_go
 fi
 

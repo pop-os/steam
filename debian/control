@@ -6,6 +6,7 @@ Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:
  debhelper (>= 9),
  python-dev,
+XS-Autobuild: yes
 Standards-Version: 3.9.6
 Homepage: http://www.steampowered.com
 

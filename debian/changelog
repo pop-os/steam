@@ -1,3 +1,9 @@
+steam (1.0.0.50-4) unstable; urgency=medium
+
+  * Add libx11-6 build dependency (closes: 793195).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 08 Aug 2015 21:33:59 +0000
+
 steam (1.0.0.50-3) unstable; urgency=medium
 
   * Rebuild and reintroduce the package because of auto-cruft removal.

@@ -20,6 +20,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  xz-utils,
+ libx11-6,
  libudev1,
  libxinerama1,
  libtxc-dxtn0,

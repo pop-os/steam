@@ -1,6 +1,13 @@
+steam (1.0.0.50-5) unstable; urgency=medium
+
+  * Correctly make libx11-6 a build dependency.
+  * Move the steam executable to /usr/lib/games/steam.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 09 Aug 2015 20:46:45 +0000
+
 steam (1.0.0.50-4) unstable; urgency=medium
 
-  * Add libx11-6 build dependency (closes: 793195).
+  * Add libx11-6 build dependency (closes: #793195).
 
  -- Michael Gilbert <mgilbert@debian.org>  Sat, 08 Aug 2015 21:33:59 +0000
 

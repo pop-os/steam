@@ -7,7 +7,7 @@ ubuntu32=$config/ubuntu12_32
 steam=$ubuntu32/steam
 runtime=$ubuntu32/steam-runtime
 
-real=/usr/lib/steam/steam
+real=/usr/lib/games/steam/steam
 
 # use C locale (bug #764311)
 export LANG=C

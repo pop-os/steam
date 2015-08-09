@@ -6,6 +6,7 @@ Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:
  debhelper (>= 9),
  python-dev,
+ libx11-6,
 XS-Autobuild: yes
 Standards-Version: 3.9.6
 Homepage: http://www.steampowered.com
@@ -20,7 +21,6 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  xz-utils,
- libx11-6,
  libudev1,
  libxinerama1,
  libtxc-dxtn0,

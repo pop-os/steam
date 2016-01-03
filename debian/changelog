@@ -1,3 +1,10 @@
+steam (1.0.0.51-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add steam-devices package (closes: #802104).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 03 Jan 2016 02:24:46 +0000
+
 steam (1.0.0.50-6) unstable; urgency=medium
 
   * Recommend rather than depend x-terminal-emulator.

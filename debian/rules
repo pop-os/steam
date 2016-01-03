@@ -8,11 +8,11 @@ orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig
 
 %:
-	dh $@
 ifneq ($(DEB_BUILD_ARCH), i386)
 	@echo "error: $(DEB_BUILD_ARCH) is not a supported architecture"
 	@exit 1
 endif
+	dh $@
 
 override_dh_auto_configure:
 	python debian/scripts/templates-helper
@@ -24,7 +24,7 @@ override_dh_clean:
 
 get-orig-source:
 	@test "$(uversion)" = "" && \
-	    echo "There is no new upstream source file." && exit 1 || true 
+	    echo "There is no new upstream source file." && exit 1 || true
 	uscan --force-download --no-symlink
 	rm -f $(orig)
 	mkdir -p $(dest)

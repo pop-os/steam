@@ -31,6 +31,8 @@ Recommends:
  zenity,
  fonts-liberation,
  xterm | x-terminal-emulator,
+Suggests:
+ steam-devices,
 Description: Valve's Steam digital software delivery system
  Steam (http://www.steampowered.com) is a software content delivery system
  developed by Valve software (http://www.valvesoftware.com).  There is
@@ -44,3 +46,14 @@ Description: Valve's Steam digital software delivery system
  parts of the application that differ from the original agreement.  In
  other words, pay attention and read carefully if you're worried about your
  rights.
+
+Package: steam-devices
+Architecture: all
+Depends:
+ ${misc:Depends},
+Recommends:
+ steam,
+Description: Device support for Steam-related hardware
+ This package provides udev rules for various Steam-related hardware devices
+ such as the Steam Controller (gamepad) and the HTC Vive (virtual reality
+ headset).

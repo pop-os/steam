@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# Copyright (C) 2013-2014 Michael Gilbert <mgilbert@debian.org>
+# Copyright (C) 2013-2016 Michael Gilbert <mgilbert@debian.org>
 # License: MIT
 
 config=$HOME/.steam
@@ -23,7 +23,7 @@ test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
 
 # remove steam-runtime's libstdc++ files, which are incompatible with
 # newer mesa drivers (https://bugs.freedesktop.org/78242)
-find $config -name libstdc++.so.6\* -execdir rm -f {} \;
+find $runtime -name libstdc++.so.6\* -execdir rm -f {} \;
 
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

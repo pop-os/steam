@@ -2,7 +2,7 @@
 
 export DH_VERBOSE=1
 
-uversion=$(shell uscan --report | head -2 | tail -1 | cut -d\  -f7 | cut -d, -f1)
+uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
 keepers=icons lib steam.6 steam steam.desktop steam_install_agreement.txt
 orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig

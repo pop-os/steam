@@ -20,7 +20,7 @@ for cline in mincopyright.readlines():
             start = int( info[2] )
         license = open( info[1] , 'rU' ) # U does dos2unix
         for line in license.readlines()[start:]:
-	     copyright.write( line )
+            copyright.write( line )
 #            if line.strip() == '':
 #                copyright.write( ' .\n' )
 #            else:

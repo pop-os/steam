@@ -23,7 +23,10 @@ test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
 
 # remove steam-runtime's libstdc++ files, which are incompatible with
 # newer mesa drivers (https://bugs.freedesktop.org/78242)
-find $runtime -name libstdc++.so.6\* -execdir rm -f {} \;
+find $runtime -name libstdc++.so\* -delete
+
+# remove steam-runtime's libgpg-error files for the same reason
+find $runtime -name libgpg-error.so\* -delete
 
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

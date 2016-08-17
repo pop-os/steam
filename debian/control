@@ -27,6 +27,7 @@ Depends:
  libc6 (>= 2.15),
  libgl1-mesa-dri,
  libgl1-mesa-glx,
+ libgpg-error0,
 Recommends:
  zenity,
  fonts-liberation,

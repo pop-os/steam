@@ -1,3 +1,10 @@
+steam (1.0.0.52-4) unstable; urgency=medium
+
+  * Team upload.
+  * Add dependency on libgpg-error0. (Closes: #833113)
+
+ -- Felix Geyer <fgeyer@debian.org>  Wed, 17 Aug 2016 22:53:49 +0200
+
 steam (1.0.0.52-3) unstable; urgency=medium
 
   * Remove incompatible libgpg-error libraries from the steam runtime directory

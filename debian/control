@@ -4,11 +4,11 @@ Priority: extra
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:
- debhelper (>= 9),
+ debhelper (>= 10),
  python,
  libx11-6,
 XS-Autobuild: yes
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://www.steampowered.com
 
 Package: steam
@@ -30,6 +30,7 @@ Depends:
  libgpg-error0,
 Recommends:
  zenity,
+ libxss1,
  fonts-liberation,
  xterm | x-terminal-emulator,
 Suggests:

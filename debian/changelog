@@ -1,3 +1,10 @@
+steam (1.0.0.53-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Adds udev rules for the HTC Vive's sensors, camera, and mass storage.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 12 Nov 2016 23:09:09 +0000
+
 steam (1.0.0.52-5) unstable; urgency=medium
 
   * Update to debhelper 10.

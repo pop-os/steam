@@ -21,12 +21,13 @@ test ! -e $runtime.tar.xz && cat $runtime.tar.xz.part* > $runtime.tar.xz || true
 test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
     md5sum steam-runtime.tar.xz > steam-runtime/checksum || true
 
-# remove steam-runtime's libstdc++ files, which are incompatible with
-# newer mesa drivers (https://bugs.freedesktop.org/78242)
-find $runtime -name libstdc++.so\* -delete
-
-# remove steam-runtime's libgpg-error files for the same reason
-find $runtime -name libgpg-error.so\* -delete
+# remove steam-runtime libraries that are incompatible with newer mesa drivers
+# (https://bugs.freedesktop.org/78242)
+find $runtime -name libxcb.so\* \
+           -o -name libgcc_s.so\* \
+           -o -name libstdc++.so\* \
+           -o -name libgpg-error.so\* \
+           -delete
 
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

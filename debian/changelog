@@ -1,3 +1,11 @@
+steam (1.0.0.54-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Adds support for the PlayStation DualShock 4 controller.
+  * Remove more incompatible libraries from the steam runtime.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 26 Nov 2016 04:23:15 +0000
+
 steam (1.0.0.53-1) unstable; urgency=medium
 
   * New upstream release.

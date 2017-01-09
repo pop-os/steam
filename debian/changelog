@@ -1,3 +1,10 @@
+steam (1.0.0.54-2) unstable; urgency=medium
+
+  * Fix error in removal of incompatible runtime libraries (closes: #850479).
+    - Thanks to João Matos.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 09 Jan 2017 06:33:14 +0000
+
 steam (1.0.0.54-1) unstable; urgency=medium
 
   * New upstream release.

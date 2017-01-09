@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# Copyright (C) 2013-2016 Michael Gilbert <mgilbert@debian.org>
+# Copyright (C) 2013-2017 Michael Gilbert <mgilbert@debian.org>
 # License: MIT
 
 config=$HOME/.steam
@@ -23,11 +23,11 @@ test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
 
 # remove steam-runtime libraries that are incompatible with newer mesa drivers
 # (https://bugs.freedesktop.org/78242)
-find $runtime -name libxcb.so\* \
-           -o -name libgcc_s.so\* \
-           -o -name libstdc++.so\* \
-           -o -name libgpg-error.so\* \
-           -delete
+find $runtime \( -name libxcb.so\* \
+              -o -name libgcc_s.so\* \
+              -o -name libstdc++.so\* \
+              -o -name libgpg-error.so\* \
+              \) -delete
 
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

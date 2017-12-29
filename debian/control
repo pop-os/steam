@@ -1,6 +1,6 @@
 Source: steam
 Section: non-free/games
-Priority: extra
+Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:

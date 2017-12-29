@@ -4,6 +4,8 @@ steam (1.0.0.54-3) unstable; urgency=medium
     versions of SDL that use the libdbus API incorrectly when ibus is
     detected. (Closes: #882607)
   * d/copyright: Refer to the https version of copyright-format
+  * d/control: Elevate Priority from extra to optional, following the
+    deprecation of extra in Policy v4.0.1
 
  -- Simon McVittie <smcv@debian.org>  Fri, 29 Dec 2017 21:01:32 +0000
 

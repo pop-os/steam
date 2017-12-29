@@ -29,5 +29,11 @@ find $runtime \( -name libxcb.so\* \
               -o -name libgpg-error.so\* \
               \) -delete
 
+# Steam bundles a version of SDL that uses the libdbus API wrong, causing
+# assertion failures which are now fatal by default
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=882607
+# https://github.com/ValveSoftware/steam-for-linux/issues/5201
+export DBUS_FATAL_WARNINGS=0
+
 # launch the Valve run script
 test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log

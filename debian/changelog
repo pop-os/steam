@@ -1,3 +1,11 @@
+steam (1.0.0.54-3) unstable; urgency=medium
+
+  * Set DBUS_FATAL_WARNINGS environment variable to 0, working around
+    versions of SDL that use the libdbus API incorrectly when ibus is
+    detected. (Closes: #882607)
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 29 Dec 2017 21:01:32 +0000
+
 steam (1.0.0.54-2) unstable; urgency=medium
 
   * Fix error in removal of incompatible runtime libraries (closes: #850479).

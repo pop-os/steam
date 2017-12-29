@@ -1,5 +1,5 @@
 Format: Mostly copyright-format 1.0
-#       http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+#       https://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 #       This file does not entirely adhere to copyright-format 1.0 since
 #       that would require reformating the steam license agreement (adding
 #       spaces, dots, and word-wrapping), and  modifications to the license

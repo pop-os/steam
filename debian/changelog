@@ -6,6 +6,7 @@ steam (1.0.0.54-3) unstable; urgency=medium
   * d/copyright: Refer to the https version of copyright-format
   * d/control: Elevate Priority from extra to optional, following the
     deprecation of extra in Policy v4.0.1
+  * Update Standards-Version to 4.1.3 (no further changes required)
 
  -- Simon McVittie <smcv@debian.org>  Fri, 29 Dec 2017 21:01:32 +0000
 

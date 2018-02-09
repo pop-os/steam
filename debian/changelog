@@ -1,12 +1,13 @@
-steam (1.0.0.54-4) UNRELEASED; urgency=medium
+steam (1.0.0.54-4) unstable; urgency=medium
 
+  * Team upload
   * Depend on libgl1-mesa-dri (>= 17.3) | libtxc-dxtn0 now that S3TC
     support is no longer patent-encumbered and has been enabled in Mesa
     (Closes: #889987)
     - The alternative dependency can be removed if backports to older
       suites are no longer interesting.
 
- -- Simon McVittie <smcv@debian.org>  Fri, 09 Feb 2018 21:34:28 +0000
+ -- Simon McVittie <smcv@debian.org>  Fri, 09 Feb 2018 21:42:49 +0000
 
 steam (1.0.0.54-3) unstable; urgency=medium
 

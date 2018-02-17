@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders: Michael Gilbert <mgilbert@debian.org>
 Build-Depends:
- debhelper (>= 10),
+ debhelper (>= 11),
  python,
  libx11-6,
 XS-Autobuild: yes
@@ -32,6 +32,7 @@ Recommends:
  zenity,
  libxss1,
  fonts-liberation,
+ nvidia-driver-libs-i386,
  xterm | x-terminal-emulator,
 Suggests:
  steam-devices,

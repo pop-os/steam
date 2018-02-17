@@ -1,3 +1,12 @@
+steam (1.0.0.54-5) unstable; urgency=medium
+
+  * Update to debhelper 11.
+  * Recommend nvidia-driver-libs-i386 (closes: #839592).
+  * Add German translation to the desktop file (closes: #889733).
+    - Thanks to Ronny Standtke.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 17 Feb 2018 20:48:39 +0000
+
 steam (1.0.0.54-4) unstable; urgency=medium
 
   * Team upload
@@ -69,7 +78,7 @@ steam (1.0.0.52-3) unstable; urgency=medium
 steam (1.0.0.52-2) unstable; urgency=medium
 
   * Team upload.
-  
+
   [ Alexandre Detiste ]
   * Fix arch:all build (Closes: #822341)
 

@@ -6,4 +6,4 @@ no-upstream-changelog
 # Valve builds the executables, so there is nothing we can do about these
 embedded-library
 spelling-error-in-binary
-hardening-no-fortify-functions
+binary-file-built-without-LFS-support

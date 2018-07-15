@@ -11,7 +11,12 @@ Copyright: Valve Corporation <linux@steampowered.com>
 License: Steam_Install_Agreement
 License-File: steam_install_agreement.txt
 
+Files: lib/udev/rules.d/*
+Copyright: Valve Corporation <linux@steampowered.com>
+License: MIT
+License-File: debian/mit-license
+
 Files: debian/*
 Copyright: 2013-2017 Michael Gilbert <mgilbert@debian.org>
-License: MIT 
+License: MIT
 License-File: debian/mit-license

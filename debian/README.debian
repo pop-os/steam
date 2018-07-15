@@ -9,4 +9,4 @@ that steam will use.  An example steam launch with settings for alsa is:
 
   $ SDL_AUDIO_DRIVER=alsa AUDIODEV=hw:0,0 steam
 
-For more information, see the documentation for alsa, sdl, etc. 
+For more information, see the documentation for alsa, sdl, etc.

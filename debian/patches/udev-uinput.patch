@@ -1,0 +1,16 @@
+description: steam controller device needs a uinput node to be created
+author: Pierre-Loop Griffais <pgriffais@valvesoftware.com>
+bug-debian: https://bugs.debian.org/818905
+bug-upstream: https://github.com/ValveSoftware/steam-for-linux/issues/4794
+
+--- a/lib/udev/rules.d/99-steam-controller-perms.rules
++++ b/lib/udev/rules.d/99-steam-controller-perms.rules
+@@ -1,7 +1,7 @@
+ # Valve USB devices
+ SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
+ # Steam Controller udev write access
+-KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess"
++KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
+ 
+ # Valve HID devices over USB hidraw
+ KERNEL=="hidraw*", ATTRS{idVendor}=="28de", MODE="0666"

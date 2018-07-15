@@ -1,6 +1,4 @@
 # Valve's client is a prebuilt binary, so there is nothing we can do about this
 source-contains-prebuilt-binary
-# the prebuilt binary uses symbols only in glibc >= 2.15, so this is required
-package-depends-on-hardcoded-libc
 # not possible while satisfying Valve's license agreement
 no-dep5-copyright

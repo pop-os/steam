@@ -1,4 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+# Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
+# License: MIT
 
 header = '''\
 Template: steam/question
@@ -9,7 +11,7 @@ Description: Do you agree to all terms of the Steam License Agreement?
 
 Template: steam/purge
 Type: note
-Description: STEAM PURGE NOTE 
+Description: STEAM PURGE NOTE
  Purging is not entirely complete.  Steam's working files are still located
  in your home directories at ~/.steam.  If you intended to remove the
  entire application, you will need to remove those directories manually.

@@ -17,12 +17,15 @@ endif
 	dh $@
 
 override_dh_auto_configure:
-	python debian/scripts/templates-helper
+	./debian/scripts/templates-helper
+
+override_dh_strip:
+	# Valve's binaries have no symbols, so a dbgsym package is not useful
+	dh_strip --no-automatic-dbgsym
 
 override_dh_clean:
 	dh_clean -- debian/templates
-	python debian/scripts/copyright-helper \
-	    debian/copyright.in debian/copyright
+	./debian/scripts/copyright-helper debian/copyright.in debian/copyright
 
 get-orig-source:
 	@test "$(uversion)" = "" && \

@@ -1,3 +1,14 @@
+steam (1.0.0.54-6) unstable; urgency=medium
+
+  * Drop useless dbgsym package.
+  * Update standards version to 4.1.5.
+  * Update packaging scripts to python 3.
+  * Remove world readability from the udev rules.
+  * Create a uinput node for the steam controller (closes: #818905).
+  * Document new license for the upstream udev rules in the copyright file.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 15 Jul 2018 21:12:44 +0000
+
 steam (1.0.0.54-5) unstable; urgency=medium
 
   * Update to debhelper 11.

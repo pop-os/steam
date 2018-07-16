@@ -15,11 +15,8 @@ copyright = open( sys.argv[2] , 'w' )
 for cline in mincopyright.readlines():
     if cline.strip().startswith( 'License-File:' ):
         info = cline.split()
-        start = 0
-        if len( info ) > 2:
-            start = int( info[2] )
-        license = open( info[1] , 'rU' ) # U does dos2unix
-        for line in license.readlines()[start:]:
+        license = open( info[1] , 'rt', encoding='utf-8' )
+        for line in license.readlines():
             copyright.write( line )
         license.close()
     else:

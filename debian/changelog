@@ -1,3 +1,10 @@
+steam (1.0.0.54-7) unstable; urgency=medium
+
+  * Explicitly specify UTF-8 as the encoding for license files.
+  * Change maintainer address to debian-devel-games@lists.debian.org.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 16 Jul 2018 03:38:42 +0000
+
 steam (1.0.0.54-6) unstable; urgency=medium
 
   * Drop useless dbgsym package.

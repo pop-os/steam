@@ -1,3 +1,10 @@
+steam (1.0.0.54-8) unstable; urgency=medium
+
+  * Revert change to maintainer address.
+  * Explicitly specify UTF-8 as the encoding for all python file io.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 18 Jul 2018 00:50:49 +0000
+
 steam (1.0.0.54-7) unstable; urgency=medium
 
   * Explicitly specify UTF-8 as the encoding for license files.

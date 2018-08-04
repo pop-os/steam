@@ -23,7 +23,7 @@ Description: STEAM LICENSE AGREEMENT (ARROW keys scroll, TAB key to move to "Ok"
 
 template = open( 'debian/templates' , 'wt', encoding='utf-8' )
 template.write( header )
-license = open( 'steam_install_agreement.txt' , 'rt', encoding='utf-8' )
+license = open( 'steam_subscriber_agreement.txt' , 'rt', encoding='utf-8' )
 for line in license.readlines():
     line = line.strip()
     if line == '':

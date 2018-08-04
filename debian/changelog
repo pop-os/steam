@@ -1,3 +1,16 @@
+steam (1.0.0.55-1) unstable; urgency=medium
+
+  * New upstream release.
+    - New VR and controller devices supported.
+    - Upstream license has been completely revised.
+  * Add AppStream metadata about supported hardware.
+  * Disable steam client crash minidumps by default.
+  * Include upstream changelog in the binary packages.
+  * Remove partial files after a failed download (closes: #860950).
+  * Output a warning if the hardware does not support sse2 (closes: #903870).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 04 Aug 2018 21:00:16 +0000
+
 steam (1.0.0.54-8) unstable; urgency=medium
 
   * Revert change to maintainer address.

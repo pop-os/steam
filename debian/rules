@@ -3,7 +3,7 @@
 export DH_VERBOSE=1
 
 uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
-keepers=icons lib steam.6 steam steam.desktop steam_install_agreement.txt
+keepers=icons lib changelog steam.6 steam steam.desktop steam_subscriber_agreement.txt 
 orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig
 
@@ -34,6 +34,7 @@ get-orig-source:
 	rm -f $(orig)
 	mkdir -p $(dest)
 	tar xf ../steam_$(uversion).tar.gz --strip-components=1 -C $(dest)
+	mv $(dest)/debian/changelog $(dest)
 	rm -f $(dest)/steam
 	cd $(dest) && tar xf bootstrap*.tar.* --strip-components=1
 	cd $(dest) && for file in *; do \

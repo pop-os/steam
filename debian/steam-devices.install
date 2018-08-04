@@ -1,1 +1,3 @@
 lib
+
+debian/com.steampowered.steam-devices.metainfo.xml usr/share/metainfo

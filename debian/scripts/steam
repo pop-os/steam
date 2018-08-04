@@ -12,6 +12,16 @@ real=/usr/lib/games/steam/steam
 # use C locale (bug #764311)
 test -n "$LANG" || export LANG=C
 
+# check wether this system supports sse2
+nosse2="\
+WARNING:
+The hardware on this system lacks support for the sse2 instruction set.
+The browser within the steam client will not work. For more information,
+see: https://support.steampowered.com/kb_article.php?ref=4090-RTKZ-4347"
+if ! grep -q sse2 /proc/cpuinfo; then
+    echo "$nosse2"
+fi
+
 # do an initial update when expected pieces are missing
 test ! -d $config && rm -rf $config && mkdir -p $config || true
 test ! -x $config/steam.sh && rm -rf $config/package $steam || true
@@ -19,7 +29,8 @@ test ! -d $ubuntu32 && rm -rf $ubuntu32 && mkdir -p $ubuntu32 || true
 test ! -x $steam && rm -rf $steam && cp $real $steam && $steam || true
 test ! -e $runtime.tar.xz && cat $runtime.tar.xz.part* > $runtime.tar.xz || true
 test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
-    md5sum steam-runtime.tar.xz > steam-runtime/checksum || true
+    md5sum steam-runtime.tar.xz > steam-runtime/checksum || \
+    rm -f steam-runtime.tar.xz*
 
 # remove steam-runtime libraries that are incompatible with newer mesa drivers
 # (https://bugs.freedesktop.org/78242)
@@ -36,4 +47,5 @@ find $runtime \( -name libxcb.so\* \
 export DBUS_FATAL_WARNINGS=0
 
 # launch the Valve run script
-test -x $config/steam.sh && $config/steam.sh "$@" 2>$config/error.log
+test -x $config/steam.sh && $config/steam.sh -nominidumps -nobreakpad "$@" \
+    2>$config/error.log

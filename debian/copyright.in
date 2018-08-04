@@ -8,8 +8,8 @@ Upstream-Name: steam
 
 Files: *
 Copyright: Valve Corporation <linux@steampowered.com>
-License: Steam_Install_Agreement
-License-File: steam_install_agreement.txt
+License: STEAM_SUBSCRIBER_AGREEMENT
+License-File: steam_subscriber_agreement.txt
 
 Files: lib/udev/rules.d/*
 Copyright: Valve Corporation <linux@steampowered.com>

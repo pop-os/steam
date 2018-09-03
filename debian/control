@@ -8,7 +8,7 @@ Build-Depends:
  python3,
  libx11-6,
 XS-Autobuild: yes
-Standards-Version: 4.1.5
+Standards-Version: 4.2.1
 Homepage: http://www.steampowered.com
 
 Package: steam
@@ -28,8 +28,9 @@ Depends:
  libgl1-mesa-dri,
  libgl1-mesa-glx,
 Recommends:
- zenity,
  libxss1,
+ fontconfig,
+ ca-certificates,
  fonts-liberation,
  nvidia-driver-libs-i386,
  xterm | x-terminal-emulator,

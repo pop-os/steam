@@ -3,7 +3,7 @@
 export DH_VERBOSE=1
 
 uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
-keepers=icons lib changelog steam.6 steam steam.desktop steam_subscriber_agreement.txt 
+keepers=icons lib changelog steam.6 steam steam.desktop steam_subscriber_agreement.txt
 orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig
 

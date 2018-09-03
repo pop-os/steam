@@ -1,3 +1,13 @@
+steam (1.0.0.56-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update standards version.
+  * Drop zenity from the recommended packages.
+  * Add uaccess to the udev rules (closes: #907731).
+  * Recommend fontconfig and ca-certificates (closes: #907813).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 03 Sep 2018 02:42:51 +0000
+
 steam (1.0.0.55-1) unstable; urgency=medium
 
   * New upstream release.

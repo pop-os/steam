@@ -3,8 +3,8 @@ author: Pierre-Loop Griffais <pgriffais@valvesoftware.com>
 bug-debian: https://bugs.debian.org/818905
 bug-upstream: https://github.com/ValveSoftware/steam-for-linux/issues/4794
 
---- a/lib/udev/rules.d/99-steam-controller-perms.rules
-+++ b/lib/udev/rules.d/99-steam-controller-perms.rules
+--- a/lib/udev/rules.d/60-steam-input.rules
++++ b/lib/udev/rules.d/60-steam-input.rules
 @@ -1,7 +1,7 @@
  # Valve USB devices
  SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"

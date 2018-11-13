@@ -24,6 +24,7 @@ Pre-Depends:
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
+ steam-devices,
  xz-utils,
  libudev1,
  libxinerama1,
@@ -38,8 +39,6 @@ Recommends:
  fonts-liberation,
  nvidia-driver-libs-i386,
  xterm | x-terminal-emulator,
-Suggests:
- steam-devices,
 Description: Valve's Steam digital software delivery system
  Steam (http://www.steampowered.com) is a software content delivery system
  developed by Valve software (http://www.valvesoftware.com).  There is

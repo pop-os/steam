@@ -55,6 +55,7 @@ Description: Valve's Steam digital software delivery system
 
 Package: steam-devices
 Architecture: all
+Multi-Arch: foreign
 Depends:
  ${misc:Depends},
 Recommends:

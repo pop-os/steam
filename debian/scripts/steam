@@ -2,8 +2,42 @@
 # Copyright (C) 2013-2017 Michael Gilbert <mgilbert@debian.org>
 # License: MIT
 
-config="$HOME/.steam"
-ubuntu32="$config/ubuntu12_32"
+# According to Valve, ~/.steam is intended to be a control directory containing
+# symbolic links pointing to the currently-running or most-recently-run Steam
+# installation, so that users can swap between multiple installations of the
+# Steam client by running /path/to/steam.sh.
+#
+# The shell variable name STEAMCONFIG matches what's used in Valve's
+# /usr/bin/steam (available at $STEAMDIR/bin_steam.sh in a Steam
+# installation).
+STEAMCONFIG="$HOME/.steam"
+
+: "${XDG_DATA_HOME:="$HOME/.local/share"}"
+
+# STEAMDIR points to the actual installation root: the equivalent of
+# C:\Program Files\Steam in the Windows Steam client. In Valve's setup
+# this is distinct from ~/.steam, usually ~/.local/share/Steam.
+#
+# The historical Debian behaviour has been to use ~/.steam as the installation
+# directory in addition to using it as the control directory, in an attempt
+# to reduce clutter in the home directory.
+#
+# The shell variable name STEAMDIR matches what's used in Valve's
+# /usr/bin/steam.
+if [ -L "$STEAMCONFIG/steam" ]; then
+    STEAMDIR="$(readlink -e -q "$STEAMCONFIG/steam")"
+elif [ -L "$STEAMCONFIG/root" ]; then
+    STEAMDIR="$(readlink -e -q "$STEAMCONFIG/root")"
+elif [ -d "$STEAMCONFIG/steam" ] && ! [ -L "$STEAMCONFIG/steam" ]; then
+    STEAMDIR="$HOME/.steam"
+else
+    # This is a new installation. We could either use $HOME/.steam or
+    # $XDG_DATA_HOME/Steam; see #916303 for discussion. For now behave
+    # as we historically did.
+    STEAMDIR="$HOME/.steam"
+fi
+
+ubuntu32="$STEAMDIR/ubuntu12_32"
 steam="$ubuntu32/steam"
 runtime="$ubuntu32/steam-runtime"
 
@@ -23,8 +57,9 @@ if ! grep -q sse2 /proc/cpuinfo; then
 fi
 
 # do an initial update when expected pieces are missing
-test ! -d "$config" && rm -rf "$config" && mkdir -p "$config" || true
-test ! -x "$config/steam.sh" && rm -rf "$config/package" "$steam" || true
+test ! -d "$STEAMCONFIG" && rm -rf "$STEAMCONFIG" && mkdir -p "$STEAMCONFIG" || true
+test ! -d "$STEAMDIR" && rm -rf "$STEAMDIR" && mkdir -p "$STEAMDIR" || true
+test ! -x "$STEAMDIR/steam.sh" && rm -rf "$STEAMDIR/package" "$steam" || true
 test ! -d "$ubuntu32" && rm -rf "$ubuntu32" && mkdir -p "$ubuntu32" || true
 test ! -x "$steam" && rm -rf "$steam" && cp "$real" "$steam" && "$steam" || true
 test ! -e "$runtime.tar.xz" && cat "$runtime.tar.xz.part"* > "$runtime.tar.xz" || true
@@ -47,5 +82,5 @@ find "$runtime" \( -name libxcb.so\* \
 export DBUS_FATAL_WARNINGS=0
 
 # launch the Valve run script
-test -x "$config/steam.sh" && "$config/steam.sh" -nominidumps -nobreakpad "$@" \
-    2>"$config/error.log"
+test -x "$STEAMDIR/steam.sh" && "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@" \
+    2>"$STEAMDIR/error.log"

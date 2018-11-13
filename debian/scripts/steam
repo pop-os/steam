@@ -2,10 +2,10 @@
 # Copyright (C) 2013-2017 Michael Gilbert <mgilbert@debian.org>
 # License: MIT
 
-config=$HOME/.steam
-ubuntu32=$config/ubuntu12_32
-steam=$ubuntu32/steam
-runtime=$ubuntu32/steam-runtime
+config="$HOME/.steam"
+ubuntu32="$config/ubuntu12_32"
+steam="$ubuntu32/steam"
+runtime="$ubuntu32/steam-runtime"
 
 real=/usr/lib/games/steam/steam
 
@@ -23,22 +23,22 @@ if ! grep -q sse2 /proc/cpuinfo; then
 fi
 
 # do an initial update when expected pieces are missing
-test ! -d $config && rm -rf $config && mkdir -p $config || true
-test ! -x $config/steam.sh && rm -rf $config/package $steam || true
-test ! -d $ubuntu32 && rm -rf $ubuntu32 && mkdir -p $ubuntu32 || true
-test ! -x $steam && rm -rf $steam && cp $real $steam && $steam || true
-test ! -e $runtime.tar.xz && cat $runtime.tar.xz.part* > $runtime.tar.xz || true
-test ! -d $runtime && cd $ubuntu32 && tar xf steam-runtime.tar.xz && \
+test ! -d "$config" && rm -rf "$config" && mkdir -p "$config" || true
+test ! -x "$config/steam.sh" && rm -rf "$config/package" "$steam" || true
+test ! -d "$ubuntu32" && rm -rf "$ubuntu32" && mkdir -p "$ubuntu32" || true
+test ! -x "$steam" && rm -rf "$steam" && cp "$real" "$steam" && "$steam" || true
+test ! -e "$runtime.tar.xz" && cat "$runtime.tar.xz.part"* > "$runtime.tar.xz" || true
+test ! -d "$runtime" && cd "$ubuntu32" && tar xf steam-runtime.tar.xz && \
     md5sum steam-runtime.tar.xz > steam-runtime/checksum || \
     rm -f steam-runtime.tar.xz*
 
 # remove steam-runtime libraries that are incompatible with newer mesa drivers
 # (https://bugs.freedesktop.org/78242)
-find $runtime \( -name libxcb.so\* \
-              -o -name libgcc_s.so\* \
-              -o -name libstdc++.so\* \
-              -o -name libgpg-error.so\* \
-              \) -delete
+find "$runtime" \( -name libxcb.so\* \
+                -o -name libgcc_s.so\* \
+                -o -name libstdc++.so\* \
+                -o -name libgpg-error.so\* \
+                \) -delete
 
 # Steam bundles a version of SDL that uses the libdbus API wrong, causing
 # assertion failures which are now fatal by default
@@ -47,5 +47,5 @@ find $runtime \( -name libxcb.so\* \
 export DBUS_FATAL_WARNINGS=0
 
 # launch the Valve run script
-test -x $config/steam.sh && $config/steam.sh -nominidumps -nobreakpad "$@" \
-    2>$config/error.log
+test -x "$config/steam.sh" && "$config/steam.sh" -nominidumps -nobreakpad "$@" \
+    2>"$config/error.log"

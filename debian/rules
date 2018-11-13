@@ -8,8 +8,8 @@ orig=../steam_$(uversion).orig.tar.xz
 dest=../steam-$(uversion).orig
 
 build-arch:
-ifneq ($(DEB_BUILD_ARCH), i386)
-	@echo "error: $(DEB_BUILD_ARCH) is not a supported architecture"
+ifneq ($(DEB_HOST_ARCH), i386)
+	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
 	@exit 1
 endif
 

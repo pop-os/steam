@@ -12,6 +12,8 @@ Build-Depends:
 XS-Autobuild: yes
 Standards-Version: 4.2.1
 Homepage: http://www.steampowered.com
+Vcs-Git: https://salsa.debian.org/games-team/steam.git
+Vcs-Browser: https://salsa.debian.org/games-team/steam
 
 Package: steam
 Architecture: i386

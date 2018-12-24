@@ -37,8 +37,9 @@ Recommends:
  fontconfig,
  ca-certificates,
  fonts-liberation,
- nvidia-driver-libs-i386,
  xterm | x-terminal-emulator,
+Suggests:
+ nvidia-driver-libs-i386,
 Description: Valve's Steam digital software delivery system
  Steam (http://www.steampowered.com) is a software content delivery system
  developed by Valve software (http://www.valvesoftware.com).  There is

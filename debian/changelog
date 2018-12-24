@@ -1,3 +1,39 @@
+steam (1.0.0.56-2) UNRELEASED; urgency=medium
+
+  * Add myself to Uploaders
+  * Import debian/ into salsa.debian.org git (Closes: #913651)
+  * d/copyright.in: Really refer to the https form of copyright-format.
+    d/copyright is generated from d/copyright.in and license files.
+    (Closes: #916300)
+  * Upgrade steam-devices to a hard dependency.
+    The udev rules are increasingly used by the Steam client for input
+    remapping, even if no Steam-specific hardware is used. (Closes: #916298)
+  * Allow cross-compilation for i386 on a non-i386 build machine
+    (Closes: #916301)
+  * steam-devices: Mark as Multi-Arch: foreign.
+    Otherwise, this package can't satisfy the steam package's dependency
+    when installed with `dpkg -i` on an amd64 system (at which time it is
+    assumed to belong to the host architecture), as opposed to when it
+    is found in the Packages file for an i386 apt repository.
+  * d/scripts/steam: Quote variables defensively
+  * Demote nvidia-driver-libs-i386 from Recommends to Suggests.
+    These drivers are only required on systems where the NVIDIA proprietary
+    driver is in use, but the amd64 proprietary driver in nvidia-driver-libs
+    already Recommends nvidia-driver-libs-i386, and the kernel driver
+    nvidia-kernel-dkms Recommends nvidia-driver, which Depends on
+    nvidia-driver-libs; so the only way a user of the proprietary NVIDIA
+    driver could fail to have nvidia-driver-libs:i386 installed is if
+    they are already disregarding Recommends.
+    Keeping this driver in our Suggests means its presence or absence will
+    normally be mentioned in bug reports for this package.
+  * Normalize dependency lists into lexicographic order (wrap-and-sort -ast)
+  * Recommend Mesa Vulkan ICDs, and suggest NVIDIA Vulkan ICD
+    (Closes: #916404)
+  * Set Rules-Requires-Root to no
+  * Standards-Version: 4.3.0 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 24 Dec 2018 13:59:05 +0000
+
 steam (1.0.0.56-1) unstable; urgency=medium
 
   * New upstream release

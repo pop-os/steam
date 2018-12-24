@@ -7,8 +7,8 @@ Uploaders:
  Simon McVittie <smcv@debian.org>,
 Build-Depends:
  debhelper (>= 11),
- python3:any,
  libx11-6,
+ python3:any,
 XS-Autobuild: yes
 Standards-Version: 4.2.1
 Homepage: http://www.steampowered.com
@@ -22,21 +22,21 @@ Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
- ${misc:Depends},
- ${shlibs:Depends},
- steam-devices,
- xz-utils,
+ libgl1-mesa-dri,
+ libgl1-mesa-dri (>= 17.3) | libtxc-dxtn0,
+ libgl1-mesa-glx,
+ libgpg-error0,
  libudev1,
  libxinerama1,
- libgpg-error0,
- libgl1-mesa-dri (>= 17.3) | libtxc-dxtn0,
- libgl1-mesa-dri,
- libgl1-mesa-glx,
+ steam-devices,
+ xz-utils,
+ ${misc:Depends},
+ ${shlibs:Depends},
 Recommends:
- libxss1,
- fontconfig,
  ca-certificates,
+ fontconfig,
  fonts-liberation,
+ libxss1,
  xterm | x-terminal-emulator,
 Suggests:
  nvidia-driver-libs-i386,

@@ -30,10 +30,16 @@ override_dh_clean:
 get-orig-source:
 	@test "$(uversion)" = "" && \
 	    echo "There is no new upstream source file." && exit 1 || true
-	uscan --force-download --no-symlink
+	mkdir get-orig
+	mkdir get-orig/chdist
+	chdist -d $(CURDIR)/get-orig/chdist create steam http://repo.steampowered.com/steam precise steam
+	cp debian/valve-steam-keyring.gpg get-orig/chdist/steam/etc/apt/trusted.gpg.d/
+	chdist -d $(CURDIR)/get-orig/chdist apt-get steam update
+	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=$(uversion)
 	rm -f $(orig)
 	mkdir -p $(dest)
-	tar xf ../steam_$(uversion).tar.gz --strip-components=1 -C $(dest)
+	tar xf get-orig/steam_$(uversion).tar.gz --strip-components=1 -C $(dest)
+	rm -rf get-orig
 	mv $(dest)/debian/changelog $(dest)
 	rm -f $(dest)/steam
 	cd $(dest) && tar xf bootstrap*.tar.* --strip-components=1

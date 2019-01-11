@@ -1,6 +1,10 @@
 steam (1.0.0.59-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * get-orig-source: Use chdist to download Valve's "source" package
+    with secure-APT authentication
+    - d/valve-steam-keyring.gpg: Add the signing key for Valve's apt
+      repository
 
  -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
 

@@ -1,3 +1,9 @@
+steam (1.0.0.59-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
+
 steam (1.0.0.56-2) unstable; urgency=medium
 
   * Add myself to Uploaders

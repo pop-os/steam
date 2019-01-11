@@ -7,6 +7,9 @@ steam (1.0.0.59-1) UNRELEASED; urgency=medium
       repository
   * d/p/udev-permissions.patch: Update for new upstream udev rules
     - new HID device 28de:2102 is now included in 60-steam-vr.rules
+  * d/gbp.conf: Explicitly disable pristine-tar for this package.
+    We don't keep upstream "source" in the git repository since that
+    mostly consists of binary blobs.
 
  -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
 

@@ -5,6 +5,8 @@ steam (1.0.0.59-1) UNRELEASED; urgency=medium
     with secure-APT authentication
     - d/valve-steam-keyring.gpg: Add the signing key for Valve's apt
       repository
+  * d/p/udev-permissions.patch: Update for new upstream udev rules
+    - new HID device 28de:2102 is now included in 60-steam-vr.rules
 
  -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
 

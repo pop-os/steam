@@ -4,8 +4,8 @@
 
 # According to Valve, ~/.steam is intended to be a control directory containing
 # symbolic links pointing to the currently-running or most-recently-run Steam
-# installation, so that users can swap between multiple installations of the
-# Steam client by running /path/to/steam.sh.
+# installation. This is part of Steam's API, and is relied on by external
+# components.
 #
 # The shell variable name STEAMCONFIG matches what's used in Valve's
 # /usr/bin/steam (available at $STEAMDIR/bin_steam.sh in a Steam
@@ -23,12 +23,8 @@ if [ -L "$STEAMCONFIG/root" ] && ! [ -e "$STEAMCONFIG/root" ]; then
 fi
 
 # STEAMDIR points to the actual installation root: the equivalent of
-# C:\Program Files\Steam in the Windows Steam client. In Valve's setup
-# this is distinct from ~/.steam, usually ~/.local/share/Steam.
-#
-# The historical Debian behaviour has been to use ~/.steam as the installation
-# directory in addition to using it as the control directory, in an attempt
-# to reduce clutter in the home directory.
+# C:\Program Files\Steam in the Windows Steam client. To avoid filename
+# collisions this should be distinct from ~/.steam.
 #
 # The shell variable name STEAMDIR matches what's used in Valve's
 # /usr/bin/steam.
@@ -37,12 +33,18 @@ if [ -L "$STEAMCONFIG/steam" ]; then
 elif [ -L "$STEAMCONFIG/root" ]; then
     STEAMDIR="$(readlink -e -q "$STEAMCONFIG/root")"
 elif [ -d "$STEAMCONFIG/steam" ] && ! [ -L "$STEAMCONFIG/steam" ]; then
+    # The historical Debian behaviour has been to use ~/.steam as the
+    # installation directory in addition to using it as the control
+    # directory.This causes some file collisions, so we've moved away
+    # from that, but we can't easily disentangle this in existing
+    # installations.
     STEAMDIR="$HOME/.steam"
 else
-    # This is a new installation. We could either use $HOME/.steam or
-    # $XDG_DATA_HOME/Steam; see #916303 for discussion. For now behave
-    # as we historically did.
-    STEAMDIR="$HOME/.steam"
+    # This is a new installation, so use a distinct directory to avoid
+    # file collisions. Valve would use $XDG_DATA_HOME/Steam here.
+    # Debian uses a subdirectory of ~/.steam, to avoid having a mixture
+    # of XDG basedirs and traditional dotfiles in the same application.
+    STEAMDIR="$HOME/.steam/debian-installation"
 fi
 
 ubuntu32="$STEAMDIR/ubuntu12_32"

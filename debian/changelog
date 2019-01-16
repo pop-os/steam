@@ -10,6 +10,11 @@ steam (1.0.0.59-1) UNRELEASED; urgency=medium
   * d/gbp.conf: Explicitly disable pristine-tar for this package.
     We don't keep upstream "source" in the git repository since that
     mostly consists of binary blobs.
+  * Display a debconf note if the Nvidia proprietary kernel module is
+    loaded, but the corresponding i386 libraries are not found.
+    This seems to be the best we can do without adding a Recommends
+    on the i386 libraries, which would pull in the binary driver even
+    on systems that do not have Nvidia hardware. (See #918996)
 
  -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
 

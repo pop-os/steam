@@ -14,6 +14,14 @@ STEAMCONFIG="$HOME/.steam"
 
 : "${XDG_DATA_HOME:="$HOME/.local/share"}"
 
+# Fix dangling symlinks
+if [ -L "$STEAMCONFIG/steam" ] && ! [ -e "$STEAMCONFIG/steam" ]; then
+    rm -f "$STEAMCONFIG/steam"
+fi
+if [ -L "$STEAMCONFIG/root" ] && ! [ -e "$STEAMCONFIG/root" ]; then
+    rm -f "$STEAMCONFIG/root"
+fi
+
 # STEAMDIR points to the actual installation root: the equivalent of
 # C:\Program Files\Steam in the Windows Steam client. In Valve's setup
 # this is distinct from ~/.steam, usually ~/.local/share/Steam.

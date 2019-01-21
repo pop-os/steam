@@ -1,4 +1,4 @@
-steam (1.0.0.59-1) UNRELEASED; urgency=medium
+steam (1.0.0.59-1) experimental; urgency=medium
 
   * New upstream release
   * get-orig-source: Use chdist to download Valve's "source" package
@@ -15,8 +15,15 @@ steam (1.0.0.59-1) UNRELEASED; urgency=medium
     This seems to be the best we can do without adding a Recommends
     on the i386 libraries, which would pull in the binary driver even
     on systems that do not have Nvidia hardware. (See #918996)
+  * d/scripts/steam: Cope with different installation directories,
+    such as ~/.local/share/Steam from Valve's official packaging,
+    without data loss (Closes: #919467)
+  * d/scripts/steam: Install to a subdirectory of ~/.steam for new
+    installations, to avoid ~/.steam/steam trying to be two things
+    at once (Closes: #916303)
+  * Adjust VCS metadata for debian/experimental branch
 
- -- Simon McVittie <smcv@debian.org>  Fri, 11 Jan 2019 17:10:02 +0000
+ -- Simon McVittie <smcv@debian.org>  Tue, 22 Jan 2019 10:05:36 +0000
 
 steam (1.0.0.56-2) unstable; urgency=medium
 

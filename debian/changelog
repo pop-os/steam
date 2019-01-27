@@ -1,3 +1,15 @@
+steam (1.0.0.59-3) UNRELEASED; urgency=medium
+
+  * Add Conflicts/Replaces on steam-launcher.
+    steam-launcher is a Valve-provided package containing the same
+    launcher as Debian's steam package, and the same udev rules as
+    Debian's steam-devices package. They are not co-installable: please
+    install the steam and steam-devices packages from Debian non-free,
+    *or* the steam and steam-launcher packages from Valve, but do not
+    mix the two sources.
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 27 Jan 2019 12:28:29 +0000
+
 steam (1.0.0.59-2) unstable; urgency=medium
 
   * Revert "Adjust VCS metadata for debian/experimental branch"

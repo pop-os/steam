@@ -68,9 +68,14 @@ Depends:
  ${misc:Depends},
 Recommends:
  steam,
+Breaks:
+ steam (<< ${source:Version}),
+ steam (>= ${source:Version}.),
 Conflicts:
  steam-launcher,
 Replaces:
+ steam (<< ${source:Version}),
+ steam (>= ${source:Version}.),
  steam-launcher,
 Description: Device support for Steam-related hardware
  This package provides udev rules for various Steam-related hardware devices

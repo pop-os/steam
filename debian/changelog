@@ -7,6 +7,9 @@ steam (1.0.0.59-3) UNRELEASED; urgency=medium
     install the steam and steam-devices packages from Debian non-free,
     *or* the steam and steam-launcher packages from Valve, but do not
     mix the two sources.
+  * steam-devices: Add Breaks/Replaces on non-matching versions of
+    steam. This should prevent mixing Debian's steam and steam-devices
+    with Valve's steam-launcher and steam. (Closes: #920600)
 
  -- Simon McVittie <smcv@debian.org>  Sun, 27 Jan 2019 12:28:29 +0000
 

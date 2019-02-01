@@ -19,6 +19,7 @@ steam (1.0.0.59-3) UNRELEASED; urgency=medium
   * Version the dependencies on libgpg-error0 and libxinerama1 to make
     sure the copies on the host system are at least as new as those
     provided by the Steam Runtime.
+  * d/steam.bug-control: Add more information to bug reports
 
  -- Simon McVittie <smcv@debian.org>  Sun, 27 Jan 2019 12:28:29 +0000
 

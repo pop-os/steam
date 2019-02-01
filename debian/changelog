@@ -10,6 +10,12 @@ steam (1.0.0.59-3) UNRELEASED; urgency=medium
   * steam-devices: Add Breaks/Replaces on non-matching versions of
     steam. This should prevent mixing Debian's steam and steam-devices
     with Valve's steam-launcher and steam. (Closes: #920600)
+  * d/scripts/steam: Delete libxcb-dri3.so.0 from the Steam Runtime,
+    and add a versioned dependency on a newer version for the host
+    system. This library added ABI without increasing the -version-info,
+    which means the Steam launcher script can't decide that Debian's
+    copy is newer and use it in preference to the Steam Runtime copy.
+    (Closes: #921026)
 
  -- Simon McVittie <smcv@debian.org>  Sun, 27 Jan 2019 12:28:29 +0000
 

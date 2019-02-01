@@ -28,6 +28,7 @@ Depends:
  libgl1-mesa-glx,
  libgpg-error0,
  libudev1,
+ libxcb-dri3-0 (>= 1.11.1),
  libxinerama1,
  steam-devices,
  xz-utils,

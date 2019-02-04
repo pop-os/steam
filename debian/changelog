@@ -1,3 +1,9 @@
+steam (1.0.0.59-4) unstable; urgency=medium
+
+  * Demote steam-devices to a recommendation.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 04 Feb 2019 02:41:50 +0000
+
 steam (1.0.0.59-3) unstable; urgency=medium
 
   * Add Conflicts/Replaces on steam-launcher.

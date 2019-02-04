@@ -30,11 +30,11 @@ Depends:
  libudev1,
  libxcb-dri3-0 (>= 1.11.1),
  libxinerama1 (>= 2:1.1.1),
- steam-devices,
  xz-utils,
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends:
+ steam-devices,
  ca-certificates,
  fontconfig,
  fonts-liberation,

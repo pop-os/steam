@@ -40,6 +40,7 @@ Recommends:
  fonts-liberation,
  libxss1,
  mesa-vulkan-drivers,
+ mesa-vulkan-drivers:i386,
  xterm | x-terminal-emulator,
 Suggests:
  nvidia-driver-libs-i386,
@@ -82,3 +83,24 @@ Description: Device support for Steam-related hardware
  This package provides udev rules for various Steam-related hardware devices
  such as the Steam Controller (gamepad) and the HTC Vive (virtual reality
  headset).
+
+Package: steam-installer
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ steam (= ${source:Version})
+Description: Installer for Valve's Steam digital software delivery system
+ Steam (http://www.steampowered.com) is a software content delivery system
+ developed by Valve software (http://www.valvesoftware.com).  There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+ .
+ This package enables Steam to be easily installed via an appstream client
+ on non-i386 systems as long as the i386 foreign architecture is configured.
+ This is the default on Ubuntu, but on Debian, you may need to run as root:
+ dpkg --add-architecture i386; apt update
+ .
+ This package is not needed if you only want to install Steam directly with
+ apt or with a non-appstream client like Synaptic.

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.steampowered.steam.desktop</id>
+  <metadata_license>MIT</metadata_license>
+  <name>Steam installer</name>
+  <summary>Installer for Valve's game and content delivery system</summary>
+
+  <description>
+    <p>
+ Steam is a software content delivery system developed by Valve. There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+    </p>
+    <p>
+ By installing this program, you agree to be bound by the terms of the
+ Steam License Agreement. If you do not agree to those terms, please do not
+ install this program. The text of the License Agreement can be viewed at
+ https://sources.debian.net/data/non-free/s/steam/1.0.0.54-2/steam_install_agreement.txt
+    </p>
+    <p>
+ The agreement can be viewed at any time after install at
+ /usr/share/doc/steam/copyright
+    </p>
+  </description>
+
+  <icon type="stock">steam</icon>
+  <categories>
+    <category>Game</category>
+  </categories>
+  <url type="homepage">http://store.steampowered.com/</url>
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+  </kudos>
+</component>

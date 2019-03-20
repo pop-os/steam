@@ -9,24 +9,6 @@ Choices: I DECLINE, I AGREE
 Description: Do you agree to all terms of the Steam License Agreement?
  STEAM LICENSE AGREEMENT
 
-Template: steam/need-nvidia-i386
-Type: note
-Description: 32-bit Nvidia driver (nvidia-driver-libs-i386) required
- This computer appears to be using the Nvidia binary graphics driver
- (the nvidia-driver package).
- .
- Steam is a 32-bit program, so running it on this computer requires the
- 32-bit versions of the Nvidia libraries, even if all the games you will
- run via Steam are 64-bit. Please install the nvidia-driver-libs-i386
- package.
- .
- For full functionality (including Vulkan), also install the libraries
- listed as Recommends in the nvidia-driver-libs-i386 package.
- .
- If you are using a legacy version of the Nvidia driver such as
- nvidia-legacy-340xx-driver, please install the corresponding 32-bit legacy
- package, for example nvidia-legacy-340xx-driver-libs-i386.
-
 Template: steam/purge
 Type: note
 Description: STEAM PURGE NOTE

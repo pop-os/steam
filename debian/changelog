@@ -1,3 +1,15 @@
+steam (1:1.0.0.59-4pop1) disco; urgency=medium
+
+  * Port to Pop!_OS
+    - Add the pop eopch to the version number.
+    - Add a steam-installer package that depends on steam and contains
+      appstream metadata to try to allow Steam to be installable via the
+      default Software app.
+    - Drop debconf question because that is not supported by gnome-software.
+    - Add mesa-vulkan-drivers:i386 as a recommends.
+
+ -- Michael Aaron Murphy <michael@system76.com>  Wed, 20 Mar 2019 14:22:29 -0600
+
 steam (1.0.0.59-4) unstable; urgency=medium
 
   * Demote steam-devices to a recommendation.

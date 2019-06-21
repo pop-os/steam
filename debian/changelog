@@ -1,3 +1,11 @@
+steam (1.0.0.61-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+    - Adds udev rules for NVIDIA Shield input hardware
+    - d/p/udev-uinput.patch: Drop, applied upstream
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 21 Jun 2019 12:49:28 +0100
+
 steam (1.0.0.59-4) unstable; urgency=medium
 
   * Demote steam-devices to a recommendation.

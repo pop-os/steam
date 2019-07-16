@@ -1,10 +1,11 @@
-steam (1.0.0.61-2) UNRELEASED; urgency=medium
+steam (1.0.0.61-2) unstable; urgency=medium
 
+  * Upload to unstable
   * d/control: Make Homepage more specific
   * Standards-Version: 4.4.0 (no changes required)
   * Use debhelper-compat 12
 
- -- Simon McVittie <smcv@debian.org>  Mon, 15 Jul 2019 21:53:36 +0100
+ -- Simon McVittie <smcv@debian.org>  Tue, 16 Jul 2019 08:50:02 +0100
 
 steam (1.0.0.61-1) experimental; urgency=medium
 

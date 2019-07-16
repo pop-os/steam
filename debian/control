@@ -12,7 +12,7 @@ Build-Depends:
 Rules-Requires-Root: no
 XS-Autobuild: yes
 Standards-Version: 4.3.0
-Homepage: http://www.steampowered.com
+Homepage: https://steamcommunity.com/linux
 Vcs-Git: https://salsa.debian.org/games-team/steam.git
 Vcs-Browser: https://salsa.debian.org/games-team/steam
 

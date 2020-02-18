@@ -1,6 +1,6 @@
 steam (1.0.0.61-3) UNRELEASED; urgency=medium
 
-  * Standards-Version: 4.4.1 (no changes required)
+  * Standards-Version: 4.5.0 (no changes required)
 
  -- Simon McVittie <smcv@debian.org>  Tue, 01 Oct 2019 10:35:22 +0100
 

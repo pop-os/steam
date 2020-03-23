@@ -2,6 +2,7 @@
 
 export DH_VERBOSE=1
 
+dversion=$(shell dpkg-parsechangelog | grep ^Version | cut -d' ' -f2 | cut -d':' -f 2)
 uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
 keepers=icons lib changelog steam.6 steam steam.desktop steam_subscriber_agreement.txt
 orig=../steam_$(uversion).orig.tar.xz
@@ -10,7 +11,6 @@ dest=../steam-$(uversion).orig
 build-arch:
 ifneq ($(DEB_HOST_ARCH), i386)
 	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
-	@exit 1
 endif
 
 %:
@@ -25,7 +25,13 @@ override_dh_strip:
 
 override_dh_clean:
 	dh_clean -- debian/templates
-	./debian/scripts/copyright-helper debian/copyright.in debian/copyright
+	# Disabled
+	#./debian/scripts/copyright-helper debian/copyright.in debian/copyright
+
+# Don't use an epoch for steam-installer
+override_dh_gencontrol:
+	dh_gencontrol -psteam-installer -- -v$(dversion)
+	dh_gencontrol --remaining-packages
 
 get-orig-source:
 	@test "$(uversion)" = "" && \

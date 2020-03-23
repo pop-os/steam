@@ -1,7 +1,8 @@
 Source: steam
 Section: non-free/games
 Priority: optional
-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Uploaders:
  Michael Gilbert <mgilbert@debian.org>,
  Simon McVittie <smcv@debian.org>,
@@ -23,7 +24,6 @@ Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
- libgl1-mesa-dri,
  libgl1-mesa-dri (>= 17.3) | libtxc-dxtn0,
  libgl1-mesa-glx,
  libgpg-error0 (>= 1.10),
@@ -40,17 +40,17 @@ Recommends:
  fonts-liberation,
  libxss1,
  mesa-vulkan-drivers,
+ mesa-vulkan-drivers:i386,
  xterm | x-terminal-emulator,
 Suggests:
- nvidia-driver-libs-i386,
- nvidia-vulkan-icd,
+  libnvidia-gl-390 | libnvidia-gl-435 | libnvidia-gl-440,
 Conflicts:
  steam-launcher,
 Replaces:
  steam-launcher,
 Description: Valve's Steam digital software delivery system
- Steam (http://www.steampowered.com) is a software content delivery system
- developed by Valve software (http://www.valvesoftware.com).  There is
+ Steam (https://www.steampowered.com) is a software content delivery system
+ developed by Valve software (https://www.valvesoftware.com).  There is
  some free software available, but for the most part the content delivered
  is non-free.
  .
@@ -61,6 +61,27 @@ Description: Valve's Steam digital software delivery system
  parts of the application that differ from the original agreement.  In
  other words, pay attention and read carefully if you're worried about your
  rights.
+
+Package: steam-installer
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ steam (= ${source:Version}),
+Description: Installer for Valve's Steam digital software delivery system
+ Steam (https://www.steampowered.com) is a software content delivery system
+ developed by Valve software (https://www.valvesoftware.com).  There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+ .
+ This package enables Steam to be easily installed via an appstream client
+ on non-i386 systems as long as the i386 foreign architecture is configured.
+ This is the default on Ubuntu, but on Debian, you may need to run as root:
+ dpkg --add-architecture i386; apt update
+ .
+ This package is not needed if you only want to install Steam directly with
+ apt or with a non-appstream client like Synaptic.
 
 Package: steam-devices
 Architecture: all

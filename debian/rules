@@ -4,8 +4,9 @@ export DH_VERBOSE=1
 
 uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
 keepers=icons lib changelog steam.6 steam steam.desktop steam_subscriber_agreement.txt
-orig=../steam_$(uversion).orig.tar.xz
-dest=../steam-$(uversion).orig
+origdir=..
+orig=$(origdir)/steam_$(uversion).orig.tar.xz
+dest=steam-$(uversion).orig
 
 build-arch:
 ifneq ($(DEB_HOST_ARCH), i386)
@@ -37,14 +38,14 @@ get-orig-source:
 	chdist -d $(CURDIR)/get-orig/chdist apt-get steam update
 	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=$(uversion)
 	rm -f $(orig)
-	mkdir -p $(dest)
-	tar xf get-orig/steam_$(uversion).tar.gz --strip-components=1 -C $(dest)
+	mkdir -p $(origdir)/$(dest)
+	tar xf get-orig/steam_$(uversion).tar.gz --strip-components=1 -C $(origdir)/$(dest)
 	rm -rf get-orig
-	mv $(dest)/debian/changelog $(dest)
-	rm -f $(dest)/steam
-	cd $(dest) && tar xf bootstrap*.tar.* --strip-components=1
-	cd $(dest) && for file in *; do \
+	mv $(origdir)/$(dest)/debian/changelog $(origdir)/$(dest)
+	rm -f $(origdir)/$(dest)/steam
+	cd $(origdir)/$(dest) && tar xf bootstrap*.tar.* --strip-components=1
+	cd $(origdir)/$(dest) && for file in *; do \
 	    echo $(keepers) | grep -q $$file || rm -rf $$file; done
-	tar cJf $(orig) $(dest)
-	rm -rf $(dest)
+	tar -C $(origdir) -cJf $(orig) $(dest)
+	rm -rf $(origdir)/$(dest)
 	@echo "Successfully created new upstream source file: $(orig)"

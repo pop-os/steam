@@ -56,12 +56,12 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends:
- steam-devices,
  ca-certificates,
  fontconfig,
  fonts-liberation,
  libxss1,
  mesa-vulkan-drivers,
+ steam-devices,
  xterm | x-terminal-emulator,
 Suggests:
  nvidia-driver-libs-i386,

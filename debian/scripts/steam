@@ -76,6 +76,16 @@ fi
 # do an initial update when expected pieces are missing
 test ! -d "$STEAMCONFIG" && rm -rf "$STEAMCONFIG" && mkdir -p "$STEAMCONFIG" || true
 test ! -d "$STEAMDIR" && rm -rf "$STEAMDIR" && mkdir -p "$STEAMDIR" || true
+
+# Recent versions of the proprietary steam executable exit with an
+# assertion failure if these links aren't already set up.
+if ! [ -d "$STEAMCONFIG/steam" ]; then
+    ln -fns "$STEAMDIR" "$STEAMCONFIG/steam"
+fi
+if ! [ -d "$STEAMCONFIG/root" ]; then
+    ln -fns "$STEAMDIR" "$STEAMCONFIG/root"
+fi
+
 test ! -x "$STEAMDIR/steam.sh" && rm -rf "$STEAMDIR/package" "$steam" || true
 test ! -d "$ubuntu32" && rm -rf "$ubuntu32" && mkdir -p "$ubuntu32" || true
 test ! -x "$steam" && rm -rf "$steam" && cp "$real" "$steam" && "$steam" || true

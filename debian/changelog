@@ -34,8 +34,24 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
     ./steam in upstream's "source" tarball, which is a symlink to
     bin_steam.sh.
   * Standards-Version: 4.5.0 (no changes required)
+  * d/rules: Don't run upstream Makefile
+  * Build-Depend on the libraries Valve put in their bootstrap tarball.
+    This ensures that we have all the necessary metadata for dpkg-shlibdeps
+    to generate the ${shlibs:Depends} for the proprietary steam executable.
+  * d/scripts/steam: Distinguish between ~/.steam/steam and ~/.steam/root
+  * Explicitly depend on the libraries that we delete from the Steam Runtime.
+    We probably shouldn't be deleting these any more, because the Steam
+    Runtime explicitly prefers newer versions from the host system in all
+    cases, and if there are bugs in that mechanism that make deleting them
+    necessary, Valve would like to know about them so they can be fixed -
+    but for now, preserve historical behaviour.
+  * d/steam-bug.presubj: Recommend running steam-runtime-system-info.
+    This diagnostic tool was written for use in upstream bug reports, but
+    is equally valuable for downstream distributors like us.
+  * Depend on libgl1 instead of transitional libgl1-mesa-glx
+    (Closes: #930613)
 
- -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 10:14:09 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 10:49:56 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

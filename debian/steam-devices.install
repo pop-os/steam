@@ -1,3 +1,2 @@
-lib
-
 debian/com.steampowered.steam-devices.metainfo.xml usr/share/metainfo
+subprojects/steam-devices/*.rules lib/udev/rules.d

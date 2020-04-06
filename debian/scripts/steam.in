@@ -4,6 +4,11 @@
 # Copyright (C) 2020 Collabora Ltd.
 # License: MIT
 
+# Used by diagnostic tools to identify the launcher
+export STEAMSCRIPT="$0"
+# Edited by debian/rules to fill in the real version number
+export STEAMSCRIPT_VERSION='uninstalled/Debian'
+
 # According to Valve, ~/.steam is intended to be a control directory containing
 # symbolic links pointing to the currently-running or most-recently-run Steam
 # installation. This is part of Steam's API, and is relied on by external

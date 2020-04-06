@@ -1,8 +1,41 @@
-steam (1.0.0.61-3) UNRELEASED; urgency=medium
+steam (1.0.0.62-1) UNRELEASED; urgency=medium
 
+  * New upstream release (currently considered to be a beta)
+  * d/rules: Make .orig directory configurable.
+    It's canonically "..", but users of git-buildpackage often separate
+    the directory with git repositories from the directory with large
+    binaries.
+  * d/rules: Add support for downloading beta steam-launcher versions.
+    The 1.0.0.62 launcher release is currently considered to be a beta,
+    which will be promoted to stable status after it has had more testing.
+  * d/rules: Cope with the upstream release having an epoch.
+    Ubuntu's modified version of this package has an epoch as a result of
+    an older, unrelated package "sTeam" with a higher version number, which
+    used to be in Debian and Ubuntu many years ago. Valve's steam package
+    now has an epoch so that their 1:1.0.0.62 will be compared correctly
+    against Ubuntu's 1:1.0.0.61.
+  * d/rules: Be more verbose about the extraction process
+  * d/rules: Keep most upstream files in the orig tarball.
+    The upstream "source" tarball has been restructured, and in particular
+    the udev rules (which are MIT-licensed and come from a separate git
+    repository) are now in subprojects/steam-devices.
+    bootstrap*.tar.* contains precompiled libraries without their
+    corresponding source code (it's available from repo.steampowered.com but
+    not part of the "source" package), which we intentionally don't ship. The
+    crashhandler module and the steamerrorreporter executable are also
+    non-essential binaries.
+    The other scripts and auxiliary files in the orig tarball are
+    likely to be useful references, even if we don't actually ship them in
+    binary packages.
+  * d/copyright.in: Update
+  * d/steam-devices.install: Update for upstream restructuring
+  * d/steam.install: Update for new location of steam binary.
+    I've left it in a subdirectory to reduce confusion with the top-level
+    ./steam in upstream's "source" tarball, which is a symlink to
+    bin_steam.sh.
   * Standards-Version: 4.5.0 (no changes required)
 
- -- Simon McVittie <smcv@debian.org>  Tue, 01 Oct 2019 10:35:22 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 10:14:09 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

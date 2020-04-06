@@ -63,6 +63,7 @@ Recommends:
  libxss1,
  mesa-vulkan-drivers,
  steam-devices,
+ xdg-utils,
  xterm | x-terminal-emulator,
 Suggests:
  nvidia-driver-libs-i386,

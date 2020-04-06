@@ -19,6 +19,14 @@ endif
 override_dh_auto_configure:
 	./debian/scripts/templates-helper
 
+# We don't use Valve's build system
+override_dh_auto_build:
+	:
+override_dh_auto_install:
+	:
+override_dh_auto_test:
+	:
+
 override_dh_strip:
 	# Valve's binaries have no symbols, so a dbgsym package is not useful
 	dh_strip --no-automatic-dbgsym

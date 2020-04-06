@@ -47,9 +47,9 @@ get-orig-source:
 	rm -rf get-orig
 	mv $(origdir)/$(dest)/debian/changelog $(origdir)/$(dest)
 	rm -f $(origdir)/$(dest)/steam
-	cd $(origdir)/$(dest) && tar xf bootstrap*.tar.* --strip-components=1
+	cd $(origdir)/$(dest) && tar -xvf bootstrap*.tar.* --strip-components=1
 	cd $(origdir)/$(dest) && for file in *; do \
-	    echo $(keepers) | grep -q $$file || rm -rf $$file; done
+	    echo $(keepers) | grep -q $$file || rm -rfv $$file; done
 	tar -C $(origdir) -cJf $(orig) $(dest)
 	rm -rf $(origdir)/$(dest)
 	@echo "Successfully created new upstream source file: $(orig)"

@@ -27,7 +27,14 @@ fi
 # collisions this should be distinct from ~/.steam.
 #
 # The shell variable name STEAMDIR matches what's used in Valve's
-# /usr/bin/steam.
+# /usr/bin/steam (bin_steam.sh).
+#
+# Strictly speaking, there can be two separate Steam directories:
+# ~/.steam/steam is a symlink to the Steam data directory (containing
+# e.g. games), while ~/.steam/root is a symlink to the Steam installation
+# (containing the Steam executable and the Steam Runtime). This is used
+# when testing new Steam client binaries, and older versions of this Debian
+# package set up a similar situation by mistake.
 if [ -L "$STEAMCONFIG/steam" ]; then
     STEAMDIR="$(readlink -e -q "$STEAMCONFIG/steam")"
 elif [ -L "$STEAMCONFIG/root" ]; then

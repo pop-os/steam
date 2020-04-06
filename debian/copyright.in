@@ -9,14 +9,38 @@ Upstream-Name: steam
 Files: *
 Copyright: Valve Corporation <linux@steampowered.com>
 License: STEAM_SUBSCRIBER_AGREEMENT
-License-File: steam_subscriber_agreement.txt
 
-Files: lib/udev/rules.d/*
-Copyright: Valve Corporation <linux@steampowered.com>
-License: MIT
-License-File: debian/mit-license
+Files:
+ buildutils/*.py
+ tests/mypy.sh
+ tests/pycodestyle.sh
+ tests/pyflakes.sh
+ tests/shellcheck.sh
+Copyright:
+ 2016-2018 Simon McVittie
+ 2018-2020 Collabora Ltd.
+License: Expat
+
+Files:
+ subprojects/python-vdf/*
+Copyright:
+ 2015 Rossen Georgiev
+License: Expat
+
+Files:
+ subprojects/steam-devices/*
+Copyright:
+ 2018-2019 Valve Corporation
+License: Expat
 
 Files: debian/*
-Copyright: 2013-2017 Michael Gilbert <mgilbert@debian.org>
-License: MIT
+Copyright:
+ 2013-2017 Michael Gilbert <mgilbert@debian.org>
+License: Expat
+
+License: Expat
 License-File: debian/mit-license
+Comment: This is also known as the MIT/X11 license.
+
+License: STEAM_SUBSCRIBER_AGREEMENT
+License-File: steam_subscriber_agreement.txt

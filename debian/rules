@@ -40,7 +40,7 @@ get-orig-source:
 	chdist -d $(CURDIR)/get-orig/chdist create steam http://repo.steampowered.com/steam $(UPSTREAM_APT_SUITE) steam
 	cp debian/valve-steam-keyring.gpg get-orig/chdist/steam/etc/apt/trusted.gpg.d/
 	chdist -d $(CURDIR)/get-orig/chdist apt-get steam update
-	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=$(uversion)
+	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=1:$(uversion)
 	rm -f $(orig)
 	mkdir -p $(origdir)/$(dest)
 	tar xf get-orig/steam_$(uversion).tar.gz --strip-components=1 -C $(origdir)/$(dest)

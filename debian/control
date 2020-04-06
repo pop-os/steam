@@ -65,6 +65,7 @@ Recommends:
  steam-devices,
  xdg-utils,
  xterm | x-terminal-emulator,
+ zenity,
 Suggests:
  nvidia-driver-libs-i386,
  nvidia-vulkan-icd,

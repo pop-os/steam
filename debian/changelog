@@ -53,6 +53,13 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
   * Use https for more URLs.
     In particular, https://repo.steampowered.com now works, and appears
     in upstream documentation.
+  * d/copyright: Set Upstream-Name to steam-launcher.
+    The upstream dpkg source package is still named steam for historical
+    reasons, but it builds steam-launcher_*.deb, and calling it
+    "steam-launcher" is a good way to disambiguate between the
+    launcher/bootstrapper (which is what we're actually packaging here)
+    and the full Steam client (which is downloaded by the launcher, and
+    is what users normally see).
 
  -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 12:44:08 +0100
 

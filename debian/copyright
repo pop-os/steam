@@ -4,7 +4,7 @@ Format: Mostly copyright-format 1.0
 #       that would require reformating the steam license agreement (adding
 #       spaces, dots, and word-wrapping), and  modifications to the license
 #       are explicitly disallowed by section 1.B.(ii).
-Upstream-Name: steam
+Upstream-Name: steam-launcher
 
 Files: *
 Copyright: Valve Corporation <linux@steampowered.com>

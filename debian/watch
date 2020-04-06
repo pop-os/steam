@@ -1,2 +1,2 @@
 version=3
-http://repo.steampowered.com/steam/pool/steam/s/steam/steam_(.*)\.tar\.gz
+https://repo.steampowered.com/steam/pool/steam/s/steam/steam_(.*)\.tar\.gz

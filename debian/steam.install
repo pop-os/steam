@@ -1,4 +1,4 @@
-steam usr/lib/games/steam
+ubuntu12_32/steam usr/lib/games/steam
 
 debian/scripts/steam usr/games
 

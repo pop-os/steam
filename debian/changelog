@@ -50,8 +50,11 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
     is equally valuable for downstream distributors like us.
   * Depend on libgl1 instead of transitional libgl1-mesa-glx
     (Closes: #930613)
+  * Use https for more URLs.
+    In particular, https://repo.steampowered.com now works, and appears
+    in upstream documentation.
 
- -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 10:49:56 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 12:44:08 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

@@ -1,6 +1,11 @@
 steam (1.0.0.62-1) UNRELEASED; urgency=medium
 
   * New upstream release (currently considered to be a beta)
+    - New directory layout
+    - Update steam binary
+    - Update steam-devices udev rules from
+      <https://github.com/ValveSoftware/steam-devices/>:
+      add ZeroPlus P4 (hitbox) hidraw device, 0c12:0ef6
   * d/rules: Make .orig directory configurable.
     It's canonically "..", but users of git-buildpackage often separate
     the directory with git repositories from the directory with large
@@ -61,7 +66,7 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
     and the full Steam client (which is downloaded by the launcher, and
     is what users normally see).
 
- -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 12:44:08 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 12:50:43 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

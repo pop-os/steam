@@ -1,4 +1,4 @@
-steam (1.0.0.62-1) UNRELEASED; urgency=medium
+steam (1.0.0.62-1) experimental; urgency=medium
 
   * New upstream release (currently considered to be a beta)
     - New directory layout
@@ -74,7 +74,7 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
     Recent Steam diagnostic tools use this to identify how Steam was
     launched.
 
- -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 13:04:42 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 15:13:25 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

@@ -65,8 +65,13 @@ steam (1.0.0.62-1) UNRELEASED; urgency=medium
     launcher/bootstrapper (which is what we're actually packaging here)
     and the full Steam client (which is downloaded by the launcher, and
     is what users normally see).
+  * Move steam-devices Recommends into sorted order
+  * Add Depends on file, used by the Steam Runtime setup scripts
+  * Add Recommends on xdg-utils, which is used to launch URL handlers
+  * Add Recommends on zenity, which Steam assumes is present
+  * Add Depends on curl, used to download Steam updates
 
- -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 12:50:43 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Apr 2020 13:04:42 +0100
 
 steam (1.0.0.61-2) unstable; urgency=medium
 

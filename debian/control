@@ -42,6 +42,7 @@ Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
+ curl,
  file,
  libgcc-s1 | libgcc1,
  libgl1-mesa-dri (>= 17.3) | libtxc-dxtn0,

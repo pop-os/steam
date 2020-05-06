@@ -62,27 +62,6 @@ Description: Valve's Steam digital software delivery system
  other words, pay attention and read carefully if you're worried about your
  rights.
 
-Package: steam-installer
-Architecture: all
-Multi-Arch: foreign
-Depends:
- ${misc:Depends},
- ${shlibs:Depends},
- steam (= ${source:Version}),
-Description: Installer for Valve's Steam digital software delivery system
- Steam (https://www.steampowered.com) is a software content delivery system
- developed by Valve software (https://www.valvesoftware.com).  There is
- some free software available, but for the most part the content delivered
- is non-free.
- .
- This package enables Steam to be easily installed via an appstream client
- on non-i386 systems as long as the i386 foreign architecture is configured.
- This is the default on Ubuntu, but on Debian, you may need to run as root:
- dpkg --add-architecture i386; apt update
- .
- This package is not needed if you only want to install Steam directly with
- apt or with a non-appstream client like Synaptic.
-
 Package: steam-devices
 Architecture: all
 Multi-Arch: foreign

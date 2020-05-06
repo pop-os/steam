@@ -28,11 +28,6 @@ override_dh_clean:
 	# Disabled
 	#./debian/scripts/copyright-helper debian/copyright.in debian/copyright
 
-# Don't use an epoch for steam-installer
-override_dh_gencontrol:
-	dh_gencontrol -psteam-installer -- -v$(dversion)
-	dh_gencontrol --remaining-packages
-
 get-orig-source:
 	@test "$(uversion)" = "" && \
 	    echo "There is no new upstream source file." && exit 1 || true

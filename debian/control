@@ -45,7 +45,10 @@ Recommends:
 Suggests:
   libnvidia-gl-390 | libnvidia-gl-435 | libnvidia-gl-440,
 Conflicts:
+ steam-installer,
  steam-launcher,
+Provides:
+ steam-installer,
 Replaces:
  steam-launcher,
 Description: Valve's Steam digital software delivery system

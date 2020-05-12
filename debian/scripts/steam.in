@@ -118,6 +118,10 @@ find "$runtime" \( -name libxcb.so\* \
 # https://github.com/ValveSoftware/steam-for-linux/issues/5201
 export DBUS_FATAL_WARNINGS=0
 
+# Remove old log file to avoid confusion. To debug game/Steam issues,
+# please run this script from an interactive terminal, run it with its
+# stdout/stderr redirected, or wrap it with script(1).
+rm -f "$STEAMDIR/error.log"
+
 # launch the Valve run script
-test -x "$STEAMDIR/steam.sh" && "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@" \
-    2>"$STEAMDIR/error.log"
+test -x "$STEAMDIR/steam.sh" && "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"

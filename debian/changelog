@@ -1,3 +1,17 @@
+steam (1.0.0.62-2) UNRELEASED; urgency=medium
+
+  * steam(6): Don't redirect stderr to a log file.
+    The upstream developers of Steam recently removed its own launch
+    script's redirection (to /tmp/dumps), which has been noted to
+    sometimes fill /tmp, and is less useful in practice than it was hoped
+    to be. They have asked that we remove the similar redirection from
+    Debian's equivalent script, so that when debugging game launch issues
+    they can instruct users to run steam from an interactive terminal,
+    and expect it to produce both stdout and stderr, regardless of
+    whether their launch script or ours is in use. (Closes: #957284)
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 12 May 2020 18:29:25 +0100
+
 steam (1.0.0.62-1) experimental; urgency=medium
 
   * New upstream release (currently considered to be a beta)

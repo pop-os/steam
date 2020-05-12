@@ -9,6 +9,9 @@ steam (1.0.0.62-2) UNRELEASED; urgency=medium
     they can instruct users to run steam from an interactive terminal,
     and expect it to produce both stdout and stderr, regardless of
     whether their launch script or ours is in use. (Closes: #957284)
+  * Remove libtxc-dxtn0 alternative dependency.
+    We now require libgl1-mesa-dri (>= 17.3), which is available in
+    Debian 10 and up, as well as Debian 9 backports.
 
  -- Simon McVittie <smcv@debian.org>  Tue, 12 May 2020 18:29:25 +0100
 

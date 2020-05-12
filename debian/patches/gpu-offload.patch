@@ -1,0 +1,12 @@
+Index: steam/steam.desktop
+===================================================================
+--- steam.orig/steam.desktop	2020-05-12 11:35:42.780458224 -0600
++++ steam/steam.desktop	2020-05-12 11:36:31.497120125 -0600
+@@ -35,6 +35,7 @@
+ MimeType=x-scheme-handler/steam;
+ Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
+ Keywords=Games
++PrefersNonDefaultGPU=true
+ 
+ [Desktop Action Store]
+ Name=Store

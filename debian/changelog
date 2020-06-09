@@ -5,6 +5,8 @@ steam (1.0.0.63-1) UNRELEASED; urgency=medium
     This means the steam-devices rules should take effect immediately,
     instead of being deferred until after the next reboot.
     - Thanks to Ludovico de Nittis
+  * Remove unused lintian override for
+    debian-rules-contains-unnecessary-get-orig-source-target
 
  -- Simon McVittie <smcv@debian.org>  Tue, 09 Jun 2020 13:16:03 +0100
 

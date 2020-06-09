@@ -2,5 +2,3 @@
 source-contains-prebuilt-binary
 # not possible while satisfying Valve's license agreement
 no-dep5-copyright
-# get-orig-source rule is used to avoid repacking many duplicate prebuilt libraries
-debian-rules-contains-unnecessary-get-orig-source-target

@@ -1,6 +1,10 @@
 steam (1.0.0.63-1) UNRELEASED; urgency=medium
 
   * New upstream release (currently a beta)
+  * debian/steam.postinst: Notify udevd to reload its rules.
+    This means the steam-devices rules should take effect immediately,
+    instead of being deferred until after the next reboot.
+    - Thanks to Ludovico de Nittis
 
  -- Simon McVittie <smcv@debian.org>  Tue, 09 Jun 2020 13:16:03 +0100
 

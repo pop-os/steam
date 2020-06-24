@@ -1,3 +1,10 @@
+steam (1.0.0.64-1) UNRELEASED; urgency=medium
+
+  * New upstream release (currently a beta)
+    - No practical changes for what's packaged in Debian
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 24 Jun 2020 14:23:09 +0100
+
 steam (1.0.0.63-1) experimental; urgency=medium
 
   * New upstream release (currently a beta)

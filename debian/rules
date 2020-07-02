@@ -41,7 +41,7 @@ override_dh_clean:
 
 # Can be set to 'beta' to fetch upstream releases that are still
 # considered to have beta status
-UPSTREAM_APT_SUITE = precise
+UPSTREAM_APT_SUITE = stable
 
 get-orig-source:
 	@test "$(uversion)" = "" && \

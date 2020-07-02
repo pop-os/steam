@@ -1,9 +1,12 @@
 steam (1.0.0.64-1) UNRELEASED; urgency=medium
 
-  * New upstream release (currently a beta)
-    - No practical changes for what's packaged in Debian
+  * New upstream stable release
+  * d/rules: Look at stable rather than precise upstream apt suite.
+    The official sources.list.d fragment shipped with the Steam launcher
+    now uses the 'stable' apt suite, since the Steam client doesn't
+    actually work on Ubuntu 12.04 'precise' any more.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 24 Jun 2020 14:23:09 +0100
+ -- Simon McVittie <smcv@debian.org>  Thu, 02 Jul 2020 18:12:37 +0100
 
 steam (1.0.0.63-1) experimental; urgency=medium
 

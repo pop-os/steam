@@ -1,4 +1,4 @@
-steam (1.0.0.66-1) UNRELEASED; urgency=medium
+steam (1.0.0.66-1) experimental; urgency=medium
 
   * New upstream release (currently a beta)
     - Update steam binary
@@ -6,7 +6,7 @@ steam (1.0.0.66-1) UNRELEASED; urgency=medium
   * Add Recommends: bubblewrap, required by the experimental container
     runtime system
 
- -- Simon McVittie <smcv@debian.org>  Wed, 29 Jul 2020 17:08:22 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 29 Jul 2020 17:11:17 +0100
 
 steam (1.0.0.64-1) unstable; urgency=medium
 

@@ -57,6 +57,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends:
+ bubblewrap,
  ca-certificates,
  fontconfig,
  fonts-liberation,

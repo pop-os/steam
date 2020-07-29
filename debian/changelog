@@ -3,6 +3,8 @@ steam (1.0.0.66-1) UNRELEASED; urgency=medium
   * New upstream release (currently a beta)
     - Update steam binary
     - Make udev rules compatible with eudev and older udev
+  * Add Recommends: bubblewrap, required by the experimental container
+    runtime system
 
  -- Simon McVittie <smcv@debian.org>  Wed, 29 Jul 2020 17:08:22 +0100
 

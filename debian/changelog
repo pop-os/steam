@@ -1,3 +1,11 @@
+steam (1.0.0.66-1) UNRELEASED; urgency=medium
+
+  * New upstream release (currently a beta)
+    - Update steam binary
+    - Make udev rules compatible with eudev and older udev
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 29 Jul 2020 17:08:22 +0100
+
 steam (1.0.0.64-1) unstable; urgency=medium
 
   * New upstream stable release

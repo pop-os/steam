@@ -64,6 +64,8 @@ Recommends:
  libxss1,
  mesa-vulkan-drivers,
  steam-devices,
+ xdg-desktop-portal,
+ xdg-desktop-portal-gtk | xdg-desktop-portal-backend,
  xdg-utils,
  xterm | x-terminal-emulator,
  zenity,

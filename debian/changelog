@@ -1,10 +1,13 @@
-steam (1.0.0.67-1) UNRELEASED; urgency=medium
+steam (1.0.0.67-1) experimental; urgency=medium
 
   * New upstream release (currently a beta)
     - Update steam binary
     - Update udev rules to cover DualSense (Playstation 5) controller
+  * Add Recommends on xdg-desktop-portal and a backend.
+    These are used by Proton 5.13, which runs in a Steam Runtime v2 container,
+    when a game asks to open a URL in the host system's web browser.
 
- -- Simon McVittie <smcv@debian.org>  Fri, 20 Nov 2020 17:25:43 +0000
+ -- Simon McVittie <smcv@debian.org>  Fri, 20 Nov 2020 17:28:30 +0000
 
 steam (1.0.0.66-2) unstable; urgency=medium
 

@@ -1,3 +1,11 @@
+steam (1.0.0.67-1) UNRELEASED; urgency=medium
+
+  * New upstream release (currently a beta)
+    - Update steam binary
+    - Update udev rules to cover DualSense (Playstation 5) controller
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 20 Nov 2020 17:25:43 +0000
+
 steam (1.0.0.66-2) unstable; urgency=medium
 
   * Release to unstable.

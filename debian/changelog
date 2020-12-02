@@ -1,3 +1,13 @@
+steam (1.0.0.67-2) unstable; urgency=medium
+
+  * Release to unstable.
+    Version 1.0.0.67 has been promoted from beta to stable status.
+  * d/watch: Update for new upstream layout.
+    This only watches for upstream stable releases. Replace stable with beta
+    to get upstream betas before they are promoted to stable status.
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 02 Dec 2020 17:44:37 +0000
+
 steam (1.0.0.67-1) experimental; urgency=medium
 
   * New upstream release (currently a beta)

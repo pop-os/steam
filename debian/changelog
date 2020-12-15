@@ -1,3 +1,18 @@
+steam (1.0.0.67-3) unstable; urgency=medium
+
+  * Add Recommends on libasound2-plugins.
+    This is required for PulseAudio output in 32-bit games. amd64
+    users will typically already have libasound2-plugins:amd64, but not
+    libasound2-plugins:i386; however, the steam package is on i386, so it
+    is in an ideal position to pull in 32-bit libraries. (Closes: #977272)
+  * d/steam.lintian-overrides: Remove an obsolete tag
+  * d/source/lintian-overrides: Mark source-is-missing as known.
+    The Steam client's source code is not available, and we don't need
+    a reminder from Lintian.
+  * Standards-Version: 4.5.1 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 15 Dec 2020 14:03:54 +0000
+
 steam (1.0.0.67-2) unstable; urgency=medium
 
   * Release to unstable.

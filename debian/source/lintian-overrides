@@ -1,4 +1,6 @@
 # Valve's client is a prebuilt binary, so there is nothing we can do about this
 source-contains-prebuilt-binary
+# yes, we know
+source-is-missing
 # not possible while satisfying Valve's license agreement
 no-dep5-copyright

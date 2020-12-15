@@ -61,6 +61,7 @@ Recommends:
  ca-certificates,
  fontconfig,
  fonts-liberation,
+ libasound2-plugins,
  libxss1,
  mesa-vulkan-drivers,
  steam-devices,

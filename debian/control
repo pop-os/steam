@@ -71,7 +71,7 @@ Recommends:
  xterm | x-terminal-emulator,
  zenity,
 Suggests:
- nvidia-driver-libs-i386,
+ nvidia-driver-libs,
  nvidia-vulkan-icd,
 Conflicts:
  steam-launcher,

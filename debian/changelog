@@ -1,3 +1,13 @@
+steam (1.0.0.67-4) unstable; urgency=medium
+
+  * Swap Suggests: nvidia-driver-libs-i386 to nvidia-driver-libs.
+    The nvidia-driver-libs-i386 package is unavailable since bullseye.
+    However, nvidia-driver-libs is Multi-Arch: same and the steam package
+    is Architecture: i386, so the new Suggests will also pull in
+    nvidia-driver-libs:i386, which is what we want. (Closes: #979121)
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 03 Jan 2021 11:14:20 +0000
+
 steam (1.0.0.67-3) unstable; urgency=medium
 
   * Add Recommends on libasound2-plugins.

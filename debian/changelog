@@ -1,3 +1,10 @@
+steam (1.0.0.68-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+    - No changes relevant to this Debian package
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 08 Jan 2021 10:40:25 +0000
+
 steam (1.0.0.67-4) unstable; urgency=medium
 
   * Swap Suggests: nvidia-driver-libs-i386 to nvidia-driver-libs.

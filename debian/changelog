@@ -1,9 +1,9 @@
-steam (1.0.0.68-1) UNRELEASED; urgency=medium
+steam (1.0.0.68-1) unstable; urgency=medium
 
   * New upstream release
     - No changes relevant to this Debian package
 
- -- Simon McVittie <smcv@debian.org>  Fri, 08 Jan 2021 10:40:25 +0000
+ -- Simon McVittie <smcv@debian.org>  Sun, 17 Jan 2021 13:29:59 +0000
 
 steam (1.0.0.67-4) unstable; urgency=medium
 

@@ -124,4 +124,4 @@ export DBUS_FATAL_WARNINGS=0
 rm -f "$STEAMDIR/error.log"
 
 # launch the Valve run script
-test -x "$STEAMDIR/steam.sh" && "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"
+test -x "$STEAMDIR/steam.sh" && exec "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"

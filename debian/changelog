@@ -1,4 +1,4 @@
-steam (1.0.0.69-1) UNRELEASED; urgency=medium
+steam (1.0.0.69-1) experimental; urgency=medium
 
   * New upstream beta
     - Update steam-devices subproject up to 2020-12-08
@@ -9,8 +9,11 @@ steam (1.0.0.69-1) UNRELEASED; urgency=medium
     - Register to handle steamlink:// URLs.
       Please note that this currently requires opting in to the beta
       branch of the Steam client.
+  * Edit steam.desktop with sed instead of using a patch.
+    This is more likely to apply cleanly when updating from upstream.
+  * steam.desktop: Use /usr/games/steam in Desktop Actions too
 
- -- Simon McVittie <smcv@debian.org>  Thu, 04 Mar 2021 13:56:13 +0000
+ -- Simon McVittie <smcv@debian.org>  Thu, 04 Mar 2021 14:08:25 +0000
 
 steam (1.0.0.68-1) unstable; urgency=medium
 

@@ -1,3 +1,17 @@
+steam (1.0.0.69-1) UNRELEASED; urgency=medium
+
+  * New upstream beta
+    - Update steam-devices subproject up to 2020-12-08
+      + Faceoff Wired Pro Controller for Nintendo Switch
+      + Afterglow Deluxe+ wired controller for Nintendo Switch
+      (Thanks: FranklinsHand, Mathieu Ricard)
+    - Updated Steam client binary, build 1613176728 (2021-02-13)
+    - Register to handle steamlink:// URLs.
+      Please note that this currently requires opting in to the beta
+      branch of the Steam client.
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 04 Mar 2021 13:56:13 +0000
+
 steam (1.0.0.68-1) unstable; urgency=medium
 
   * New upstream release

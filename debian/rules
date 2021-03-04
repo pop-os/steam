@@ -28,6 +28,7 @@ override_dh_auto_build:
 		< debian/scripts/steam.in > debian/scripts/steam
 	sed \
 		-e '/^Exec=/ s,/usr/bin/steam,/usr/games/steam,g' \
+		-e 's,^Exec=steam ,Exec=/usr/games/steam ,' \
 		-e '/^Actions=/ a Keywords=Games' \
 		< steam.desktop > debian/scripts/steam.desktop
 override_dh_auto_install:

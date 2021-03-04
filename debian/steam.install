@@ -1,8 +1,7 @@
 ubuntu12_32/steam usr/lib/games/steam
 
 debian/scripts/steam usr/games
-
-steam.desktop usr/share/applications
+debian/scripts/steam.desktop usr/share/applications
 
 icons/16/steam.png usr/share/icons/hicolor/16x16/apps
 icons/24/steam.png usr/share/icons/hicolor/24x24/apps

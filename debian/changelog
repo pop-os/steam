@@ -1,15 +1,17 @@
-steam (1.0.0.70-1) UNRELEASED; urgency=medium
+steam (1.0.0.70-1) experimental; urgency=medium
 
   [ Simon McVittie ]
   * New upstream beta
     - Updated Steam client binary, build 1616532526 (2021-03-23)
     - steam.desktop: Request running on a discrete or otherwise "big" GPU
       (requires GNOME 3.38, KDE Frameworks 5.30+ or something compatible)
+  * d/gbp.conf: Always use --git-overlay.
+    Files from the orig tarball are not included in the git repository.
 
   [ MichaIng ]
   * Do not keep the launcher script running at startup; use exec instead.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 07 Apr 2021 14:34:06 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 07 Apr 2021 14:38:50 +0100
 
 steam (1.0.0.69-1) experimental; urgency=medium
 

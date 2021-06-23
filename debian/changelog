@@ -1,4 +1,4 @@
-steam (1.0.0.70-2) UNRELEASED; urgency=medium
+steam (1.0.0.70-2) experimental; urgency=medium
 
   * Depend on system libxi6:i386 to work around bugs in the Steam
     Runtime's older version (Closes: #990233)
@@ -9,7 +9,7 @@ steam (1.0.0.70-2) UNRELEASED; urgency=medium
     versions in the Steam Runtime, mitigating bugs like #990233. Users
     of wine32 will have these already.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 23 Jun 2021 16:06:27 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 23 Jun 2021 16:16:23 +0100
 
 steam (1.0.0.70-1) experimental; urgency=medium
 

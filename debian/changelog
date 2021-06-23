@@ -2,6 +2,12 @@ steam (1.0.0.70-2) UNRELEASED; urgency=medium
 
   * Depend on system libxi6:i386 to work around bugs in the Steam
     Runtime's older version (Closes: #990233)
+  * Add Recommends on libsdl2-2.0-0:i386.
+    This is an important library for most games and for Steam itself, and
+    will also pull in up-to-date i386 versions of its dependencies. These
+    i386 libraries will be used in preference to the rather outdated
+    versions in the Steam Runtime, mitigating bugs like #990233. Users
+    of wine32 will have these already.
 
  -- Simon McVittie <smcv@debian.org>  Wed, 23 Jun 2021 16:06:27 +0100
 

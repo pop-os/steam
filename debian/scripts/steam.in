@@ -101,12 +101,6 @@ test ! -d "$runtime" && cd "$ubuntu32" && tar xf steam-runtime.tar.xz && \
     md5sum steam-runtime.tar.xz > steam-runtime/checksum || \
     rm -f steam-runtime.tar.xz*
 
-# Steam bundles a version of SDL that uses the libdbus API wrong, causing
-# assertion failures which are now fatal by default
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=882607
-# https://github.com/ValveSoftware/steam-for-linux/issues/5201
-export DBUS_FATAL_WARNINGS=0
-
 # Remove old log file to avoid confusion. To debug game/Steam issues,
 # please run this script from an interactive terminal, run it with its
 # stdout/stderr redirected, or wrap it with script(1).

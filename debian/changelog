@@ -1,8 +1,17 @@
-steam (1.0.0.71-1) UNRELEASED; urgency=medium
+steam (1.0.0.71-1) experimental; urgency=medium
 
   * New upstream beta
+    - Updated Steam client binary, build 1626824053 (2021-07-20)
+    - Steam Runtime version 0.20210630.0
+    - Update steam-devices subproject up to 2021-06-10, with udev rules for:
+      + PDP Wired Fight Pad Pro for Nintendo Switch
+      + Razer Raiju 2 Tournament Edition (USB)
+      + Horipad mini 4
+      (Thanks: @besselfunct, @dsuserds, @theGiallo)
+  * d/steam.install, d/copyright: Add AppStream metainfo from upstream
+  * d/copyright: Update
 
- -- Simon McVittie <smcv@debian.org>  Fri, 23 Jul 2021 17:25:33 +0100
+ -- Simon McVittie <smcv@debian.org>  Fri, 23 Jul 2021 18:24:22 +0100
 
 steam (1.0.0.70-2) experimental; urgency=medium
 

@@ -1,5 +1,7 @@
 ubuntu12_32/steam usr/lib/games/steam
 
+com.valvesoftware.Steam.metainfo.xml usr/share/metainfo
+
 debian/scripts/steam usr/games
 debian/scripts/steam.desktop usr/share/applications
 

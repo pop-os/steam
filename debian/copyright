@@ -6,7 +6,25 @@ Format: Mostly copyright-format 1.0
 #       are explicitly disallowed by section 1.B.(ii).
 Upstream-Name: steam-launcher
 
-Files: *
+Files:
+ Makefile
+ README
+ bin_steam.sh
+ bin_steamdeps.py
+ changelog
+ client-versions.json
+ icons/*
+ steam-key.asc
+ steam.6
+ steam.gpg
+ steam.list
+ steam.sh
+ steam_subscriber_agreement.txt
+ steamdeps.txt
+ tests/check_bootstrap.sh
+ tests/check_version.sh
+ ubuntu12_32/steam
+ valve-packaging/*
 Copyright: Valve Corporation <linux@steampowered.com>
 License: STEAM_SUBSCRIBER_AGREEMENT
 
@@ -25,7 +43,8 @@ Files:
  tests/shellcheck.sh
 Copyright:
  2016-2018 Simon McVittie
- 2018-2020 Collabora Ltd.
+ 2017 Cosimo Cecchi
+ 2018-2021 Collabora Ltd.
 License: Expat
 
 Files:
@@ -44,7 +63,7 @@ Files: debian/*
 Copyright:
  2013-2018 Michael Gilbert <mgilbert@debian.org>
  2018-2020 Simon McVittie
- 2020 Collabora Ltd.
+ 2020-2021 Collabora Ltd.
 License: Expat
 
 License: Expat

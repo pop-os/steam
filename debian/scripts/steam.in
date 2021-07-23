@@ -101,17 +101,6 @@ test ! -d "$runtime" && cd "$ubuntu32" && tar xf steam-runtime.tar.xz && \
     md5sum steam-runtime.tar.xz > steam-runtime/checksum || \
     rm -f steam-runtime.tar.xz*
 
-# remove steam-runtime libraries that are incompatible with newer mesa drivers
-# (https://bugs.freedesktop.org/78242)
-# and libraries for which the STEAM_RUNTIME_PREFER_HOST_LIBRARIES mechanism
-# doesn't work because both versions appear as .so.0.0.0
-find "$runtime" \( -name libxcb.so\* \
-                -o -name libxcb-dri3.so.0* \
-                -o -name libgcc_s.so\* \
-                -o -name libstdc++.so\* \
-                -o -name libgpg-error.so\* \
-                \) -delete
-
 # Steam bundles a version of SDL that uses the libdbus API wrong, causing
 # assertion failures which are now fatal by default
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=882607

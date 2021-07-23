@@ -1,3 +1,9 @@
+steam (1.0.0.71-1) UNRELEASED; urgency=medium
+
+  * New upstream beta
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 23 Jul 2021 17:25:33 +0100
+
 steam (1.0.0.70-2) experimental; urgency=medium
 
   * Depend on system libxi6:i386 to work around bugs in the Steam

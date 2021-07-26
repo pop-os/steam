@@ -4,36 +4,11 @@ Format: Mostly copyright-format 1.0
 #       that would require reformating the steam license agreement (adding
 #       spaces, dots, and word-wrapping), and  modifications to the license
 #       are explicitly disallowed by section 1.B.(ii).
-Upstream-Name: steam-launcher
+Upstream-Name: steam
 
-Files:
- Makefile
- README
- bin_steam.sh
- bin_steamdeps.py
- changelog
- client-versions.json
- icons/*
- steam-key.asc
- steam.6
- steam.gpg
- steam.list
- steam.sh
- steam_subscriber_agreement.txt
- steamdeps.txt
- tests/check_bootstrap.sh
- tests/check_version.sh
- ubuntu12_32/steam
- valve-packaging/*
+Files: *
 Copyright: Valve Corporation <linux@steampowered.com>
 License: STEAM_SUBSCRIBER_AGREEMENT
-
-Files:
- com.valvesoftware.Steam.metainfo.xml
-Copyright:
- 2017 Cosimo Cecchi
- 2021 Collabora Ltd.
-License: CC0-1.0
 
 Files:
  buildutils/*.py
@@ -43,8 +18,7 @@ Files:
  tests/shellcheck.sh
 Copyright:
  2016-2018 Simon McVittie
- 2017 Cosimo Cecchi
- 2018-2021 Collabora Ltd.
+ 2018-2020 Collabora Ltd.
 License: Expat
 
 Files:
@@ -57,7 +31,7 @@ Files: debian/*
 Copyright:
  2013-2018 Michael Gilbert <mgilbert@debian.org>
  2018-2020 Simon McVittie
- 2020-2021 Collabora Ltd.
+ 2020 Collabora Ltd.
 License: Expat
 
 License: Expat
@@ -141,7 +115,7 @@ D. Payment Processing
 Payment processing related to Content and Services and/or physical goods purchased on Steam is performed by either Valve Corporation directly or by Valve’s fully owned subsidiary Valve GmbH on behalf of Valve Corporation depending on the type of payment method used. If your card was issued outside the United States, your payment may be processed via a European acquirer by Valve GmbH on behalf of Valve Corporation. For any other type of purchases, payment will be collected by Valve Corporation directly. In any case, delivery of Content and Services as well as physical goods is performed by Valve Corporation.
 
 
-2. LICENSES 
+2. LICENSES
 
 A. General Content and Services License
 
@@ -392,7 +366,6 @@ Valve’s obligations are subject to existing laws and legal process and Valve m
 You agree to comply with all applicable import/export laws and regulations. You agree not to export the Content and Services or Hardware or allow use of your Account by individuals of any terrorist supporting countries to which encryption exports are at the time of exportation restricted by the U.S. Bureau of Export Administration. You represent and warrant that you are not located in, under the control of, or a national or resident of any such prohibited country.
 
 This Agreement was last updated on August 31st, 2017 ("Revision Date"). If you were a Subscriber before the Revision Date, it replaces your existing agreement with Valve or Valve SARL on the day that you explicitly accept it. If you prefer to continue using Steam and your existing Subscriptions under the version of the Agreement in effect prior to the Revision Date, you are free to do so.
-
 
 License: CC0-1.0
  SPDX license expression "CC0-1.0": https://spdx.org/licenses/CC0-1.0.html

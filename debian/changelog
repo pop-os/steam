@@ -1,3 +1,9 @@
+steam (1.0.0.71-1pop1) focal; urgency=medium
+
+  * Pop!_OS backport
+
+ -- Michael Aaron Murphy <mmstick@pm.me>  Mon, 26 Jul 2021 14:01:37 -0600
+
 steam (1.0.0.71-1) experimental; urgency=medium
 
   * New upstream beta

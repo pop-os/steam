@@ -4,16 +4,17 @@ include /usr/share/dpkg/default.mk
 
 export DH_VERBOSE=1
 
-uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
+dversion=$(shell dpkg-parsechangelog | grep ^Version | cut -d' ' -f2 | cut -d':' -f 2)
+uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2 | head -1)
 origdir=..
 orig=$(origdir)/steam_$(uversion).orig.tar.xz
 dest=steam-$(uversion).orig
 
 build-arch:
-ifneq ($(DEB_HOST_ARCH), i386)
-	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
-	@exit 1
-endif
+#ifneq ($(DEB_HOST_ARCH), i386)
+#	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
+#	@exit 1
+#endif
 
 %:
 	dh $@
@@ -41,8 +42,15 @@ override_dh_strip:
 	dh_strip --no-automatic-dbgsym
 
 override_dh_clean:
+	ischroot || tar xf steam_$(uversion).orig.tar.xz --strip 1
 	dh_clean -- debian/templates
-	./debian/scripts/copyright-helper debian/copyright.in debian/copyright
+	# Disabled
+	#./debian/scripts/copyright-helper debian/copyright.in debian/copyright
+
+# Don't use an epoch for steam-installer
+override_dh_gencontrol:
+	dh_gencontrol -psteam-installer -- -v$(dversion)
+	dh_gencontrol --remaining-packages
 
 # Can be set to 'beta' to fetch upstream releases that are still
 # considered to have beta status

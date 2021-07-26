@@ -1,0 +1,4 @@
+/.mypy_cache
+/bootstraplinux_*.tar.*
+/client-versions.json
+__pycache__

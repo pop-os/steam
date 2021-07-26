@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 2018 Michael Gilbert <mgilbert@debian.org> -->
-<component>
+<component type="driver">
   <id>com.steampowered.steam-devices</id>
   <metadata_license>MIT</metadata_license>
   <name>steam-devices</name>

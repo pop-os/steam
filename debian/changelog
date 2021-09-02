@@ -1,5 +1,9 @@
-steam (1.0.0.71-2) UNRELEASED; urgency=medium
+steam (1:1.0.0.71-2) UNRELEASED; urgency=medium
 
+  * Bump epoch to 1.
+    This aligns with the version numbers used by Valve and Ubuntu, and
+    ensures that an unrelated package that used the 'steam' name prior to
+    2010 (sTeam, a wiki) is correctly superseded.
   * d/scripts/steam.in: Stop deleting libraries from the Steam Runtime.
     The Steam Runtime is designed to defer to the libraries from the host
     system whenever the version on the host system is newer, or whenever

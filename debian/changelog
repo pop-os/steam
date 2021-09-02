@@ -1,4 +1,4 @@
-steam (1:1.0.0.71-2) UNRELEASED; urgency=medium
+steam (1:1.0.0.71-2) unstable; urgency=medium
 
   * Bump epoch to 1.
     This aligns with the version numbers used by Valve and Ubuntu, and
@@ -17,8 +17,10 @@ steam (1:1.0.0.71-2) UNRELEASED; urgency=medium
     This shouldn't be necessary any more, particularly since Valve is now
     known to be working on a SteamOS 3 update that is based on Arch Linux
     (where libdbus assertion failures have always been fatal).
+  * Upload to unstable for bookworm release cycle.
+    Steam launcher 1.0.0.71 has been promoted from beta to stable upstream.
 
- -- Simon McVittie <smcv@debian.org>  Thu, 02 Sep 2021 14:32:34 +0100
+ -- Simon McVittie <smcv@debian.org>  Thu, 02 Sep 2021 14:36:30 +0100
 
 steam (1.0.0.71-1) experimental; urgency=medium
 

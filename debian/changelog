@@ -1,3 +1,21 @@
+steam (1.0.0.71-2) UNRELEASED; urgency=medium
+
+  * d/scripts/steam.in: Stop deleting libraries from the Steam Runtime.
+    The Steam Runtime is designed to defer to the libraries from the host
+    system whenever the version on the host system is newer, or whenever
+    the versions in the Steam Runtime and on the host system cannot be
+    compared, so it should not be necessary to edit it in-place.
+    All situations where this does not work are believed to have been fixed
+    upstream. If they have not, the upstream developers want to receive
+    issue reports with diagnostic logs from steam-runtime-system-info, so
+    that the runtime can be fixed.
+  * d/scripts/steam.in: Remove workaround for #882607.
+    This shouldn't be necessary any more, particularly since Valve is now
+    known to be working on a SteamOS 3 update that is based on Arch Linux
+    (where libdbus assertion failures have always been fatal).
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 02 Sep 2021 14:32:34 +0100
+
 steam (1.0.0.71-1) experimental; urgency=medium
 
   * New upstream beta

@@ -1,5 +1,7 @@
-steam (1:1.0.0.71-3) UNRELEASED; urgency=medium
+steam (1:1.0.0.72-1) UNRELEASED; urgency=medium
 
+  * Branch for experimental
+  * New upstream beta
   * d/copyright.in: Resync with d/copyright
 
  -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:27:05 +0100

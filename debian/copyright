@@ -48,12 +48,6 @@ Copyright:
 License: Expat
 
 Files:
- subprojects/python-vdf/*
-Copyright:
- 2015 Rossen Georgiev
-License: Expat
-
-Files:
  subprojects/steam-devices/*
 Copyright:
  2018-2019 Valve Corporation

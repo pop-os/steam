@@ -2,9 +2,17 @@ steam (1:1.0.0.72-1) UNRELEASED; urgency=medium
 
   * Branch for experimental
   * New upstream beta
+    - Update steam-devices subproject up to 2021-08-25
+      + Brooks Universal Fighting Board
+      + PowerA Wired Controller for Nintendo Switch (a713)
+      + Razer Panthera EVO Arcade Stick
+      + Razer Raiju PS4 Tournament Edition over Bluetooth
+      (thanks: Michael Pobega, @TwistedAkai, Peter DeVita, @5amu31)
   * d/copyright.in: Resync with d/copyright
+  * d/copyright: Update for removal of bundled python-vdf.
+    It's now available separately, in the python3-vdf package.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:27:05 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:28:58 +0100
 
 steam (1:1.0.0.71-2) unstable; urgency=medium
 

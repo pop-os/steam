@@ -1,3 +1,9 @@
+steam (1:1.0.0.71-3) UNRELEASED; urgency=medium
+
+  * d/copyright.in: Resync with d/copyright
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:27:05 +0100
+
 steam (1:1.0.0.71-2) unstable; urgency=medium
 
   * Bump epoch to 1.

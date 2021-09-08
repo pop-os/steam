@@ -1,4 +1,4 @@
-steam (1:1.0.0.72-1) UNRELEASED; urgency=medium
+steam (1:1.0.0.72-1) experimental; urgency=medium
 
   * Branch for experimental
   * New upstream beta
@@ -12,7 +12,7 @@ steam (1:1.0.0.72-1) UNRELEASED; urgency=medium
   * d/copyright: Update for removal of bundled python-vdf.
     It's now available separately, in the python3-vdf package.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:28:58 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 08 Sep 2021 20:31:28 +0100
 
 steam (1:1.0.0.71-2) unstable; urgency=medium
 

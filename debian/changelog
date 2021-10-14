@@ -1,3 +1,10 @@
+steam (1:1.0.0.72-2) unstable; urgency=medium
+
+  * Release to unstable.
+    Steam launcher 1.0.0.72 has been promoted from beta to stable upstream.
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 14 Oct 2021 14:33:07 +0100
+
 steam (1:1.0.0.72-1) experimental; urgency=medium
 
   * Branch for experimental

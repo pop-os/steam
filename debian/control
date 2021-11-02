@@ -64,6 +64,8 @@ Recommends:
  fontconfig,
  fonts-liberation,
  libasound2-plugins,
+ libegl1,
+ libgbm1,
  libsdl2-2.0-0,
  libxss1,
  mesa-vulkan-drivers,
@@ -76,6 +78,7 @@ Recommends:
 Suggests:
  nvidia-driver-libs,
  nvidia-vulkan-icd,
+ pipewire,
 Conflicts:
  steam-launcher,
 Replaces:

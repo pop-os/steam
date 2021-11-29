@@ -3,8 +3,15 @@ steam (1:1.0.0.72-3) UNRELEASED; urgency=medium
   * Add Suggests on pipewire, and Recommends on libegl1 and libgbm1.
     These are used for Steam Remote Play / Steam Link video capture,
     particularly when running on Wayland, and we want their i386 versions.
+  * Remove Recommends: bubblewrap.
+    Since Debian 11, we do not need a setuid bubblewrap by default, and the
+    version shipped in the SteamLinuxRuntime depot is enough.
+  * Recommend libva2 (VA-API) and its drivers.
+    Steam Remote Play uses VA-API for hardware-accelerated encoding
+    (server-side, running the game) and decoding (client-side, playing
+    the game) on Mesa-supported GPUs, currently via i386 binaries.
 
- -- Simon McVittie <smcv@debian.org>  Tue, 02 Nov 2021 15:49:27 +0000
+ -- Simon McVittie <smcv@debian.org>  Mon, 29 Nov 2021 19:53:34 +0000
 
 steam (1:1.0.0.72-2) unstable; urgency=medium
 

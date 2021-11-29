@@ -1,5 +1,8 @@
-steam (1:1.0.0.72-3) UNRELEASED; urgency=medium
+steam (1:1.0.0.73-1) UNRELEASED; urgency=medium
 
+  * New upstream stable release
+    - Updated Steam client binary, build 1634158817 (2021-10-13)
+    - The other upstream changes do not directly affect this package
   * Add Suggests on pipewire, and Recommends on libegl1 and libgbm1.
     These are used for Steam Remote Play / Steam Link video capture,
     particularly when running on Wayland, and we want their i386 versions.

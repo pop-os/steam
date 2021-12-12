@@ -1,10 +1,10 @@
-steam (1:1.0.0.74-1) UNRELEASED; urgency=medium
+steam (1:1.0.0.74-1) unstable; urgency=medium
 
   * New upstream stable release
     - Updated Steam client binary, build 1637624439 (2021-11-02)
     - The other upstream changes do not directly affect this package
 
- -- Simon McVittie <smcv@debian.org>  Sun, 12 Dec 2021 23:03:28 +0000
+ -- Simon McVittie <smcv@debian.org>  Sun, 12 Dec 2021 23:06:58 +0000
 
 steam (1:1.0.0.73-1) unstable; urgency=medium
 

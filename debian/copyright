@@ -1,9 +1,4 @@
-Format: Mostly copyright-format 1.0
-#       https://www.debian.org/doc/packaging-manuals/copyright-format/1.0
-#       This file does not entirely adhere to copyright-format 1.0 since
-#       that would require reformating the steam license agreement (adding
-#       spaces, dots, and word-wrapping), and  modifications to the license
-#       are explicitly disallowed by section 1.B.(ii).
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 Upstream-Name: steam-launcher
 Files-Excluded:
  .gitignore
@@ -64,6 +59,7 @@ Copyright:
  © 2002-2018 Jakub Steiner
  © 2002-2018 Lapo Calamandrei
 License: CC-BY-SA-3.0-US or LGPL-3
+Comment:
  This work is licenced under the terms of either the GNU LGPL v3 or
  Creative Commons Attribution-Share Alike 3.0 United States License.
  .
@@ -73,30 +69,27 @@ License: CC-BY-SA-3.0-US or LGPL-3
  .
  When attributing the artwork, using "GNOME Project" is enough.
  Please link to https://www.gnome.org where available.
-Comment:
- See below for the full text of the CC-BY-SA-3.0.
  .
- On Debian GNU/Linux systems, the complete text of the GNU Lesser General
- Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+ See below for the full text of the CC-BY-SA-3.0.
 
 License: Expat
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation
-the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ IN THE SOFTWARE.
 Comment: This is also known as the MIT/X11 license.
 
 License: CC0-1.0
@@ -417,3 +410,7 @@ License: CC-BY-SA-3.0-US
    this trademark restriction does not form part of this License.
  .
    Creative Commons may be contacted at http://creativecommons.org/.
+
+License: LGPL-3
+ On Debian GNU/Linux systems, the complete text of the GNU Lesser General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.

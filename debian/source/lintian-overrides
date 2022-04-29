@@ -1,0 +1,2 @@
+# "Expat" in Debian is the same license as "MIT" in SPDX
+inconsistent-appstream-metadata-license debian/com.steampowered.steam-devices.metainfo.xml (mit != expat) [debian/copyright]

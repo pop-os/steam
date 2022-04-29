@@ -3,12 +3,6 @@ set -e
 
 . /usr/share/debconf/confmodule
 
-if [ "$1" = "abort-install" ]; then
-    echo "Installation terminated: Steam License Agreement was DECLINED."
-    db_purge
-    exit 0
-fi
-
 if [ "$1" = "purge" ]; then
     db_input high steam/purge || true
     db_go

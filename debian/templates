@@ -1,14 +1,3 @@
-#!/usr/bin/python3
-# Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
-# License: MIT
-
-header = '''\
-Template: steam/question
-Type: select
-Choices: I DECLINE, I AGREE
-Description: Do you agree to all terms of the Steam License Agreement?
- STEAM LICENSE AGREEMENT
-
 Template: steam/need-nvidia-i386
 Type: note
 Description: 32-bit Nvidia driver (nvidia-driver-libs-i386) required
@@ -33,20 +22,3 @@ Description: STEAM PURGE NOTE
  Purging is not entirely complete.  Steam's working files are still located
  in your home directories at ~/.steam.  If you intended to remove the
  entire application, you will need to remove those directories manually.
-
-Template: steam/license
-Type: note
-Description: STEAM LICENSE AGREEMENT (ARROW keys scroll, TAB key to move to "Ok")
-'''
-
-template = open( 'debian/templates' , 'wt', encoding='utf-8' )
-template.write( header )
-license = open( 'steam_subscriber_agreement.txt' , 'rt', encoding='utf-8' )
-for line in license.readlines():
-    line = line.strip()
-    if line == '':
-        template.write( ' .\n' )
-    else:
-        template.write( ' %s\n' % line)
-license.close()
-template.close()

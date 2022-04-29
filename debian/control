@@ -1,4 +1,4 @@
-Source: steam
+Source: steam-installer
 Section: games
 Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
@@ -35,14 +35,75 @@ Homepage: https://steamcommunity.com/linux
 Vcs-Git: https://salsa.debian.org/games-team/steam.git
 Vcs-Browser: https://salsa.debian.org/games-team/steam
 
-Package: steam
+Package: steam-installer
 Section: contrib/games
-Architecture: i386
+Architecture: amd64
 Multi-Arch: foreign
 Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
+ steam-libs (= ${binary:Version}),
+ steam-libs-i386 (>= ${source:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Breaks:
+ steam (<< 1:1.0.0.75+ds~),
+Conflicts:
+ steam-launcher,
+Replaces:
+ steam (<< 1:1.0.0.75+ds~),
+ steam-launcher,
+Description: Valve's Steam digital software delivery system
+ Steam (https://www.steampowered.com) is a software content delivery system
+ developed by Valve software (https://www.valvesoftware.com).  There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+ .
+ This package provides a script that downloads and installs the Steam client,
+ and depends on 32-bit and 64-bit libraries and other components that are
+ required by the Steam client.
+ .
+ Because Steam requires 32-bit libraries, before installing this package it
+ will be necessary to run, as root:
+ .
+   dpkg --add-architecture i386; apt update
+ .
+ Steam comes with a fairly substantial non-free license agreement
+ that must be accepted before installing the software.  If you have any
+ opposition to non-free work, please select "I DECLINE" during the package
+ installation dialogs.   There are also additional agreements in various
+ parts of the application that differ from the original agreement.  In
+ other words, pay attention and read carefully if you're worried about your
+ rights.
+
+Package: steam
+Section: contrib/oldlibs
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ steam-installer (>= ${source:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Transitional package for Steam
+ Steam (https://www.steampowered.com) is a software content delivery system
+ developed by Valve software (https://www.valvesoftware.com).  There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+ .
+ This transitional package upgrades from the old steam package to the
+ newer steam-installer package.
+
+Package: steam-libs
+Section: metapackages
+Architecture: amd64 i386
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ca-certificates,
  curl,
  file,
  libcrypt1 | libc6 (<< 2.29-4),
@@ -62,14 +123,13 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends:
- ca-certificates,
  fontconfig,
  fonts-liberation,
  libasound2-plugins,
  libegl1,
  libfontconfig1,
  libgbm1,
- libnm0,
+ libnm0 [i386],
  libsdl2-2.0-0,
  libva-drm2,
  libva-glx2,
@@ -86,31 +146,42 @@ Suggests:
  nvidia-driver-libs,
  nvidia-vulkan-icd,
  pipewire,
-Conflicts:
- steam-launcher,
-Replaces:
- steam-launcher,
-Description: Valve's Steam digital software delivery system
+Description: Metapackage for Steam dependencies
  Steam (https://www.steampowered.com) is a software content delivery system
  developed by Valve software (https://www.valvesoftware.com).  There is
  some free software available, but for the most part the content delivered
  is non-free.
  .
- This package comes with a fairly substantial non-free license agreement
- that must be accepted before installing the software.  If you have any
- opposition to non-free work, please select "I DECLINE" during the package
- installation dialogs.   There are also additional agreements in various
- parts of the application that differ from the original agreement.  In
- other words, pay attention and read carefully if you're worried about your
- rights.
+ This package depends on libraries and other packages that are necessary
+ to run Steam.
+
+Package: steam-libs-i386
+Section: metapackages
+Architecture: i386
+Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ steam-libs,
+ ${misc:Depends},
+Description: Metapackage for 32-bit Steam dependencies
+ Steam (https://www.steampowered.com) is a software content delivery system
+ developed by Valve software (https://www.valvesoftware.com).  There is
+ some free software available, but for the most part the content delivered
+ is non-free.
+ .
+ This package indirectly depends on 32-bit libraries that are necessary
+ to run Steam, by depending on the steam-libs:i386 metapackage.
 
 Package: steam-devices
 Architecture: all
 Multi-Arch: foreign
+Pre-Depends:
+ ${misc:Pre-Depends},
 Depends:
  ${misc:Depends},
 Recommends:
- steam,
+ steam-installer,
 Breaks:
  steam (<< ${source:Version}),
  steam (>= ${source:Version}.),

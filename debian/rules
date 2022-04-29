@@ -10,7 +10,7 @@ orig=$(origdir)/steam_$(uversion)+ds.orig.tar.xz
 dest=steam-$(uversion).orig
 
 build-arch:
-ifneq ($(DEB_HOST_ARCH), i386)
+ifeq ($(filter amd64 i386,$(DEB_HOST_ARCH)),)
 	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
 	@exit 1
 endif

@@ -1,0 +1,15 @@
+Recent versions of Steam have a debugging tool that can be used to
+diagnose library-related issues. Please try running:
+
+    ~/.steam/steam/ubuntu12_32/steam-runtime/run.sh \
+    ~/.steam/steam/ubuntu12_32/steam-runtime/amd64/usr/bin/steam-runtime-system-info
+
+It will output a lot of JSON. Please send it with your bug report
+(you can censor it if you want, as long as it's clear which parts have
+been edited).
+
+In some cases it will also help to re-run the same tool with the --verbose
+option, which will list the paths to all the libraries that are part of
+the Steam Runtime. This will tell the maintainers whether each library
+that will be used for the Steam client and games is taken from the Steam
+Runtime or from the host system.

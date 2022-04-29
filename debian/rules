@@ -6,7 +6,7 @@ export DH_VERBOSE=1
 
 uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
 origdir=..
-orig=$(origdir)/steam_$(uversion).orig.tar.xz
+orig=$(origdir)/steam_$(uversion)+ds.orig.tar.xz
 dest=steam-$(uversion).orig
 
 build-arch:
@@ -59,16 +59,17 @@ get-orig-source:
 	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=1:$(uversion)
 	rm -f $(orig)
 	mkdir -p $(origdir)/$(dest)
-	tar xf get-orig/steam_$(uversion).tar.gz --strip-components=1 -C $(origdir)/$(dest)
+	tar tf get-orig/steam_$(uversion).tar.gz
+	tar xf get-orig/steam_$(uversion).tar.gz \
+		--strip-components=1 \
+		--wildcards \
+		-C $(origdir)/$(dest) \
+		'steam-launcher/buildutils/*.py' \
+		steam-launcher/com.valvesoftware.Steam.metainfo.xml \
+		steam-launcher/steam_launcher \
+		steam-launcher/subprojects/steam-devices \
+		$(NULL)
 	rm -rf get-orig
-	mv -v $(origdir)/$(dest)/debian/changelog $(origdir)/$(dest)
-	mv -v $(origdir)/$(dest)/debian $(origdir)/$(dest)/valve-packaging
-	rm -fv $(origdir)/$(dest)/steam
-	cd $(origdir)/$(dest) && tar -xvf bootstrap*.tar.*
-	rm -fvr $(origdir)/$(dest)/bootstrap*.tar.*
-	rm -fvr $(origdir)/$(dest)/linux32/steamerrorreporter
-	rm -fvr $(origdir)/$(dest)/ubuntu12_32/crashhandler.so
-	rm -fvr $(origdir)/$(dest)/ubuntu12_32/steam-runtime
 	tar -C $(origdir) -cJf $(orig) $(dest)
 	rm -rf $(origdir)/$(dest)
 	@echo "Successfully created new upstream source file: $(orig)"

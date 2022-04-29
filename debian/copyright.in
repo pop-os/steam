@@ -5,28 +5,26 @@ Format: Mostly copyright-format 1.0
 #       spaces, dots, and word-wrapping), and  modifications to the license
 #       are explicitly disallowed by section 1.B.(ii).
 Upstream-Name: steam-launcher
-
-Files:
+Files-Excluded:
+ .gitignore
+ COPYING
  Makefile
  README
  bin_steam.sh
  bin_steamdeps.py
- changelog
+ bootstraplinux_ubuntu12_32.tar.xz
  client-versions.json
- icons/*
+ debian
+ icons
+ steam
  steam-key.asc
  steam.6
+ steam.desktop
  steam.gpg
  steam.list
- steam.sh
  steam_subscriber_agreement.txt
- steamdeps.txt
- tests/check_bootstrap.sh
- tests/check_version.sh
- ubuntu12_32/steam
- valve-packaging/*
-Copyright: Valve Corporation <linux@steampowered.com>
-License: STEAM_SUBSCRIBER_AGREEMENT
+ steamdeps
+ tests
 
 Files:
  com.valvesoftware.Steam.metainfo.xml
@@ -36,11 +34,9 @@ Copyright:
 License: CC0-1.0
 
 Files:
+ .gitlab-ci.yml
  buildutils/*.py
- tests/mypy.sh
- tests/pycodestyle.sh
- tests/pyflakes.sh
- tests/shellcheck.sh
+ steam_launcher/*.py
 Copyright:
  2016-2018 Simon McVittie
  2017 Cosimo Cecchi
@@ -63,9 +59,6 @@ License: Expat
 License: Expat
 License-File: debian/mit-license
 Comment: This is also known as the MIT/X11 license.
-
-License: STEAM_SUBSCRIBER_AGREEMENT
-License-File: steam_subscriber_agreement.txt
 
 License: CC0-1.0
  SPDX license expression "CC0-1.0": https://spdx.org/licenses/CC0-1.0.html

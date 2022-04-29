@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Categories=FileTransfer;Game;Network;
+Exec=/usr/games/steam %U
+Icon=steam
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
+Name=Install Steam
+Terminal=false
+Type=Application

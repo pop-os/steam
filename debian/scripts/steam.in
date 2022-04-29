@@ -61,12 +61,6 @@ else
     STEAMDIR="$HOME/.steam/debian-installation"
 fi
 
-ubuntu32="$STEAMDIR/ubuntu12_32"
-steam="$ubuntu32/steam"
-runtime="$ubuntu32/steam-runtime"
-
-real=/usr/lib/games/steam/steam
-
 # use C locale (bug #764311)
 test -n "$LANG" || export LANG=C
 
@@ -93,13 +87,84 @@ if ! [ -d "$STEAMCONFIG/root" ]; then
     ln -fns "$STEAMDIR" "$STEAMCONFIG/root"
 fi
 
-test ! -x "$STEAMDIR/steam.sh" && rm -rf "$STEAMDIR/package" "$steam" || true
-test ! -d "$ubuntu32" && rm -rf "$ubuntu32" && mkdir -p "$ubuntu32" || true
-test ! -x "$steam" && rm -rf "$steam" && cp "$real" "$steam" && "$steam" || true
-test ! -e "$runtime.tar.xz" && cat "$runtime.tar.xz.part"* > "$runtime.tar.xz" || true
-test ! -d "$runtime" && cd "$ubuntu32" && tar xf steam-runtime.tar.xz && \
-    md5sum steam-runtime.tar.xz > steam-runtime/checksum || \
-    rm -f steam-runtime.tar.xz*
+version="1.0.0.75"
+sha256="e52565a5e33b9a4184c5bdc222978b7fea958efd32641d5d5967774d751236a7"
+url="https://repo.steampowered.com/steam/archive/stable/steam_${version}.tar.gz"
+installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
+force_unpack=
+
+mkdir -p "$STEAMDIR"
+
+for needed in \
+    steam.sh \
+    ubuntu12_32/steam \
+    ubuntu12_32/steam-runtime/run.sh \
+    ubuntu12_32/steam-runtime/setup.sh \
+; do
+    if ! [ -x "$STEAMDIR/$needed" ]; then
+        force_unpack=yes
+    fi
+done
+
+if [ "$installed" != "$version" ] || [ -n "$force_unpack" ]; then
+    mkdir -p "$STEAMDIR/deb-installer"
+    curl -o "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$" "$url"
+    got="$(sha256sum -b "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$")"
+
+    if [ "${got% *}" != "$sha256" ]; then
+        echo "SHA256 verification failed" >&2
+        echo "Expected: $sha256" >&2
+        echo "Got:      $got" >&2
+        rm -f "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$"
+        exit 1
+    fi
+
+    tar \
+        -C "$STEAMDIR/deb-installer" \
+        -zxf "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$" \
+        steam-launcher/bootstraplinux_ubuntu12_32.tar.xz \
+        steam-launcher/icons \
+        steam-launcher/steam.desktop \
+        ${NULL+}
+    mv \
+        "$STEAMDIR/deb-installer/steam-launcher/bootstraplinux_ubuntu12_32.tar.xz" \
+        "$STEAMDIR/bootstrap.tar.xz"
+    rm -f "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$"
+
+    if [ -n "$force_unpack" ]; then
+        tar -C "$STEAMDIR" \
+            -xf "$STEAMDIR/bootstrap.tar.xz" \
+            ${NULL+}
+    fi
+
+    # Use the proprietary icons to replace the ones from the .deb
+    for i in 16 24 32 48 256; do
+        target="$STEAMDIR/deb-installer/steam-launcher/icons/$i/steam.png"
+        dest="${XDG_DATA_HOME}/icons/hicolor/${i}x${i}/apps/steam.png"
+        mkdir -p "${dest%/*}"
+        if [ -L "$dest" ] || ! [ -e "$dest" ]; then
+            ln -fns "$target" "$dest"
+        fi
+    done
+
+    # Use the proprietary .desktop file to replace the one from the .deb
+    target="$STEAMDIR/deb-installer/steam.desktop"
+    dest="${XDG_DATA_HOME}/applications/steam.desktop"
+    mkdir -p "${dest%/*}"
+    # Adjust proprietary .desktop file for our installation location
+    sed \
+        -e '/^Exec=/ s,/usr/bin/steam,/usr/games/steam,g' \
+        -e 's,^Exec=steam ,Exec=/usr/games/steam ,' \
+        -e '/^Actions=/ a Keywords=Games' \
+        < "$STEAMDIR/deb-installer/steam-launcher/steam.desktop" \
+        > "$target"
+    if [ -L "$dest" ] || ! [ -e "$dest" ]; then
+        ln -fns "$target" "$dest"
+    fi
+
+    echo "$version" > "$STEAMDIR/deb-installer/version.$$"
+    mv "$STEAMDIR/deb-installer/version.$$" "$STEAMDIR/deb-installer/version"
+fi
 
 # Remove old log file to avoid confusion. To debug game/Steam issues,
 # please run this script from an interactive terminal, run it with its
@@ -107,4 +172,6 @@ test ! -d "$runtime" && cd "$ubuntu32" && tar xf steam-runtime.tar.xz && \
 rm -f "$STEAMDIR/error.log"
 
 # launch the Valve run script
-test -x "$STEAMDIR/steam.sh" && exec "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"
+exec "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"
+
+# vi:set sw=4 sts=4 et:

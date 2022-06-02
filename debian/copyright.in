@@ -68,4 +68,7 @@ License: STEAM_SUBSCRIBER_AGREEMENT
 License-File: steam_subscriber_agreement.txt
 
 License: CC0-1.0
-License-File: debian/CC0-1.0
+ SPDX license expression "CC0-1.0": https://spdx.org/licenses/CC0-1.0.html
+ .
+ On Debian systems, the complete text of the CC0 Public Domain Dedication
+ can be found in "/usr/share/common-licenses/CC0-1.0".

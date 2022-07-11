@@ -6,7 +6,7 @@ Uploaders:
  Michael Gilbert <mgilbert@debian.org>,
  Simon McVittie <smcv@debian.org>,
 Build-Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= 13),
  libexpat1,
  libffi-dev,
  libgcc-s1 | libgcc1,

@@ -45,6 +45,7 @@ Pre-Depends:
 Depends:
  curl,
  file,
+ libcrypt1 | libc6 (<< 2.29-4),
  libgcc-s1 | libgcc1,
  libgl1-mesa-dri (>= 17.3),
  libgl1,

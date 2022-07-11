@@ -1,8 +1,27 @@
-steam (1:1.0.0.74-2) UNRELEASED; urgency=medium
+steam (1:1.0.0.74-2) unstable; urgency=medium
 
-  * Standards-Version: 4.6.0 (no changes required)
+  * d/copyright.in: Replace CC0-1.0 text with a reference to common-licenses
+  * d/control: Depend on libcrypt1, with old-libc alternative for backports.
+    Some legacy libraries in the Steam Runtime depend on libcrypt.so.1,
+    which they could historically rely on being able to pick up from the
+    libc6 package. This is no longer the case since bullseye.
+  * d/control: Recommend libfontconfig1, libnm0.
+    Steam uses these. There is a suitable version in the Steam Runtime,
+    but it's very old; if we pull in the much newer i386 packages from
+    Debian, the runtime will automatically prefer them, and they'll
+    generally work better with modern /etc/fonts and modern NM.
+  * Depend on libva2 and libva-x11-2.
+    This avoids version skew that can occur if the host system has
+    libva2:i386 but not libva-x11-2:i386. If that occurs, then Steam ends up
+    trying to load libva-x11-2:i386 from the Steam Runtime and libva2:i386
+    from the host system, which can't work reliably, because there is
+    private ABI between those two libraries. (steam-for-linux#8673)
+  * Standards-Version: 4.6.1 (no changes required)
+  * Use recommended debhelper compat level 13
+  * Update Lintian overrides
+  * Add Lintian override for XS-Autobuild field
 
- -- Simon McVittie <smcv@debian.org>  Sun, 12 Dec 2021 23:27:20 +0000
+ -- Simon McVittie <smcv@debian.org>  Mon, 11 Jul 2022 18:17:00 +0100
 
 steam (1:1.0.0.74-1) unstable; urgency=medium
 

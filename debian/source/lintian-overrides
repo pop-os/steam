@@ -4,3 +4,5 @@ source-contains-prebuilt-binary
 source-is-missing
 # not possible while satisfying Valve's license agreement
 no-dep5-copyright
+# https://www.debian.org/doc/manuals/developers-reference/pkgs.en.html#marking-non-free-packages-as-auto-buildable
+unknown-field Autobuild

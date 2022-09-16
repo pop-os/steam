@@ -4,21 +4,14 @@ include /usr/share/dpkg/default.mk
 
 export DH_VERBOSE=1
 
-uversion=$(shell uscan --report --dehs |grep upstream-version | cut -d\< -f2 | cut -d\> -f2)
-origdir=..
-orig=$(origdir)/steam_$(uversion)+ds.orig.tar.xz
-dest=steam-$(uversion).orig
-
-build-arch:
-ifeq ($(filter amd64 i386,$(DEB_HOST_ARCH)),)
-	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
-	@exit 1
-endif
-
 %:
 	dh $@
 
 override_dh_auto_configure:
+ifeq ($(filter amd64 i386,$(DEB_HOST_ARCH)),)
+	@echo "error: $(DEB_HOST_ARCH) is not a supported architecture"
+	@exit 1
+endif
 
 # We don't use Valve's build system
 override_dh_auto_build:
@@ -33,33 +26,3 @@ override_dh_auto_test:
 override_dh_clean:
 	dh_clean
 	./debian/scripts/copyright-helper debian/copyright.in debian/copyright
-
-# Can be set to 'beta' to fetch upstream releases that are still
-# considered to have beta status
-UPSTREAM_APT_SUITE = stable
-
-get-orig-source:
-	@test "$(uversion)" = "" && \
-	    echo "There is no new upstream source file." && exit 1 || true
-	mkdir get-orig
-	mkdir get-orig/chdist
-	chdist -d $(CURDIR)/get-orig/chdist create steam https://repo.steampowered.com/steam $(UPSTREAM_APT_SUITE) steam
-	cp debian/valve-steam-keyring.gpg get-orig/chdist/steam/etc/apt/trusted.gpg.d/
-	chdist -d $(CURDIR)/get-orig/chdist apt-get steam update
-	cd get-orig && chdist -d $(CURDIR)/get-orig/chdist apt-get steam source -d steam=1:$(uversion)
-	rm -f $(orig)
-	mkdir -p $(origdir)/$(dest)
-	tar tf get-orig/steam_$(uversion).tar.gz
-	tar xf get-orig/steam_$(uversion).tar.gz \
-		--strip-components=1 \
-		--wildcards \
-		-C $(origdir)/$(dest) \
-		'steam-launcher/buildutils/*.py' \
-		steam-launcher/com.valvesoftware.Steam.metainfo.xml \
-		steam-launcher/steam_launcher \
-		steam-launcher/subprojects/steam-devices \
-		$(NULL)
-	rm -rf get-orig
-	tar -C $(origdir) -cJf $(orig) $(dest)
-	rm -rf $(origdir)/$(dest)
-	@echo "Successfully created new upstream source file: $(orig)"

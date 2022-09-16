@@ -22,7 +22,3 @@ override_dh_auto_install:
 	:
 override_dh_auto_test:
 	:
-
-override_dh_clean:
-	dh_clean
-	./debian/scripts/copyright-helper debian/copyright.in debian/copyright

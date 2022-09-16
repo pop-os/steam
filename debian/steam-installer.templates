@@ -1,6 +1,6 @@
 Template: steam/need-nvidia-i386
 Type: note
-Description: 32-bit Nvidia driver (nvidia-driver-libs-i386) required
+_Description: 32-bit Nvidia driver (nvidia-driver-libs-i386) required
  This computer appears to be using the Nvidia binary graphics driver
  (the nvidia-driver package).
  .
@@ -18,7 +18,7 @@ Description: 32-bit Nvidia driver (nvidia-driver-libs-i386) required
 
 Template: steam/purge
 Type: note
-Description: STEAM PURGE NOTE
+_Description: STEAM PURGE NOTE
  Purging is not entirely complete.  Steam's working files are still located
  in your home directories at ~/.steam.  If you intended to remove the
  entire application, you will need to remove those directories manually.

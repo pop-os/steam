@@ -27,8 +27,9 @@ Build-Depends:
  libxfixes3,
  libxi6,
  libxxf86vm1,
- zlib1g,
+ po-debconf,
  python3:any,
+ zlib1g,
 Rules-Requires-Root: no
 Standards-Version: 4.6.1
 Homepage: https://steamcommunity.com/linux

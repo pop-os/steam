@@ -1,0 +1,72 @@
+# Copyright 2013 Michael Gilbert
+# Copyright 2022 Simon McVittie
+# SPDX-License-Identifier: MIT
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: steam-installer\n"
+"Report-Msgid-Bugs-To: steam-installer@packages.debian.org\n"
+"POT-Creation-Date: 2022-09-16 17:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid "32-bit Nvidia driver (nvidia-driver-libs-i386) required"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"This computer appears to be using the Nvidia binary graphics driver (the "
+"nvidia-driver package)."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"Steam is a 32-bit program, so running it on this computer requires the 32-"
+"bit versions of the Nvidia libraries, even if all the games you will run via "
+"Steam are 64-bit. Please install the nvidia-driver-libs-i386 package."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"For full functionality (including Vulkan), also install the libraries listed "
+"as Recommends in the nvidia-driver-libs-i386 package."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"If you are using a legacy version of the Nvidia driver such as nvidia-"
+"legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
+"for example nvidia-legacy-340xx-driver-libs-i386."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid "STEAM PURGE NOTE"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid ""
+"Purging is not entirely complete.  Steam's working files are still located "
+"in your home directories at ~/.steam.  If you intended to remove the entire "
+"application, you will need to remove those directories manually."
+msgstr ""

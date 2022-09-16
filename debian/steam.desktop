@@ -7,3 +7,4 @@ MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
 Name=Install Steam
 Terminal=false
 Type=Application
+Keywords=games;installer;steam-installer;valve;

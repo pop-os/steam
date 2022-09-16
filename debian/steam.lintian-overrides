@@ -1,7 +1,0 @@
-# the license uses Valve's wording and is unchangable
-using-first-person-in-templates steam/license *
-too-long-extended-description-in-templates steam/license *
-# Valve builds the executables, so there is nothing we can do about these
-embedded-library
-spelling-error-in-binary
-binary-file-built-without-LFS-support

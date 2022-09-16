@@ -1,3 +1,14 @@
+steam (1:1.0.0.75-1) unstable; urgency=medium
+
+  * New upstream release
+    - Updated Steam client binary, build 1654574690 (2022-06-07)
+    - Updated Steam Runtime, build 0.20220315.0
+  * Add Recommends on libva-drm2 and libva-glx2, following upstream.
+    This is similar to the Depends on libva2:i386 and libva-x11-2:i386
+    in the previous release.
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 16 Sep 2022 12:42:40 +0100
+
 steam (1:1.0.0.74-2) unstable; urgency=medium
 
   * d/copyright.in: Replace CC0-1.0 text with a reference to common-licenses

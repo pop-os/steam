@@ -162,6 +162,11 @@ if [ "$installed" != "$version" ] || [ -n "$force_unpack" ]; then
         ln -fns "$target" "$dest"
     fi
 
+    # Force update
+    mkdir -p "${XDG_DATA_HOME}/icons/hicolor/"
+    touch "${XDG_DATA_HOME}/icons/hicolor/"
+    touch "${XDG_DATA_HOME}/applications/"
+
     echo "$version" > "$STEAMDIR/deb-installer/version.$$"
     mv "$STEAMDIR/deb-installer/version.$$" "$STEAMDIR/deb-installer/version"
 fi

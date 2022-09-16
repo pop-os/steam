@@ -137,6 +137,9 @@ Recommends:
  xterm | x-terminal-emulator,
  zenity,
 Suggests:
+ gtk2-engines-pixbuf [i386],
+ libgtk2.0-0 [i386],
+ libudev0,
  nvidia-driver-libs,
  nvidia-vulkan-icd,
  pipewire,

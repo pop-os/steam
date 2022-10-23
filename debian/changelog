@@ -42,9 +42,10 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
   * Remove parts of the build system that are no longer relevant.
     Unfortunately the upstream documentation is non-free, so we no longer
     have a man page.
-  * d/copyright.in: Use machine-readable copyright format.
+  * d/copyright: Use machine-readable copyright format, and stop generating
+    the copyright file using a template.
     We're no longer shipping files under Valve's proprietary license:
-    those are downloaded on-demand.
+    those are now downloaded on-demand.
   * Take over the steam-devices package from src:steam, moving from
     non-free to main. Everything in it is DFSG.
   * Take over the steam package from src:steam, turning it into an

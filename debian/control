@@ -50,13 +50,10 @@ Description: Valve's Steam digital software delivery system
  .
    dpkg --add-architecture i386; apt update
  .
- Steam comes with a fairly substantial non-free license agreement
- that must be accepted before installing the software.  If you have any
- opposition to non-free work, please select "I DECLINE" during the package
- installation dialogs.   There are also additional agreements in various
- parts of the application that differ from the original agreement.  In
- other words, pay attention and read carefully if you're worried about your
- rights.
+ Use of Steam is subject to several license agreements and other legal
+ terms. Please see <https://store.steampowered.com/subscriber_agreement/>
+ and <https://store.steampowered.com/legal/> for more details,
+ and pay attention and read carefully if you're worried about your rights.
 
 Package: steam
 Section: contrib/oldlibs

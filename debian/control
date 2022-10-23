@@ -43,7 +43,9 @@ Description: Valve's Steam digital software delivery system
  .
  This package provides a script that downloads and installs the Steam client,
  and depends on 32-bit and 64-bit libraries and other components that are
- required by the Steam client.
+ required by the Steam client. The actual Steam installation and all Steam
+ games will be installed into the home directory of each user who runs
+ the installer script.
  .
  Because Steam requires 32-bit libraries, before installing this package it
  will be necessary to run, as root:

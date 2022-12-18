@@ -3,8 +3,6 @@ set -e
 
 . /usr/share/debconf/confmodule
 
-using_debconf=
-
 # Nvidia driver detection borrowed from Flatpak
 need_nvidia="$(if test -e /sys/module/nvidia/version; then echo yes; fi)"
 
@@ -12,8 +10,7 @@ nvidia_i386="$(dpkg-query -W -f '${Status}' nvidia-driver-libs:i386 2>/dev/null 
 
 if [ -n "$need_nvidia" ] && [ "$nvidia_i386" != 'install ok installed' ]; then
     db_input high steam/need-nvidia-i386 || true
+    db_go
 fi
-
-db_go
 
 #DEBHELPER#

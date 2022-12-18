@@ -149,7 +149,8 @@ Description: Metapackage for Steam dependencies
  is non-free.
  .
  This package depends on libraries and other packages that are necessary
- to run Steam.
+ to run Steam. It could also be useful as a way to install packages that
+ are frequently asssumed to exist by proprietary games.
 
 Package: steam-libs-i386
 Section: metapackages

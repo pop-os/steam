@@ -142,6 +142,8 @@ Suggests:
  nvidia-driver-libs,
  nvidia-vulkan-icd,
  pipewire,
+Provides:
+ steam-libs-amd64 (= ${binary:Version}) [amd64],
 Description: Metapackage for Steam dependencies
  Steam (https://www.steampowered.com) is a software content delivery system
  developed by Valve software (https://www.valvesoftware.com).  There is

@@ -32,12 +32,11 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
   * Add a steam-libs metapackage to pull in the expected libraries and
     utilities to run Steam. This exists on both amd64 and i386.
   * Change steam-installer to Architecture: amd64, but with a
-    cross-architecture dependency on steam-libs:i386.
+    cross-architecture dependency on steam-libs:i386, which is provided by
+    steam-libs:i386 as a workaround for explicit dependencies on a
+    foreign-architecture package not being allowed.
     Older versions of Steam were purely i386 code, but newer versions use
     amd64 binaries for important functionality, so we have to use both.
-    The dependency on steam-libs:i386 goes via a steam-libs-i386
-    metapackage, which is the standard workaround for explicit dependencies
-    on a foreign-architecture package not being allowed.
     (Closes: #992533)
   * Remove parts of the build system that are no longer relevant.
     Unfortunately the upstream documentation is non-free, so we no longer
@@ -50,8 +49,10 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
     non-free to main. Everything in it is DFSG.
   * Take over the steam package from src:steam, turning it into an
     empty transitional package and moving it from non-free to contrib.
+  * d/p/metainfo-Include-Debian-specific-advice.patch:
+    Include Debian-specific multiarch advice in AppStream metainfo
 
- -- Simon McVittie <smcv@debian.org>  Fri, 16 Sep 2022 14:41:26 +0100
+ -- Simon McVittie <smcv@debian.org>  Sun, 18 Dec 2022 16:02:44 +0000
 
 steam (1:1.0.0.75-1) unstable; urgency=medium
 

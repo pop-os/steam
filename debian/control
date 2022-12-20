@@ -161,7 +161,7 @@ Multi-Arch: foreign
 Pre-Depends:
  ${misc:Pre-Depends},
 Depends:
- steam-libs,
+ steam-libs (>= ${binary:Version}),
  ${misc:Depends},
 Description: Metapackage for 32-bit Steam dependencies
  Steam (https://www.steampowered.com) is a software content delivery system

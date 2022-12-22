@@ -13,3 +13,6 @@ option, which will list the paths to all the libraries that are part of
 the Steam Runtime. This will tell the maintainers whether each library
 that will be used for the Steam client and games is taken from the Steam
 Runtime or from the host system.
+
+The same diagnostic tool provides part of the information available in
+Steam's Help -> System Information window.

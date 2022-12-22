@@ -1,8 +1,10 @@
-#!/bin/sh -e
+#!/bin/sh
 # Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
 # Copyright (C) 2018-2020 Simon McVittie
 # Copyright (C) 2020 Collabora Ltd.
 # License: MIT
+
+set -e
 
 # Used by diagnostic tools to identify the launcher
 export STEAMSCRIPT="$0"

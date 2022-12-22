@@ -64,16 +64,6 @@ fi
 # use C locale (bug #764311)
 test -n "$LANG" || export LANG=C
 
-# check wether this system supports sse2
-nosse2="\
-WARNING:
-The hardware on this system lacks support for the sse2 instruction set.
-The browser within the steam client will not work. For more information,
-see: https://support.steampowered.com/kb_article.php?ref=4090-RTKZ-4347"
-if ! grep -q sse2 /proc/cpuinfo; then
-    echo "$nosse2"
-fi
-
 # do an initial update when expected pieces are missing
 test ! -d "$STEAMCONFIG" && rm -rf "$STEAMCONFIG" && mkdir -p "$STEAMCONFIG" || true
 test ! -d "$STEAMDIR" && rm -rf "$STEAMDIR" && mkdir -p "$STEAMDIR" || true

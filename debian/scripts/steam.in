@@ -2,7 +2,7 @@
 # Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
 # Copyright (C) 2018-2020 Simon McVittie
 # Copyright (C) 2020 Collabora Ltd.
-# License: MIT
+# SPDX-License-Identifier: MIT
 
 set -e
 

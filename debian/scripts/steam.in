@@ -8,6 +8,7 @@ set -e
 
 # Used by diagnostic tools to identify the launcher
 export STEAMSCRIPT="$0"
+# Used by diagnostic tools to identify the launcher version
 # Edited by debian/rules to fill in the real version number
 export STEAMSCRIPT_VERSION='uninstalled/Debian'
 

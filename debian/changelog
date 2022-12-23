@@ -1,4 +1,4 @@
-steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.75+ds-1) experimental; urgency=medium
 
   * Rename source package and main binary package to steam-installer
   * Repack a version of Valve's steam-launcher package that is limited
@@ -62,8 +62,12 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
   * d/steam-installer.bug-control: List Vulkan ICDs
   * d/steam-installer.bug-presubj: Mention Help -> System Information
   * Update copyright years
+  * d/copyright: Add Disclaimer for contrib packages
+  * README.Debian: Canonicalize name
+  * README.Debian: Add some notes about install location
+  * Upload to experimental for NEW processing
 
- -- Simon McVittie <smcv@debian.org>  Fri, 23 Dec 2022 14:47:34 +0000
+ -- Simon McVittie <smcv@debian.org>  Fri, 23 Dec 2022 18:11:19 +0000
 
 steam (1:1.0.0.75-1) unstable; urgency=medium
 

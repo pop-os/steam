@@ -1,3 +1,17 @@
+Location of installed files
+---------------------------
+
+This package installs a separate copy of Steam for each user that runs
+the steam command. The Steam installation directory can be found by
+examining the ~/.steam/root symbolic link, and is usually either
+~/.steam/debian-installation or ~/.local/share/Steam.
+
+By default, Steam games are installed in a steamapps subdirectory of
+the Steam installation directory. To install Steam games to a different
+location, add a second "Steam library folder", which can be set as the
+default:
+https://help.steampowered.com/en/faqs/view/4bd4-4528-6b2e-8327#default
+
 Audio Configuration
 -------------------
 

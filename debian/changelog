@@ -2,7 +2,8 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
 
   * Rename source package and main binary package to steam-installer
   * Repack a version of Valve's steam-launcher package that is limited
-    to only DFSG files.
+    to only DFSG files, downloading the Valve-provided bootstrapper binary
+    on-demand.
     The .deb never actually contained the full Steam client, only the
     "bootstrapper", which is enough to download the rest of Steam and
     set it up in the user's home directory.
@@ -11,10 +12,6 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
     files, including the bootstrapper itself. This will make everything in
     the .deb DFSG-compliant, which will allow steam-installer and
     steam-devices to go into contrib and main, respectively.
-  * Download Valve-provided bootstrapper binary on-demand.
-    This avoids needing to ship it in the .deb, which results in
-    steam-devices having to be in the non-free archive area as a result of
-    also being built from a non-free source package.
     The icons and .desktop file that come with the proprietary client are
     also proprietary, so we substitute a generic "software installation"
     icon. During initial setup, we install the proprietary icons into the
@@ -32,8 +29,8 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
   * Add a steam-libs metapackage to pull in the expected libraries and
     utilities to run Steam. This exists on both amd64 and i386.
   * Change steam-installer to Architecture: amd64, but with a
-    cross-architecture dependency on steam-libs:i386, which is provided by
-    steam-libs:i386 as a workaround for explicit dependencies on a
+    cross-architecture dependency on steam-libs-i386, which depends on
+    steam-libs:i386 as the usual workaround for explicit dependencies on a
     foreign-architecture package not being allowed.
     Older versions of Steam were purely i386 code, but newer versions use
     amd64 binaries for important functionality, so we have to use both.
@@ -51,8 +48,22 @@ steam-installer (1:1.0.0.75+ds-1) UNRELEASED; urgency=medium
     empty transitional package and moving it from non-free to contrib.
   * d/p/metainfo-Include-Debian-specific-advice.patch:
     Include Debian-specific multiarch advice in AppStream metainfo
+  * Move postinst reloading udev rules from steam-installer to
+    steam-devices.
+    It's really only steam-devices that wants this.
+  * preinst: Add a way to fake presence of Nvidia drivers for testing
+  * steam.in: Remove check for SSE2 instruction set.
+    SSE2 is part of the amd64 baseline, but not the i386 baseline. This
+    means we needed an explicit check for steam:i386 package, but we no
+    longer need that check for steam-installer:amd64.
+  * d/scripts/steam.in: Explicitly use set -e.
+    This ensures it takes effect even if we run with something like
+    `bash -x /usr/games/steam`.
+  * d/steam-installer.bug-control: List Vulkan ICDs
+  * d/steam-installer.bug-presubj: Mention Help -> System Information
+  * Update copyright years
 
- -- Simon McVittie <smcv@debian.org>  Sun, 18 Dec 2022 16:02:44 +0000
+ -- Simon McVittie <smcv@debian.org>  Fri, 23 Dec 2022 14:47:34 +0000
 
 steam (1:1.0.0.75-1) unstable; urgency=medium
 

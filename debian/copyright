@@ -20,6 +20,18 @@ Files-Excluded:
  steam_subscriber_agreement.txt
  steamdeps
  tests
+Disclaimer:
+ The steam-installer package is Free Software but cannot be part of
+ Debian. Its purpose is to download and install the non-free Steam client,
+ so it depends on software outside Debian to function. As a result, it is
+ distributed in the 'contrib' archive area (see Debian Policy §2.2.2 for
+ details). Similar reasoning applies to the steam package, which is a
+ transitional package that depends on steam-installer.
+ .
+ The license information listed in this file does not apply to the non-free
+ Steam client that is downloaded by steam-installer, which is subject to
+ legal terms available from <https://store.steampowered.com/legal/>
+ and <https://store.steampowered.com/subscriber_agreement/>.
 
 Files:
  com.valvesoftware.Steam.metainfo.xml

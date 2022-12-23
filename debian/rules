@@ -22,3 +22,9 @@ override_dh_auto_install:
 	:
 override_dh_auto_test:
 	:
+
+override_dh_installdocs:
+ifeq ($(DEB_HOST_ARCH),i386)
+	dh_installdocs -psteam --link-doc=steam-installer
+endif
+	dh_installdocs --remaining-packages

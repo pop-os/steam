@@ -26,6 +26,21 @@ environments (for example, system menu -> power icon -> "Switch User"
 in GNOME 43) to run Steam as that user, instead of your ordinary user
 account.
 
+Prompting for administrative actions
+------------------------------------
+
+Some versions of Steam attempt to configure NetworkManager, as a result
+of code intended for use in SteamOS. If you are running Steam as an
+unprivileged user on a desktop Linux distribution, this results in
+numerous polkit prompts, which can be annoying.
+
+These polkit prompts can be prevented by installing a polkit policy file
+that will deny permission for those actions without a prompt, for example
+/usr/share/doc/steam-installer/examples/50-steam-no-admin-actions.rules.
+The example file assumes your unprivileged user is named "games-player".
+To use the example file, edit it to fill in an appropriate username and
+copy it into /etc/polkit-1/rules.d.
+
 Audio Configuration
 -------------------
 

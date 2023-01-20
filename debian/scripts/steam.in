@@ -84,7 +84,7 @@ version="1.0.0.75"
 sha256="e52565a5e33b9a4184c5bdc222978b7fea958efd32641d5d5967774d751236a7"
 url="https://repo.steampowered.com/steam/archive/stable/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
-force_unpack=
+new_installation=
 
 mkdir -p "$STEAMDIR"
 
@@ -95,11 +95,34 @@ for needed in \
     ubuntu12_32/steam-runtime/setup.sh \
 ; do
     if ! [ -x "$STEAMDIR/$needed" ]; then
-        force_unpack=yes
+        new_installation=yes
     fi
 done
 
-if [ "$installed" != "$version" ] || [ -n "$force_unpack" ]; then
+if [ -n "$new_installation" ]; then
+    if ! zenity \
+        --question \
+        --title="Steam installer" \
+        --icon-name=steam \
+        --width=600 \
+        --ok-label="Install" \
+        --cancel-label="Cancel" \
+        --text="Steam is proprietary (binary-only) software.
+
+See /usr/share/doc/steam-installer/README.Debian for more information about this package.
+
+Steam will be installed into: $STEAMDIR
+" \
+        --no-markup \
+        --default-cancel \
+        ${NULL+}
+    then
+        echo "steam: Installation cancelled" >&2
+        exit 1
+    fi
+fi
+
+if [ "$installed" != "$version" ] || [ -n "$new_installation" ]; then
     mkdir -p "$STEAMDIR/deb-installer"
     curl -o "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$" "$url"
     got="$(sha256sum -b "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$")"
@@ -124,7 +147,7 @@ if [ "$installed" != "$version" ] || [ -n "$force_unpack" ]; then
         "$STEAMDIR/bootstrap.tar.xz"
     rm -f "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$"
 
-    if [ -n "$force_unpack" ]; then
+    if [ -n "$new_installation" ]; then
         tar -C "$STEAMDIR" \
             -xf "$STEAMDIR/bootstrap.tar.xz" \
             ${NULL+}

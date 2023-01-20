@@ -26,6 +26,7 @@ Pre-Depends:
 Depends:
  steam-libs (= ${binary:Version}),
  steam-libs-i386 (>= ${source:Version}),
+ zenity,
  ${misc:Depends},
  ${shlibs:Depends},
 Breaks:
@@ -134,7 +135,6 @@ Recommends:
  xdg-desktop-portal-gtk | xdg-desktop-portal-backend,
  xdg-utils,
  xterm | x-terminal-emulator,
- zenity,
 Suggests:
  gtk2-engines-pixbuf [i386],
  libgtk2.0-0 [i386],

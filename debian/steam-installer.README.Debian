@@ -16,10 +16,12 @@ Audio Configuration
 -------------------
 
 The easiest way to get sound working in steam is to setup and configure
-pulseaudio (see https://wiki.debian.org/PulseAudio for hints).
+PulseAudio (see https://wiki.debian.org/PulseAudio for hints) or
+pipewire-pulse (see https://wiki.debian.org/PipeWire).
 
-If you're not using pulseaudio, there are a couple environment variables
-that steam will use.  An example steam launch with settings for alsa is:
+If you're not using PulseAudio or Pipewire, there are a couple of
+environment variables that steam will use.  An example steam launch with
+settings for alsa is:
 
   $ SDL_AUDIO_DRIVER=alsa AUDIODEV=hw:0,0 steam
 

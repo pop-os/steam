@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.75+ds-3) unstable; urgency=medium
+
+  * Retry failed upload, no source changes
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 20 Jan 2023 15:04:54 +0000
+
 steam-installer (1:1.0.0.75+ds-2) unstable; urgency=medium
 
   * d/scripts/steam.in: Add a zenity prompt before installing.

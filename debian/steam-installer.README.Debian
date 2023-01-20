@@ -12,6 +12,20 @@ location, add a second "Steam library folder", which can be set as the
 default:
 https://help.steampowered.com/en/faqs/view/4bd4-4528-6b2e-8327#default
 
+Privilege separation
+--------------------
+
+Steam is proprietary software, and its purpose is to run games, most of
+which are also proprietary software. The games are not sandboxed, so each
+game has the ability to take any action that your user account can do.
+
+One way to prevent access to personal files is to create a new user
+account (perhaps named something like "steam" or "games-player" or
+"guest"), and use the fast user switching feature of most desktop
+environments (for example, system menu -> power icon -> "Switch User"
+in GNOME 43) to run Steam as that user, instead of your ordinary user
+account.
+
 Audio Configuration
 -------------------
 

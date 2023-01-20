@@ -1,3 +1,21 @@
+steam-installer (1:1.0.0.75+ds-2) UNRELEASED; urgency=medium
+
+  * README.Debian: Mention pipewire-pulse as an alternative to pulseaudio
+  * README.Debian: Recommend running Steam as an unprivileged user
+  * README.Debian: Provide an example policy to silence polkit prompts.
+    Because polkit policy applies at a per-user rather than per-program
+    level, this is only useful if you are running Steam as an unprivileged
+    guest user that does not have a legitimate need to carry out sysadmin
+    operations like configuring the network.
+  * Lintian/janitorial fixes:
+    - Remove version constraints unnecessary since buster (oldstable)
+    - Correct machine-readable copyright file URI
+    - Update standards version to 4.6.2 (no changes needed)
+    - d/upstream/metadata: Add bug URLs
+  * Upload to unstable, replacing src:steam
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 20 Jan 2023 11:14:31 +0000
+
 steam-installer (1:1.0.0.75+ds-1) experimental; urgency=medium
 
   * Rename source package and main binary package to steam-installer

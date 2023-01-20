@@ -1,0 +1,47 @@
+.TH STEAM 6 "2023-01-20"
+.SH NAME
+steam \- Valve's Steam digital software delivery system
+.SH SYNOPSIS
+.B steam
+.RI [ OPTIONS ]
+.RI [ URL ]
+.br
+.SH DESCRIPTION
+.UR https://www.steampowered.com/
+Steam
+.UE
+is a software content delivery system
+developed by
+.UR https://www.valvesoftware.com/
+Valve Software
+.UE .
+There is
+some free software available, but for the most part the content delivered
+is non-free.
+
+Debian provides a wrapper script \fB/usr/games/steam\fR which will download
+and install the proprietary Steam interface on-demand.
+
+.SH OPTIONS
+All options provided to the \fBsteam\fR script are forwarded to the proprietary
+Steam client.
+
+The options that are available change frequently, and unrecognised options
+are usually ignored. An incomplete list is available from
+.UR https://developer.valvesoftware.com/wiki/Command_Line_Options#Steam
+.UE .
+
+Steam also accepts URLs with the \fBsteam:\fR or \fBsteamlink:\fR
+URL schemes. Some of the available actions are documented in
+.UR https://developer.valvesoftware.com/wiki/Steam_browser_protocol
+.UE .
+
+.SH AUTHOR
+Steam is maintained by Valve, and is proprietary software.
+
+This manual page was written by Simon McVittie for the Debian project
+(and may be used by others) as a replacement for the non-free man page
+provided by Valve.
+
+\" Copyright 2023 Simon McVittie
+\" SPDX-License-Identifier: MIT

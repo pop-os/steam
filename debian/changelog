@@ -1,3 +1,24 @@
+steam-installer (1:1.0.0.75+ds-4) unstable; urgency=medium
+
+  * steam-devices: Downgrade Recommends on steam-installer to Suggests.
+    A Recommends from main into contrib is not allowed (Policy §2.2.1)
+    and the purpose of moving steam-devices into main was to be able to
+    use it with non-Steam user-space drivers.
+  * steam-devices: Relax Breaks/Replaces on older steam packages.
+    steam-devices only needs Breaks/Replaces on steam packages that
+    shipped their own version of the udev rules that now live in
+    steam-devices.
+    In Debian, the udev rules moved from steam to steam-devices in
+    1.0.0.51-1, while in Valve's packages, all of the actual content
+    (including udev rules) moved from steam to steam-launcher in 1.0.0.35.
+    This should make it easier to upgrade steam-installer if the
+    Architecture: all buildd is not keeping up with amd64/i386.
+  * d/scripts/steam.in: Also set up a symlink to steam_tray_mono.png.
+    This isn't needed for menus, but is necessary to make Steam's system
+    tray icon appear correctly. (Closes: #1029305)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 21 Jan 2023 15:06:38 +0000
+
 steam-installer (1:1.0.0.75+ds-3) unstable; urgency=medium
 
   * Retry failed upload, no source changes

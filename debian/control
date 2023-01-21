@@ -179,7 +179,7 @@ Pre-Depends:
  ${misc:Pre-Depends},
 Depends:
  ${misc:Depends},
-Recommends:
+Suggests:
  steam-installer,
 Breaks:
  steam (<< ${source:Version}),

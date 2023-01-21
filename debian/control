@@ -182,13 +182,11 @@ Depends:
 Suggests:
  steam-installer,
 Breaks:
- steam (<< ${source:Version}),
- steam (>= ${source:Version}.),
+ steam (<< 1.0.0.51-1~),
 Conflicts:
  steam-launcher,
 Replaces:
- steam (<< ${source:Version}),
- steam (>= ${source:Version}.),
+ steam (<< 1.0.0.51-1~),
  steam-launcher,
 Description: Device support for Steam-related hardware
  This package provides udev rules for various Steam-related hardware devices

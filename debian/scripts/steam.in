@@ -1,6 +1,6 @@
 #!/bin/sh
 # Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
-# Copyright (C) 2018-2022 Simon McVittie
+# Copyright (C) 2018-2023 Simon McVittie
 # Copyright (C) 2020 Collabora Ltd.
 # SPDX-License-Identifier: MIT
 
@@ -81,6 +81,9 @@ if ! [ -d "$STEAMCONFIG/root" ]; then
 fi
 
 version="1.0.0.75"
+# This only needs to differ from ${version} or be incremented when the
+# installed files from steam-launcher change
+deb_version="${version}+ds-4"
 sha256="e52565a5e33b9a4184c5bdc222978b7fea958efd32641d5d5967774d751236a7"
 url="https://repo.steampowered.com/steam/archive/stable/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
@@ -122,7 +125,7 @@ Steam will be installed into: $STEAMDIR
     fi
 fi
 
-if [ "$installed" != "$version" ] || [ -n "$new_installation" ]; then
+if [ "$installed" != "$deb_version" ] || [ -n "$new_installation" ]; then
     mkdir -p "$STEAMDIR/deb-installer"
     curl -o "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$" "$url"
     got="$(sha256sum -b "$STEAMDIR/deb-installer/steam_${version}.tar.gz.$$")"
@@ -161,6 +164,14 @@ if [ "$installed" != "$version" ] || [ -n "$new_installation" ]; then
         if [ -L "$dest" ] || ! [ -e "$dest" ]; then
             ln -fns "$target" "$dest"
         fi
+
+        target="$STEAMDIR/deb-installer/steam-launcher/icons/$i/steam_tray_mono.png"
+        dest="${XDG_DATA_HOME}/icons/hicolor/${i}x${i}/apps/steam_tray_mono.png"
+        if [ -e "$target" ]; then
+            if [ -L "$dest" ] || ! [ -e "$dest" ]; then
+                ln -fns "$target" "$dest"
+            fi
+        fi
     done
 
     # Use the proprietary .desktop file to replace the one from the .deb
@@ -183,7 +194,7 @@ if [ "$installed" != "$version" ] || [ -n "$new_installation" ]; then
     touch "${XDG_DATA_HOME}/icons/hicolor/"
     touch "${XDG_DATA_HOME}/applications/"
 
-    echo "$version" > "$STEAMDIR/deb-installer/version.$$"
+    echo "$deb_version" > "$STEAMDIR/deb-installer/version.$$"
     mv "$STEAMDIR/deb-installer/version.$$" "$STEAMDIR/deb-installer/version"
 fi
 

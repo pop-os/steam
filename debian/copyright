@@ -59,7 +59,7 @@ License: Expat
 Files: debian/*
 Copyright:
  2013-2018 Michael Gilbert <mgilbert@debian.org>
- 2018-2022 Simon McVittie
+ 2018-2023 Simon McVittie
  2020-2021 Collabora Ltd.
 License: Expat
 

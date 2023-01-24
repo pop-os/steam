@@ -9,7 +9,7 @@
 
 polkit.addRule(function(action, subject) {
     if (subject.user !== "games-player") {
-        // Continue to the next rules file for users other than steam
+        // Continue to the next rules file for users other than games-player
         return polkit.Result.NOT_HANDLED;
     }
 

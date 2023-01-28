@@ -1,3 +1,22 @@
+steam-installer (1:1.0.0.75+ds-5) unstable; urgency=medium
+
+  [ Helge Kreutzmann ]
+  * d/po/de.po: Add German translation for debconf notes (Closes: #1029724)
+
+  [ Simon McVittie ]
+  * d/scripts/steam.in: Flag the edited .desktop file as executable.
+    This fixes the ability to launch it on KDE, which doesn't have the same
+    interpretation as GLib of the location of a symlink to a .desktop file.
+    (Closes: #1029806)
+  * d/control, d/scripts/steam.in: Allow yad as an alternative to zenity.
+    This avoids having to pull in WebKitGTK. zenity continues to be a
+    Recommends, because Steam and some games assume it to be present, and
+    if installed it will be used in preference to the much older version in
+    the Steam Runtime.
+  * d/50-steam-no-admin-actions.rules: Correct username in a comment
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 28 Jan 2023 11:18:04 +0000
+
 steam-installer (1:1.0.0.75+ds-4) unstable; urgency=medium
 
   * steam-devices: Downgrade Recommends on steam-installer to Suggests.

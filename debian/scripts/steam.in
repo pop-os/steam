@@ -83,7 +83,7 @@ fi
 version="1.0.0.75"
 # This only needs to differ from ${version} or be incremented when the
 # installed files from steam-launcher change
-deb_version="${version}+ds-4"
+deb_version="${version}+ds-5"
 sha256="e52565a5e33b9a4184c5bdc222978b7fea958efd32641d5d5967774d751236a7"
 url="https://repo.steampowered.com/steam/archive/stable/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
@@ -180,11 +180,17 @@ if [ "$installed" != "$deb_version" ] || [ -n "$new_installation" ]; then
     mkdir -p "${dest%/*}"
     # Adjust proprietary .desktop file for our installation location
     sed \
+        -e '1i#!/usr/bin/env xdg-open' \
         -e '/^Exec=/ s,/usr/bin/steam,/usr/games/steam,g' \
         -e 's,^Exec=steam ,Exec=/usr/games/steam ,' \
         -e '/^Actions=/ a Keywords=Games' \
         < "$STEAMDIR/deb-installer/steam-launcher/steam.desktop" \
         > "$target"
+    # It needs to be executable for KDE (#1029806), because KIO and GLib
+    # have different interpretations of what it means for a .desktop file
+    # to be in a non-standard location if it's a symlink: GLib uses the path
+    # of the symlink for its check, but KIO uses the realpath().
+    chmod +x "$target"
     if [ -L "$dest" ] || ! [ -e "$dest" ]; then
         ln -fns "$target" "$dest"
     fi

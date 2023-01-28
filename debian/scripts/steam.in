@@ -103,7 +103,13 @@ for needed in \
 done
 
 if [ -n "$new_installation" ]; then
-    if ! zenity \
+    if command -v zenity >/dev/null; then
+        zenityish=zenity
+    else
+        zenityish=yad
+    fi
+
+    if ! "$zenityish" \
         --question \
         --title="Steam installer" \
         --icon-name=steam \

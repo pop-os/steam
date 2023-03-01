@@ -1,3 +1,20 @@
+steam-installer (1:1.0.0.75+ds-6) unstable; urgency=medium
+
+  [ Camaleón ]
+  * d/po/es.po: Add Spanish translation for debconf notes (Closes: #1030655)
+
+  [ Paulo Henrique de Lima Santana ]
+  * d/po/pt_BR.po: Add Brazilian Portuguese translation for debconf notes
+    (Closes: #1031248)
+
+  [ Simon McVittie ]
+  * d/copyright: Broaden exclusion to be correct for 1.0.0.76.
+    There are some more non-MIT-licensed files in the new beta. This has no
+    practical effect on 1.0.0.75.
+  * d/beta.watch: Add a watch file for upstream betas
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 01 Mar 2023 19:34:12 +0000
+
 steam-installer (1:1.0.0.75+ds-5) unstable; urgency=medium
 
   [ Helge Kreutzmann ]

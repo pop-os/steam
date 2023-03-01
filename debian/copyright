@@ -16,7 +16,7 @@ Files-Excluded:
  steam.6
  steam.desktop
  steam.gpg
- steam.list
+ steam*.list
  steam_subscriber_agreement.txt
  steamdeps
  tests

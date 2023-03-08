@@ -1,4 +1,2 @@
-# "Expat" in Debian is the same license as "MIT" in SPDX
-inconsistent-appstream-metadata-license debian/com.steampowered.steam-devices.metainfo.xml (mit != expat) [debian/copyright]
 # It's proprietary, there is no useful public repository
 upstream-metadata-missing-repository [debian/upstream/metadata]

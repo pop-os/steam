@@ -32,6 +32,7 @@
   </screenshots>
   <launchable type="desktop-id">steam.desktop</launchable>
   <releases>
+    <release version="1.0.0.76" date="2023-03-01"/>
     <release version="1.0.0.75" date="2022-07-12"/>
     <release version="1.0.0.74" date="2021-12-01"/>
     <release version="1.0.0.73" date="2021-11-09"/>

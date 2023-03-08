@@ -1,3 +1,11 @@
+steam-installer (1:1.0.0.76+ds-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release
+    - Updated Steam client binary, build 1676336721 (2023-02-14)
+    - Updated Steam Runtime, build 0.20221019.0
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 08 Mar 2023 11:13:22 +0000
+
 steam-installer (1:1.0.0.75+ds-6) unstable; urgency=medium
 
   [ Camaleón ]

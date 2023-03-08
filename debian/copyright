@@ -41,7 +41,6 @@ Copyright:
 License: CC0-1.0
 
 Files:
- .gitlab-ci.yml
  buildutils/*.py
  steam_launcher/*.py
 Copyright:

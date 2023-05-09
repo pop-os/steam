@@ -1,3 +1,28 @@
+steam-installer (1:1.0.0.78~ds-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release
+    - Updated Steam client binary, build 1682708537 (2023-04-28)
+    - Updated Steam Runtime, build 0.20230118.0
+    - Allow raw HID access to more game controllers:
+      + Sony DualShock 3 (USB or Bluetooth)
+      + Razer Raiju Ultimate (USB or Bluetooth)
+    - Allow user access to Valve Index serial port, requested upstream
+      for SteamVR
+  * Use ~ds instead of +ds for the version number.
+    This arranges that if a user has intentionally added Valve's apt
+    repository (official from Valve's point of view, but third-party
+    from Debian's), they will get Valve's steam-libs family of packages
+    in preference to Debian's (which are official from Debian's point
+    of view, but third-party from Valve's). Preferring Debian's packages
+    is easy to achieve by not adding Valve's apt repository as a trusted
+    apt source.
+    Having the versioning this way round makes it more likely that any
+    given system will either have all Debian packages, or all Valve
+    packages, either of which will be more robust than an arbitrary
+    mixture.
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 09 May 2023 21:09:40 +0100
+
 steam-installer (1:1.0.0.76+ds-1) experimental; urgency=medium
 
   * New upstream beta release

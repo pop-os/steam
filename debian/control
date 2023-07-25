@@ -114,6 +114,7 @@ Recommends:
  libgbm1,
  libnm0 [!i386],
  libsdl2-2.0-0,
+ libusb-1.0-0,
  libva-drm2,
  libva-glx2,
  libx11-6,

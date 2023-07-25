@@ -1,3 +1,23 @@
+steam-installer (1:1.0.0.78~ds-3) UNRELEASED; urgency=medium
+
+  * d/control: Tighten up steam-libs dependencies to match versions.
+    If a user has added Valve's apt repository (but is using our
+    steam-installer package in preference to Valve's steam-launcher anyway),
+    we want to get Debian's steam-libs rather than Valve's. Because Debian
+    is able to target a specific host OS, while Valve is producing generic
+    packages for multiple OS versions, Debian is able to set tighter
+    dependencies that are more likely to avoid crashes.
+  * d/control: Make libnm0:i386 a hard dependency.
+    This is one of a few libraries in the Steam Runtime that pulls in
+    the old SONAME libudev.so.0, which conflicts with libudev.so.1,
+    causing Steam to crash. (Closes: #1041722, steam-for-linux#9805)
+  * d/control: Recommend libusb-1.0-0.
+    This is another library in the Steam Runtime that can pull in
+    the old SONAME libudev.so.0, which conflicts with libudev.so.1.
+    (Helps: #1041722, steam-for-linux#9805)
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 25 Jul 2023 15:16:59 +0100
+
 steam-installer (1:1.0.0.78~ds-2) unstable; urgency=medium
 
   [ bubu ]

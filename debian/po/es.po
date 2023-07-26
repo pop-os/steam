@@ -20,9 +20,9 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
-msgid "32-bit Nvidia driver (nvidia-driver-libs-i386) required"
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
 msgstr ""
-"Se requiere el controlador de 32 bits de nVidia (nvidia-driver-libs-i386)"
+"Se requiere el controlador de 32 bits de nVidia (nvidia-driver-libs:i386)"
 
 #. Type: note
 #. Description
@@ -40,22 +40,22 @@ msgstr ""
 msgid ""
 "Steam is a 32-bit program, so running it on this computer requires the 32-"
 "bit versions of the Nvidia libraries, even if all the games you will run via "
-"Steam are 64-bit. Please install the nvidia-driver-libs-i386 package."
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
 msgstr ""
 "Steam es un programa de 32 bits. Para poder ejecutarlo en este equipo, "
 "necesita las versiones de 32 bits de las bibliotecas de nVidia, incluso en "
 "el caso de que todos los juegos que vaya a ejecutar a través de Steam sean "
-"de 64 bits. Instale el paquete nvidia-driver-libs-i386."
+"de 64 bits. Instale el paquete nvidia-driver-libs:i386."
 
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
 msgid ""
 "For full functionality (including Vulkan), also install the libraries listed "
-"as Recommends in the nvidia-driver-libs-i386 package."
+"as Recommends in the nvidia-driver-libs:i386 package."
 msgstr ""
 "Para disponer de una funcionalidad completa (incluyendo Vulkan) instale "
-"también las bibliotecas que recomienda el paquete nvidia-driver-libs-i386."
+"también las bibliotecas que recomienda el paquete nvidia-driver-libs:i386."
 
 #. Type: note
 #. Description
@@ -63,11 +63,11 @@ msgstr ""
 msgid ""
 "If you are using a legacy version of the Nvidia driver such as nvidia-"
 "legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
-"for example nvidia-legacy-340xx-driver-libs-i386."
+"for example nvidia-legacy-340xx-driver-libs:i386."
 msgstr ""
 "Si está utilizando una versión obsoleta del controlador nVidia (p. ej., "
 "nvidia-legacy-340xx-driver), instale el paquete correspondiente de las "
-"bibliotecas obsoletas de 32 bits (p. ej., nvidia-legacy-340xx-driver-libs-"
+"bibliotecas obsoletas de 32 bits (p. ej., nvidia-legacy-340xx-driver-libs:"
 "i386)."
 
 #. Type: note

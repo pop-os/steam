@@ -22,8 +22,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
-msgid "32-bit Nvidia driver (nvidia-driver-libs-i386) required"
-msgstr "O Driver Nvidia de 32 bits (nvidia-driver-libs-i386) é necessário."
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
+msgstr "O Driver Nvidia de 32 bits (nvidia-driver-libs:i386) é necessário."
 
 #. Type: note
 #. Description
@@ -41,22 +41,22 @@ msgstr ""
 msgid ""
 "Steam is a 32-bit program, so running it on this computer requires the 32-"
 "bit versions of the Nvidia libraries, even if all the games you will run via "
-"Steam are 64-bit. Please install the nvidia-driver-libs-i386 package."
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
 msgstr ""
 "O Steam é um programa de 32 bits, portanto, executá-lo neste computador "
 "requer as versões de 32 bits das bibliotecas Nvidia, mesmo que todos os "
 "jogos que você executará via Steam sejam de 64 bits. Por favor instale o "
-"pacote nvidia-driver-libs-i386."
+"pacote nvidia-driver-libs:i386."
 
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
 msgid ""
 "For full functionality (including Vulkan), also install the libraries listed "
-"as Recommends in the nvidia-driver-libs-i386 package."
+"as Recommends in the nvidia-driver-libs:i386 package."
 msgstr ""
 "Para funcionalidade completa (incluindo Vulkan), instale também as "
-"bibliotecas listadas como Recommends no pacote nvidia-driver-libs-i386."
+"bibliotecas listadas como Recommends no pacote nvidia-driver-libs:i386."
 
 #. Type: note
 #. Description
@@ -64,11 +64,11 @@ msgstr ""
 msgid ""
 "If you are using a legacy version of the Nvidia driver such as nvidia-"
 "legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
-"for example nvidia-legacy-340xx-driver-libs-i386."
+"for example nvidia-legacy-340xx-driver-libs:i386."
 msgstr ""
 "Se você estiver usando uma versão antiga do driver Nvidia, como nvidia-"
 "legacy-340xx-driver, por favor instale o pacote antigo de 32 bits "
-"correspondente, por exemplo, nvidia-legacy-340xx-driver-libs-i386."
+"correspondente, por exemplo, nvidia-legacy-340xx-driver-libs:i386."
 
 #. Type: note
 #. Description

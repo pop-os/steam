@@ -19,8 +19,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
-msgid "32-bit Nvidia driver (nvidia-driver-libs-i386) required"
-msgstr "32-bit-Nvidia-Treiber benötigt (nvidia-driver-libs-i386)"
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
+msgstr "32-bit-Nvidia-Treiber benötigt (nvidia-driver-libs:i386)"
 
 #. Type: note
 #. Description
@@ -38,19 +38,19 @@ msgstr ""
 msgid ""
 "Steam is a 32-bit program, so running it on this computer requires the 32-"
 "bit versions of the Nvidia libraries, even if all the games you will run via "
-"Steam are 64-bit. Please install the nvidia-driver-libs-i386 package."
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
 msgstr ""
 "Steam ist ein 32-bit-Programm. daher benötigt die Ausführung auf diesem "
 "Computer die 32-bit-Version der Nvidia-Bibliotheken, selbst wenn alle "
 "Spiele, die Sie mit Steam ausführen werden, 64 bit sind. Bitte installieren "
-"Sie das Paket nvidia-driver-libs-i386."
+"Sie das Paket nvidia-driver-libs:i386."
 
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
 msgid ""
 "For full functionality (including Vulkan), also install the libraries listed "
-"as Recommends in the nvidia-driver-libs-i386 package."
+"as Recommends in the nvidia-driver-libs:i386 package."
 msgstr ""
 "Um vollständige Funktionalität (einschließlich Vulkan) zu erhalten, "
 "installieren Sie auch die als »Recommends« (Empfehlungen) im Paket nvidia-"
@@ -62,12 +62,12 @@ msgstr ""
 msgid ""
 "If you are using a legacy version of the Nvidia driver such as nvidia-"
 "legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
-"for example nvidia-legacy-340xx-driver-libs-i386."
+"for example nvidia-legacy-340xx-driver-libs:i386."
 msgstr ""
 "Falls Sie die veraltete Version des Nvidia-Treibers wie beispielsweise "
 "nvidia-legacy-340xx-driver verwenden, installieren Sie bitte das "
 "entsprechende veraltete 32-bit-Paket, beispielsweise nvidia-legacy-340xx-"
-"driver-libs-i386."
+"driver-libs:i386."
 
 #. Type: note
 #. Description

@@ -19,7 +19,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../steam-installer.templates:1001
-msgid "32-bit Nvidia driver (nvidia-driver-libs-i386) required"
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
 msgstr ""
 
 #. Type: note
@@ -36,7 +36,7 @@ msgstr ""
 msgid ""
 "Steam is a 32-bit program, so running it on this computer requires the 32-"
 "bit versions of the Nvidia libraries, even if all the games you will run via "
-"Steam are 64-bit. Please install the nvidia-driver-libs-i386 package."
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
 msgstr ""
 
 #. Type: note
@@ -44,7 +44,7 @@ msgstr ""
 #: ../steam-installer.templates:1001
 msgid ""
 "For full functionality (including Vulkan), also install the libraries listed "
-"as Recommends in the nvidia-driver-libs-i386 package."
+"as Recommends in the nvidia-driver-libs:i386 package."
 msgstr ""
 
 #. Type: note
@@ -53,7 +53,7 @@ msgstr ""
 msgid ""
 "If you are using a legacy version of the Nvidia driver such as nvidia-"
 "legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
-"for example nvidia-legacy-340xx-driver-libs-i386."
+"for example nvidia-legacy-340xx-driver-libs:i386."
 msgstr ""
 
 #. Type: note

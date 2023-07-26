@@ -1,4 +1,4 @@
-steam-installer (1:1.0.0.78~ds-3) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.78~ds-3) unstable; urgency=medium
 
   * d/control: Tighten up steam-libs dependencies to match versions.
     If a user has added Valve's apt repository (but is using our
@@ -15,8 +15,14 @@ steam-installer (1:1.0.0.78~ds-3) UNRELEASED; urgency=medium
     This is another library in the Steam Runtime that can pull in
     the old SONAME libudev.so.0, which conflicts with libudev.so.1.
     (Helps: #1041722, steam-for-linux#9805)
+  * d/steam-installer.templates, d/po: Update references to i386 Nvidia driver.
+    The cross-architecture packages like nvidia-driver-libs-i386 no longer
+    exist, so refer directly to the underlying nvidia-driver-libs:i386
+    package. (Closes: #1039996)
+  * Remove dangling symlink /usr/share/pixmaps/steam_tray_mono.png
+    (Closes: #1039893)
 
- -- Simon McVittie <smcv@debian.org>  Tue, 25 Jul 2023 15:16:59 +0100
+ -- Simon McVittie <smcv@debian.org>  Wed, 26 Jul 2023 12:38:12 +0100
 
 steam-installer (1:1.0.0.78~ds-2) unstable; urgency=medium
 

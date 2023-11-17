@@ -6,7 +6,7 @@ Uploaders:
  Michael Gilbert <mgilbert@debian.org>,
  Simon McVittie <smcv@debian.org>,
 Build-Depends:
- debhelper-compat (= 13),
+ debhelper-compat (= 12),
  po-debconf,
  python3:any,
  zlib1g,
@@ -131,6 +131,7 @@ Recommends:
  libxss1,
  libxxf86vm1,
  mesa-vulkan-drivers,
+ mesa-vulkan-drivers:i386,
  steam-devices,
  va-driver-all | va-driver,
  xdg-desktop-portal,

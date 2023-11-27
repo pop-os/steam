@@ -1,7 +1,7 @@
 #!/bin/sh
 # Copyright (C) 2013-2018 Michael Gilbert <mgilbert@debian.org>
 # Copyright (C) 2018-2023 Simon McVittie
-# Copyright (C) 2020-2024 Collabora Ltd.
+# Copyright (C) 2020 Collabora Ltd.
 # SPDX-License-Identifier: MIT
 
 set -e
@@ -10,7 +10,7 @@ set -e
 export STEAMSCRIPT="$0"
 # Used by diagnostic tools to identify the launcher version
 # Edited by debian/rules to fill in the real version number
-export STEAMSCRIPT_VERSION='uninstalled/Debian'
+export STEAMSCRIPT_VERSION='1.0.0.78~ds-3/Ubuntu'
 
 # According to Valve, ~/.steam is intended to be a control directory containing
 # symbolic links pointing to the currently-running or most-recently-run Steam
@@ -21,14 +21,6 @@ export STEAMSCRIPT_VERSION='uninstalled/Debian'
 # /usr/bin/steam (available at $STEAMDIR/bin_steam.sh in a Steam
 # installation).
 STEAMCONFIG="$HOME/.steam"
-
-# Fast-path: if Steam is already running, try to forward command-line to it
-if [ -p "$STEAMCONFIG/steam.pipe" ] \
-    && [ -x "$STEAMCONFIG/root/ubuntu12_32/steam-runtime/amd64/usr/bin/steam-runtime-steam-remote" ] \
-    && "$STEAMCONFIG/root/ubuntu12_32/steam-runtime/amd64/usr/bin/steam-runtime-steam-remote" "$@" 2>/dev/null
-then
-    exit 0
-fi
 
 : "${XDG_DATA_HOME:="$HOME/.local/share"}"
 
@@ -88,11 +80,11 @@ if ! [ -d "$STEAMCONFIG/root" ]; then
     ln -fns "$STEAMDIR" "$STEAMCONFIG/root"
 fi
 
-version="1.0.0.82"
+version="1.0.0.78"
 # This only needs to differ from ${version} or be incremented when the
 # installed files from steam-launcher change
 deb_version="${version}"
-sha256="afa2f1dd6271fd2b645ba30b8f3ab40afd3654e354241a31cbd51000f7e6fc77"
+sha256="104259755d7211b5f101db247ff70ebfed6ae6ca3e14da61195d1fbf91c7200d"
 url="https://repo.steampowered.com/steam/archive/beta/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
 new_installation=

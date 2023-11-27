@@ -10,7 +10,7 @@ set -e
 export STEAMSCRIPT="$0"
 # Used by diagnostic tools to identify the launcher version
 # Edited by debian/rules to fill in the real version number
-export STEAMSCRIPT_VERSION='uninstalled/Debian'
+export STEAMSCRIPT_VERSION='1.0.0.78~ds-3/Ubuntu'
 
 # According to Valve, ~/.steam is intended to be a control directory containing
 # symbolic links pointing to the currently-running or most-recently-run Steam

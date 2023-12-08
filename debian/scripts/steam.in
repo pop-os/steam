@@ -194,6 +194,9 @@ fi
 # stdout/stderr redirected, or wrap it with script(1).
 rm -f "$STEAMDIR/error.log"
 
+# Fix for https://github.com/ValveSoftware/steam-for-linux/issues/9383
+unset DRI_PRIME
+
 # launch the Valve run script
 exec "$STEAMDIR/steam.sh" -nominidumps -nobreakpad "$@"
 

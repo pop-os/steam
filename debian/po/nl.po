@@ -1,0 +1,90 @@
+# Translation of steam-installer debconf templates into Dutch.
+# This file is distributed under the same license as the steam-installer package.
+# Copyright 2013 Michael Gilbert
+# Copyright 2022 Simon McVittie
+# SPDX-License-Identifier: MIT
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: steam-installer_1_1.0.0.78_ds-3\n"
+"Report-Msgid-Bugs-To: steam-installer@packages.debian.org\n"
+"POT-Creation-Date: 2022-09-16 17:15+0100\n"
+"PO-Revision-Date: 2023-12-03 18:15+0100\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
+msgstr "32-bits Nvidia-stuurprogramma (nvidia-driver-libs-i386) vereist"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"This computer appears to be using the Nvidia binary graphics driver (the "
+"nvidia-driver package)."
+msgstr ""
+"Deze computer lijkt het binaire grafische stuurprogramma van Nvidia te "
+"gebruiken (het pakket nvidia-driver)."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"Steam is a 32-bit program, so running it on this computer requires the 32-"
+"bit versions of the Nvidia libraries, even if all the games you will run via "
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
+msgstr ""
+"Steam is een 32-bits programma, dus als u het op deze computer wilt "
+"gebruiken, heeft u de 32-bits versie van de Nvidia-bibliotheken nodig, zelfs "
+"als alle games die u via Steam uitvoert 64-bits zijn. Installeer het pakket "
+"nvidia-driver-libs:i386."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"For full functionality (including Vulkan), also install the libraries listed "
+"as Recommends in the nvidia-driver-libs:i386 package."
+msgstr ""
+"Installeer voor volledige functionaliteit (inclusief Vulkan) ook de "
+"bibliotheken die worden vermeld als Recommends (aanbevolen) in het pakket "
+"nvidia-driver-libs:i386."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"If you are using a legacy version of the Nvidia driver such as nvidia-"
+"legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
+"for example nvidia-legacy-340xx-driver-libs:i386."
+msgstr ""
+"Als u een oudere versie van het Nvidia-stuurprogramma gebruikt, zoals nvidia-"
+"legacy-340xx-driver, installeer dan het bijbehorende 32-bits legacy (oudere) "
+"pakket, bijvoorbeeld nvidia-legacy-340xx-driver-libs:i386."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid "STEAM PURGE NOTE"
+msgstr "OPMERKING BIJ WISSEN VAN STEAM"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid ""
+"Purging is not entirely complete.  Steam's working files are still located "
+"in your home directories at ~/.steam.  If you intended to remove the entire "
+"application, you will need to remove those directories manually."
+msgstr ""
+"Het wissen is niet helemaal voltooid. De werkbestanden van Steam bevinden "
+"zich nog steeds in uw persoonlijke map in ~/.steam. Als u van plan was de "
+"volledige toepassing te verwijderen, moet u die map handmatig verwijderen."

@@ -7,8 +7,10 @@ Uploaders:
  Simon McVittie <smcv@debian.org>,
 Build-Depends:
  debhelper-compat (= 13),
+ pkgconf,
  po-debconf,
  python3:any,
+ systemd-dev,
  zlib1g,
 Rules-Requires-Root: no
 Standards-Version: 4.6.2

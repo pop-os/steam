@@ -2,6 +2,8 @@
 
 include /usr/share/dpkg/default.mk
 
+export deb_udevdir = $(shell pkg-config --variable=udevdir udev | sed s,^/,,)
+
 export DH_VERBOSE=1
 
 %:

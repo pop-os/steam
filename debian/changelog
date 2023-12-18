@@ -1,3 +1,14 @@
+steam-installer (1:1.0.0.78~ds-4) unstable; urgency=medium
+
+  [ Chris Hofstaedtler ]
+  * Use udev.pc to place udev files (Closes: #1058830)
+
+  [ Frans Spiesschaert ]
+  * d/po/nl.po: Add Dutch translation for debconf notes
+    (Closes: #1058632)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 18 Dec 2023 22:09:44 +0000
+
 steam-installer (1:1.0.0.78~ds-3) unstable; urgency=medium
 
   * d/control: Tighten up steam-libs dependencies to match versions.

@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.79~ds-2) unstable; urgency=medium
+
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 13 Feb 2024 10:55:58 +0000
+
 steam-installer (1:1.0.0.79~ds-1) experimental; urgency=medium
 
   * New upstream beta release

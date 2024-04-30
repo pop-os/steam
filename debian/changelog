@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.79~ds-3) UNRELEASED; urgency=medium
+
+  * d/control: Suggest libgtk2.0-0t64 in preference to libgtk2.0-0
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 30 Apr 2024 20:01:10 +0100
+
 steam-installer (1:1.0.0.79~ds-2) unstable; urgency=medium
 
   * Release to unstable

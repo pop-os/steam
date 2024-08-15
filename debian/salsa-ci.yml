@@ -1,0 +1,8 @@
+include:
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/salsa-ci.yml
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/pipeline-jobs.yml
+
+# This is only installable on an amd64+i386 multiarch system, which
+# piuparts is not prepared for.
+variables:
+  SALSA_CI_DISABLE_PIUPARTS: 'true'

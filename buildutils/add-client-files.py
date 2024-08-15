@@ -184,11 +184,11 @@ class Main:
                 strict=True,
             )
             runtimedir = os.path.join(tmpdir, 'client', 'ubuntu12_32')
-            client.download_runtime(datadir=runtimedir, strict=True)
-            client.extract_runtime(runtimedir=runtimedir, destdir=tmpdir)
+            client.download_scout(datadir=runtimedir, strict=True)
+            client.extract_scout(runtimedir=runtimedir, destdir=tmpdir)
 
             self.client_version = client.version
-            self.resolved_runtime = client.runtime_version
+            self.resolved_runtime = client.scout_version
 
         assert os.path.exists(
             os.path.join(tmpdir, 'client', 'steam.sh')
@@ -206,7 +206,7 @@ class Main:
         previous scout build.
         """
         path = os.path.join(
-            tmpdir, 'client', 'ubuntu12_32', 'steam-runtime.tar.xz.part0',
+            tmpdir, 'client', 'ubuntu12_32', 'steam-runtime.tar.xz',
         )
 
         if self.runtime_version is None:

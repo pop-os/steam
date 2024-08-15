@@ -1,12 +1,16 @@
-steam-installer (1:1.0.0.81~ds-1) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.81~ds-1) experimental; urgency=medium
 
+  [ Simon McVittie ]
   * New upstream beta release
     - Updated Steam client binary, build 1721173382 (2024-07-16)
     - Updated Steam Runtime, build 0.20240610.91380
     - Add udev rule for PDP Victrix Pro FS-12
   * d/control: Suggest libgtk2.0-0t64 in preference to libgtk2.0-0
 
- -- Simon McVittie <smcv@debian.org>  Thu, 15 Aug 2024 19:54:10 +0100
+  [ Américo Monteiro ]
+  * Add Portuguese translation for debconf notes (Closes: #1065406)
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 15 Aug 2024 20:01:16 +0100
 
 steam-installer (1:1.0.0.79~ds-2) unstable; urgency=medium
 

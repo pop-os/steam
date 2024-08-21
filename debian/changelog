@@ -1,3 +1,11 @@
+steam-installer (1:1.0.0.81~ds-2) unstable; urgency=medium
+
+  * d/scripts/steam.in: Add a fast-path for Steam already running
+  * d/salsa-ci.yml: Add
+  * Release to unstable, matching upstream promotion of 1.0.0.81 to stable
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 21 Aug 2024 17:07:13 +0100
+
 steam-installer (1:1.0.0.81~ds-1) experimental; urgency=medium
 
   [ Simon McVittie ]

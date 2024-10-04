@@ -3,6 +3,7 @@ steam-installer (1:1.0.0.82~ds-1) UNRELEASED; urgency=medium
   * New upstream beta release
     - Updated Steam client binary, build 1726604483 (2024-09-17)
     - Updated Steam Runtime, build 0.20240806.97925
+  * Standards-Version: 4.7.0 (no changes required)
 
  -- Simon McVittie <smcv@debian.org>  Fri, 04 Oct 2024 11:01:00 +0100
 

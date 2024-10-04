@@ -1,11 +1,16 @@
-steam-installer (1:1.0.0.82~ds-1) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.82~ds-1) experimental; urgency=medium
 
   * New upstream beta release
     - Updated Steam client binary, build 1726604483 (2024-09-17)
     - Updated Steam Runtime, build 0.20240806.97925
+  * Add libxkbcommon{,-x11-}0 to Recommends.
+    This helps to avoid crashes on systems where a Vulkan layer depends
+    on libxkbcommon (for example MangoHud 0.7.2) when running games that
+    depend on libxkbcommon-x11 (for example Tiny Glade).
+  * d/com.steampowered.steam-devices.metainfo.xml: Expand metadata
   * Standards-Version: 4.7.0 (no changes required)
 
- -- Simon McVittie <smcv@debian.org>  Fri, 04 Oct 2024 11:01:00 +0100
+ -- Simon McVittie <smcv@debian.org>  Fri, 04 Oct 2024 11:37:57 +0100
 
 steam-installer (1:1.0.0.81~ds-2) unstable; urgency=medium
 

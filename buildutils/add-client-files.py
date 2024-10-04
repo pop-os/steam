@@ -28,6 +28,7 @@ Prepare external resources needed to build the Steam launcher .deb files.
 """
 
 import argparse
+import fnmatch
 import json
 import logging
 import os
@@ -49,7 +50,28 @@ from buildutils import SteamClient
 logger = logging.getLogger('add-client-files')
 
 
-BOOTSTRAP_RUNTIME_SONAMES = (
+BOOTSTRAP_RUNTIME_AMD64_BIN = (
+    'steam-runtime-check-requirements',     # run by steam.sh
+    'steam-runtime-identify-library-abi',   # run by setup.sh
+    'steam-runtime-launch-client',          # run by s-r-check-requirements
+    'srt-logger',                           # (symlink) run by steam.sh
+)
+BOOTSTRAP_RUNTIME_AMD64_SONAMES = (
+    'libcap.so.2',                          # dependency of srt-bwrap
+    'libelf.so.1',                          # dependency of s-r-id-lib-abi
+    'libffi.so.6',                          # dependency of GObject
+    'libgio-2.0.so.0',
+    'libglib-2.0.so.0',
+    'libgmodule-2.0.so.0',                  # dependency of Gio
+    'libgobject-2.0.so.0',
+    'libpcre.so.3',                         # dependency of GLib until #112
+    'libselinux.so.1',                      # dependency of Gio until #112
+    'libz.so.1',                            # dependency of Gio
+)
+BOOTSTRAP_RUNTIME_AMD64_PATTERNS = (
+    'libelf-*.so',
+)
+BOOTSTRAP_RUNTIME_I386_SONAMES = (
     'libX11-xcb.so.1',
     'libX11.so.6',
     'libXau.so.6',
@@ -58,10 +80,26 @@ BOOTSTRAP_RUNTIME_SONAMES = (
     'libXext.so.6',
     'libXfixes.so.3',
     'libXxf86vm.so.1',
+    'libcom_err.so.2',
+    'libcurl-gnutls.so.4',
     'libexpat.so.1',
     'libffi.so.6',
     'libgcc_s.so.1',
+    'libgcrypt.so.11',
+    'libgmp.so.10',
+    'libgnutls.so.30',
+    'libgssapi_krb5.so.2',
+    'libhogweed.so.4',
+    'libidn.so.11',
+    'libk5crypto.so.3',
+    'libkeyutils.so.1',
+    'libkrb5.so.3',
+    'libkrb5support.so.0',
+    'libnettle.so.6',
+    'libp11-kit.so.0',
+    'librtmp.so.0',
     'libstdc++.so.6',
+    'libtasn1.so.6',
     'libtinfo.so.5',
     'libxcb-dri2.so.0',
     'libxcb-dri3.so.0',
@@ -70,6 +108,11 @@ BOOTSTRAP_RUNTIME_SONAMES = (
     'libxcb-sync.so.1',
     'libxcb.so.1',
     'libz.so.1',
+)
+BOOTSTRAP_RUNTIME_LIBEXEC_SRT = (
+    'srt-bwrap',                            # run by s-r-check-requirements
+    'srt-logger',                           # run by bin_steam.sh, steam.sh
+    'logger-0.bash',                        # run by bin_steam.sh, steam.sh
 )
 
 
@@ -81,6 +124,7 @@ class Main:
     def __init__(
         self,
         client_manifest: str,
+        client_overlay: str,
         client_uri: str,
         destination: str,
         runtime_snapshots_uri: str,
@@ -88,7 +132,7 @@ class Main:
         client_dir: Optional[str] = None,
         client_tarball_uri: Optional[str] = None,
         credential_envs: Sequence[str] = (),
-        runtime_version: Optional[str] = None,
+        runtime_version: str = '',
         **kwargs: Dict[str, Any],
     ) -> None:
         openers: List[urllib.request.BaseHandler] = []
@@ -118,6 +162,7 @@ class Main:
         self.client_dir = None
         self.client_tarball_uri = client_tarball_uri
         self.client_manifest = client_manifest
+        self.client_overlay = client_overlay
         self.client_uri = client_uri
         self.client_version = None          # type: Optional[str]
         self.destination = destination
@@ -209,7 +254,7 @@ class Main:
             tmpdir, 'client', 'ubuntu12_32', 'steam-runtime.tar.xz',
         )
 
-        if self.runtime_version is None:
+        if not self.runtime_version:
             if not os.path.exists(path):
                 raise InvocationError(
                     '--runtime-version must be specified if CLIENT_VERSION '
@@ -218,12 +263,13 @@ class Main:
 
             return
 
-        with self.opener.open(
-            self.get_runtime_uri(
-                filename='VERSION.txt',
-                version=self.runtime_version,
-            )
-        ) as response:
+        uri = self.get_runtime_uri(
+            filename='VERSION.txt',
+            version=self.runtime_version,
+        )
+        logger.info('Requesting <%s>...', uri)
+
+        with self.opener.open(uri) as response:
             resolved_runtime = response.read().strip().decode('utf-8')
             self.resolved_runtime = resolved_runtime
 
@@ -276,6 +322,25 @@ class Main:
             'install', '-p', '-m', mode, src, dest,
         ], check=True)
 
+    def install_search(
+        self,
+        dirs: Sequence[str],
+        rel: str,
+        dest: str,
+        executable: bool = False,
+    ) -> None:
+        for d in dirs:
+            if not d:
+                continue
+
+            src = os.path.join(d, rel)
+
+            if os.path.exists(src):
+                self.install(src, dest, executable=executable)
+                return
+
+        raise RuntimeError(f'{rel} not found in {dirs}')
+
     def _normalize_tar_entry(
         self,
         entry: tarfile.TarInfo,
@@ -294,11 +359,87 @@ class Main:
 
         return entry
 
+    def want_file_from_runtime(
+        self,
+        path_parts: List[str],
+    ) -> bool:
+        if path_parts[0] in (
+            'COPYING',
+            'README.txt',
+            'built-using.txt',
+            'common-licenses',
+            'manifest.deb822.gz',
+            'manifest.txt',
+            'run.sh',
+            'scripts',
+            'setup.sh',
+            'version.txt',
+        ):
+            logger.info('[x] %s: metadata/scripts', '/'.join(path_parts))
+            return True
+
+        if path_parts[0] == 'usr':
+            path_parts = path_parts[1:]
+
+        if path_parts[:-1] in (
+            ['lib', 'i386-linux-gnu'],
+            ['lib', 'i386-linux-gnu', 'steam-runtime-tools-0'],
+        ):
+            for soname in BOOTSTRAP_RUNTIME_I386_SONAMES:
+                if (
+                    path_parts[-1] == soname
+                    or path_parts[-1].startswith(soname + '.')
+                ):
+                    logger.info('[x] %s: i386 lib', '/'.join(path_parts))
+                    return True
+        elif path_parts[:-1] in (
+            ['lib', 'x86_64-linux-gnu'],
+            ['lib', 'x86_64-linux-gnu', 'steam-runtime-tools-0'],
+        ):
+            for pattern in BOOTSTRAP_RUNTIME_AMD64_PATTERNS:
+                if fnmatch.fnmatch(path_parts[-1], pattern):
+                    logger.info('[x] %s: amd64 lib', '/'.join(path_parts))
+                    return True
+
+            for soname in BOOTSTRAP_RUNTIME_AMD64_SONAMES:
+                if (
+                    path_parts[-1] == soname
+                    or path_parts[-1].startswith(soname + '.')
+                ):
+                    logger.info('[x] %s: amd64 lib', '/'.join(path_parts))
+                    return True
+        elif path_parts[:-1] == ['amd64', 'usr', 'bin']:
+            if path_parts[-1] in BOOTSTRAP_RUNTIME_AMD64_BIN:
+                logger.info('[x] %s: amd64 bin', '/'.join(path_parts))
+                return True
+        elif (
+            path_parts[:-1] == ['libexec', 'steam-runtime-tools-0']
+        ):
+            if path_parts[-1] in BOOTSTRAP_RUNTIME_LIBEXEC_SRT:
+                logger.info('[x] %s: pkglibexec', '/'.join(path_parts))
+                return True
+        elif path_parts in (
+            ['amd64', 'lib'],
+            ['amd64', 'usr', 'lib'],
+            ['amd64', 'usr', 'libexec'],
+            ['amd64', 'usr', 'share'],
+        ):
+            logger.info('[x] %s: amd64 dependency', '/'.join(path_parts))
+            return True
+
+        logger.info('[ ] %s', '/'.join(path_parts))
+        return False
+
     def build_bootstrap(
         self,
         client_dir: str,
         tmpdir: str,
     ) -> None:
+        os.makedirs(
+            os.path.join(tmpdir, 'bootstrap', 'clientui', 'fonts'),
+            exist_ok=True,
+            mode=0o755,
+        )
         os.makedirs(
             os.path.join(tmpdir, 'bootstrap', 'linux32'),
             exist_ok=True,
@@ -310,31 +451,46 @@ class Main:
             mode=0o755,
         )
 
-        self.install(
-            os.path.join(client_dir, 'linux32', 'steamerrorreporter'),
+        self.install_search(
+            (self.client_overlay, client_dir),
+            'linux32/steamerrorreporter',
             os.path.join(tmpdir, 'bootstrap', 'linux32', ''),
             executable=True,
         )
-        self.install(
-            os.path.join(client_dir, 'steam.sh'),
+        self.install_search(
+            (self.client_overlay, client_dir),
+            'steam.sh',
             os.path.join(tmpdir, 'bootstrap', ''),
             executable=True,
         )
-        self.install(
-            os.path.join(client_dir, 'steamdeps.txt'),
+        self.install_search(
+            (self.client_overlay, client_dir),
+            'steamdeps.txt',
             os.path.join(tmpdir, 'bootstrap', ''),
             executable=False,
         )
-        self.install(
-            os.path.join(client_dir, 'ubuntu12_32', 'steam'),
+        self.install_search(
+            (self.client_overlay, client_dir),
+            'ubuntu12_32/steam',
             os.path.join(tmpdir, 'bootstrap', 'ubuntu12_32', ''),
             executable=True,
         )
-        self.install(
-            os.path.join(client_dir, 'ubuntu12_32', 'crashhandler.so'),
+        self.install_search(
+            (self.client_overlay, client_dir),
+            'ubuntu12_32/crashhandler.so',
             os.path.join(tmpdir, 'bootstrap', 'ubuntu12_32', ''),
             executable=True,
         )
+
+        for font in (
+            'GoNotoKurrent-Bold.ttf',
+            'GoNotoKurrent-Regular.ttf',
+        ):
+            self.install_search(
+                (self.client_overlay, client_dir),
+                'clientui/fonts/' + font,
+                os.path.join(tmpdir, 'bootstrap', 'clientui', 'fonts', ''),
+            )
 
         runtimedir = os.path.join(client_dir, 'ubuntu12_32')
         bootstrap = os.path.join(tmpdir, 'bootstrap')
@@ -352,36 +508,8 @@ class Main:
                 if '..' in bits:
                     raise ValueError(f'{info.name} has path traversal')
 
-                if bits[1] in (
-                    'COPYING',
-                    'README.txt',
-                    'built-using.txt',
-                    'common-licenses',
-                    'manifest.deb822.gz',
-                    'manifest.txt',
-                    'run.sh',
-                    'scripts',
-                    'setup.sh',
-                    'version.txt',
-                ):
+                if self.want_file_from_runtime(bits[1:]):
                     tar_reader.extract(info, path=bootstrap_runtime_dir)
-                    continue
-
-                if bits[1] == 'usr':
-                    bits = bits[2:]
-                else:
-                    bits = bits[1:]
-
-                if bits[0:2] != ['lib', 'i386-linux-gnu']:
-                    continue
-
-                if len(bits) != 3:
-                    continue
-
-                for soname in BOOTSTRAP_RUNTIME_SONAMES:
-                    if bits[2] == soname or bits[2].startswith(soname + '.'):
-                        tar_reader.extract(info, path=bootstrap_runtime_dir)
-                        break
 
         with tarfile.open(
             os.path.join(
@@ -465,6 +593,10 @@ def main() -> None:
         help='Client manifest VDF file relative to CLIENT_URI',
     )
     parser.add_argument(
+        '--client-overlay', default='',
+        help='Directory with files to override in bootstrap tarball',
+    )
+    parser.add_argument(
         '--client-tarball-uri', default=None,
         help=(
             'Download Steam Client files from this URI instead of from '
@@ -484,14 +616,14 @@ def main() -> None:
     parser.add_argument(
         '--runtime-snapshots-uri',
         default=(
-            'https://repo.steampowered.com/steamrt-images-scout/snapshots'
+            'https://repo.steampowered.com/steamrt1/images'
         ),
         help=(
             'Download Steam Runtime tarball from a subdirectory of this'
         ),
     )
     parser.add_argument(
-        '--runtime-version', default=None,
+        '--runtime-version', default='',
         help='Replace Steam Runtime tarball (if any) with this version',
     )
 

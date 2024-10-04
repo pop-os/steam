@@ -88,11 +88,11 @@ if ! [ -d "$STEAMCONFIG/root" ]; then
     ln -fns "$STEAMDIR" "$STEAMCONFIG/root"
 fi
 
-version="1.0.0.81"
+version="1.0.0.82"
 # This only needs to differ from ${version} or be incremented when the
 # installed files from steam-launcher change
 deb_version="${version}"
-sha256="1a26b9d7cdace09e04dc86b511e0b9923257f664a5b6cafe6fed5e46d117b4f9"
+sha256="afa2f1dd6271fd2b645ba30b8f3ab40afd3654e354241a31cbd51000f7e6fc77"
 url="https://repo.steampowered.com/steam/archive/beta/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
 new_installation=

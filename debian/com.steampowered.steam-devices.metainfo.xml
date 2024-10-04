@@ -3,6 +3,7 @@
 <component>
   <id>com.steampowered.steam-devices</id>
   <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
   <name>steam-devices</name>
   <summary>Device support for Steam-related hardware</summary>
   <description>
@@ -15,4 +16,9 @@
   <provides>
     <modalias>usb:v1130p0202d*</modalias>
   </provides>
+  <url type="homepage">https://github.com/ValveSoftware/steam-devices</url>
+  <url type="bugtracker">https://github.com/ValveSoftware/steam-devices/issues</url>
+  <developer id="com.valvesoftware">
+    <name>Valve Corporation</name>
+  </developer>
 </component>

@@ -130,6 +130,8 @@ Recommends:
  libxdmcp6,
  libxext6,
  libxfixes3,
+ libxkbcommon-x11-0,
+ libxkbcommon0,
  libxss1,
  libxxf86vm1,
  mesa-vulkan-drivers,

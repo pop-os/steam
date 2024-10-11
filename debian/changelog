@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.82~ds-1pop0) jammy; urgency=medium
+
+  * Pop!_OS backport
+
+ -- Jeremy Soller <jeremy@system76.com>  Fri, 11 Oct 2024 10:45:04 -0600
+
 steam-installer (1:1.0.0.82~ds-1) experimental; urgency=medium
 
   * New upstream beta release

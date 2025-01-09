@@ -1,3 +1,11 @@
+steam-installer (1:1.0.0.82~ds-2) unstable; urgency=medium
+
+  * d/salsa-ci.yml: Use recommended recipe
+  * d/control: Add Depends/Recommends on amd64 libraries used during startup
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 09 Jan 2025 12:32:28 +0000
+
 steam-installer (1:1.0.0.82~ds-1) experimental; urgency=medium
 
   * New upstream beta release

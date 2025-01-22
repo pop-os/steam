@@ -1,0 +1,35 @@
+Description: Added AppStream metadata XML file for devices package.
+ 
+Author: Petter Reinholdtsen <pere@debian.org>
+Forwarded: no
+Last-Update: 2025-01-22
+---
+Index: steam-installer-salsa/com.valvesoftware.Steam.devices.metainfo.xml
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ steam-installer-salsa/com.valvesoftware.Steam.devices.metainfo.xml	2025-01-22 10:31:02.687033371 +0000
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!-- Copyright (c) 2018 Michael Gilbert <mgilbert@debian.org> -->
++<component>
++  <id>com.valvesoftware.Steam.devices</id>
++  <metadata_license>MIT</metadata_license>
++  <project_license>MIT</project_license>
++  <name>steam-devices</name>
++  <summary>Device support for Steam-related hardware</summary>
++  <description>
++    <p>
++      This package provides udev rules for various Steam-related hardware devices
++      such as the Steam Controller (gamepad) and the HTC Vive (virtual reality
++      headset).
++    </p>
++  </description>
++  <provides>
++    <modalias>usb:v1130p0202d*</modalias>
++  </provides>
++  <url type="homepage">https://github.com/ValveSoftware/steam-devices</url>
++  <url type="bugtracker">https://github.com/ValveSoftware/steam-devices/issues</url>
++  <developer id="com.valvesoftware">
++    <name>Valve Corporation</name>
++  </developer>
++</component>

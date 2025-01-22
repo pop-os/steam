@@ -26,6 +26,7 @@ Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
+ lsof,
  steam-libs (= ${binary:Version}),
  steam-libs-i386 (= ${binary:Version}),
  zenity | yad,

@@ -1,2 +1,2 @@
-com.valvesoftware.Steam.devices.metainfo.xml usr/share/metainfo
+debian/com.steampowered.steam-devices.metainfo.xml usr/share/metainfo
 subprojects/steam-devices/*.rules ${env:deb_udevdir}/rules.d

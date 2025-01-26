@@ -1,13 +1,19 @@
-steam-installer (1:1.0.0.82~ds-3) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.82~ds-3) unstable; urgency=medium
 
   [ Simon McVittie ]
   * d/control: Add Depends on lsof.
     The Steam client uses this internally.
+  * metainfo: Stop indicating that steam-devices supports a novelty USB
+    missile launcher.
+    steam-devices interacts with various gamepads, but is not strictly
+    required for them. It certainly doesn't support this particular
+    USB device, a desk toy which fires small plastic missiles.
+    (Closes: #1079356)
 
   [ Carles Pina i Estany ]
   * Add Catalan translation for debconf notes
 
- -- Simon McVittie <smcv@debian.org>  Wed, 22 Jan 2025 12:55:04 +0000
+ -- Simon McVittie <smcv@debian.org>  Sun, 26 Jan 2025 21:20:04 +0000
 
 steam-installer (1:1.0.0.82~ds-2) unstable; urgency=medium
 

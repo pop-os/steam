@@ -7,9 +7,6 @@ steam-installer (1:1.0.0.82~ds-3) UNRELEASED; urgency=medium
   [ Carles Pina i Estany ]
   * Add Catalan translation for debconf notes
 
-  [ Petter Reinholdtsen ]
-  * Converted steam-devices AppStream info to upstreamable patch.
-
  -- Simon McVittie <smcv@debian.org>  Wed, 22 Jan 2025 12:55:04 +0000
 
 steam-installer (1:1.0.0.82~ds-2) unstable; urgency=medium

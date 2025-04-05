@@ -1,0 +1,100 @@
+# Romanian translation of debconf templates debconf_steam-installer.
+# Mesajele în limba română pentru șablonul debconf_steam-installer.
+# Copyright 2013 Michael Gilbert
+# Copyright 2022 Simon McVittie
+# SPDX-License-Identifier: MIT
+# This file is distributed under the same license as the steam-installer package.
+#
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2025.
+#
+# Cronologia traducerii fișierului „debconf_steam-installer”:
+# Traducerea inițială, făcută de R-GC, pentru versiunea steam-installer 1.0.0.82~ds-3.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Y(anul).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: steam-installer 1.0.0.82~ds-3\n"
+"Report-Msgid-Bugs-To: steam-installer@packages.debian.org\n"
+"POT-Creation-Date: 2022-09-16 17:15+0100\n"
+"PO-Revision-Date: 2025-04-02 16:07+0200\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
+"n%100<=19) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.5\n"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid "32-bit Nvidia driver (nvidia-driver-libs:i386) required"
+msgstr ""
+"Este necesar controlorul Nvidia pe 32 de biți (nvidia-driver-libs:i386)"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"This computer appears to be using the Nvidia binary graphics driver (the "
+"nvidia-driver package)."
+msgstr ""
+"Acest calculator pare să utilizeze controlorul grafic binar Nvidia (pachetul "
+"„nvidia-driver”)."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"Steam is a 32-bit program, so running it on this computer requires the 32-"
+"bit versions of the Nvidia libraries, even if all the games you will run via "
+"Steam are 64-bit. Please install the nvidia-driver-libs:i386 package."
+msgstr ""
+"Steam este un program pe 32 de biți, astfel încât rularea sa pe acest "
+"calculator necesită versiunile pe 32 de biți ale bibliotecilor Nvidia, chiar "
+"dacă toate jocurile pe care le veți rula prin Steam sunt pe 64 de biți; așa "
+"că va trebui să instalați pachetul „nvidia-driver-libs:i386”."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"For full functionality (including Vulkan), also install the libraries listed "
+"as Recommends in the nvidia-driver-libs:i386 package."
+msgstr ""
+"Pentru funcționalitate completă (inclusiv Vulkan), instalați și bibliotecile "
+"enumerate ca Recomandate în pachetul „nvidia-driver-libs:i386”."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:1001
+msgid ""
+"If you are using a legacy version of the Nvidia driver such as nvidia-"
+"legacy-340xx-driver, please install the corresponding 32-bit legacy package, "
+"for example nvidia-legacy-340xx-driver-libs:i386."
+msgstr ""
+"Dacă utilizați o versiune veche a controlorului Nvidia, cum ar fi „nvidia-"
+"legacy-340xx-driver”, vă rugăm să instalați pachetul vechi pe 32 de biți "
+"corespunzător, de exemplu „nvidia-legacy-340xx-driver-libs:i386”."
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid "STEAM PURGE NOTE"
+msgstr "NOTĂ PRIVIND PURJAREA STEAM"
+
+#. Type: note
+#. Description
+#: ../steam-installer.templates:2001
+msgid ""
+"Purging is not entirely complete.  Steam's working files are still located "
+"in your home directories at ~/.steam.  If you intended to remove the entire "
+"application, you will need to remove those directories manually."
+msgstr ""
+"Purjarea nu este pe deplin completă. Dosarele și fișierele de lucru ale "
+"Steam sunt încă localizate în directorul dvs. personal la „~/.steam”. Dacă "
+"intenționați să eliminați întreaga aplicație, va trebui să eliminați acele "
+"dosare și fișiere manual."

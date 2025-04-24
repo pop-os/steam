@@ -91,7 +91,7 @@ fi
 version="1.0.0.82"
 # This only needs to differ from ${version} or be incremented when the
 # installed files from steam-launcher change
-deb_version="${version}"
+deb_version="${version}~ds-4"
 sha256="afa2f1dd6271fd2b645ba30b8f3ab40afd3654e354241a31cbd51000f7e6fc77"
 url="https://repo.steampowered.com/steam/archive/beta/steam_${version}.tar.gz"
 installed="$(cat "$STEAMDIR/deb-installer/version" 2>/dev/null || true)"
@@ -193,10 +193,14 @@ if [ "$installed" != "$deb_version" ] || [ -n "$new_installation" ]; then
     dest="${XDG_DATA_HOME}/applications/steam.desktop"
     mkdir -p "${dest%/*}"
     # Adjust proprietary .desktop file for our installation location
+    # Also hotfix some Desktop Action URLs that no longer work, with the
+    # same replacements as in upstream beta 1.0.0.83
     sed \
         -e '1i#!/usr/bin/env xdg-open' \
         -e '/^Exec=/ s,/usr/bin/steam,/usr/games/steam,g' \
         -e 's,^Exec=steam ,Exec=/usr/games/steam ,' \
+        -e '/^Exec=/ s,steam://open/news,steam://openurl/https://store.steampowered.com/news,g' \
+        -e '/^Exec=/ s,steam://url/SteamIDControlPage,steam://url/CommunityHome/,g' \
         -e '/^Actions=/ a Keywords=Games' \
         < "$STEAMDIR/deb-installer/steam-launcher/steam.desktop" \
         > "$target"

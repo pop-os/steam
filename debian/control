@@ -201,6 +201,21 @@ Replaces:
  steam (<< 1.0.0.51-1~),
  steam-launcher,
 Description: Device support for Steam-related hardware
- This package provides udev rules for various Steam-related hardware devices
- such as the Steam Controller (gamepad) and the HTC Vive (virtual reality
- headset).
+ Installing this package configures udev to allow logged-in local users
+ to access various gaming-related hardware devices, such as:
+ .
+  - Valve devices such as the Steam Controller and Steam Deck
+  - Microsoft Xbox gamepads (Xbox 360 or newer)
+  - Sony Playstation gamepads (Playstation 3 or newer)
+  - Nintendo Switch gamepads
+  - third-party "clone" gamepads compatible with those devices
+  - virtual reality and XR peripherals such as the HTC Vive
+ .
+ It also allows input device emulation via /dev/uinput, which is required
+ by some Steam features such as Steam Input and Steam Remote Play.
+ .
+ These udev rules represent a trade-off between functionality and security,
+ and this package should not be installed on systems that are expected to
+ have malicious local users.
+ The security risks and mitigations are discussed in more detail in
+ <file:///usr/share/doc/steam-devices/README.Debian>.

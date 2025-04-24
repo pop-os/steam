@@ -1,0 +1,104 @@
+steam-devices for Debian
+========================
+
+This package relaxes the default device permissions to be appropriate
+for desktop/laptop systems used for gaming by users who are generally
+trusted to be non-malicious. This document describes the security
+trade-offs in more detail.
+
+In this document "local user" or "locally logged-in user" refers to a
+user who was, at the time, authenticated as physically present at the
+system console.
+
+On systems that use systemd, all of the risks described below can be
+mitigated by configuring /etc/systemd/logind.conf to terminate background
+processes when a user logs out (KillUserProcesses=yes), and ensuring that
+any potentially malicious users are fully logged-out before logging in as
+another user (avoiding "fast user switching").
+
+/dev/uinput
+-----------
+
+steam-devices makes /dev/uinput available to locally logged-in users via
+udev's uaccess mechanism. /dev/uinput allows user-space programs to
+generate mock input devices such as keyboards, mice and game controllers,
+which will control programs in the same way as real keyboards and mice.
+
+The benefit is that this is used by two (or possibly more) features of
+the proprietary Steam client. Steam Input takes gamepad actions as input,
+and generates a mock keyboard, mouse and Xbox 360 controller, which can be
+used to control games that do not normally support gamepads, or games that
+support only Xbox-compatible gamepads but not Playstation or Nintendo.
+
+Similarly, Steam Remote Play takes input actions from the same Steam
+account's session on a mobile device app or another PC, and similarly
+generates a mock local keyboard, mouse and game controller; this combines
+with video and audio streaming in the opposite direction to form a
+specialized gaming-oriented remote desktop protocol, so that players
+can run a game on a powerful PC but interact with it on a smaller or
+more convenient device.
+
+The security risk is that a malicious local user can open the /dev/uinput
+file descriptor, and then keep it open in a background process after they
+have logged out or performed "fast user switching". After another local
+user logs in, the attacker's emulated keyboard and mouse will provide
+input to the victim's desktop session, which they could use to enter
+malicious commands.
+
+A mitigation to this security risk is that the victim can see this input
+happening, and the attacker cannot see what they are doing (they must
+control the victim's desktop "blindly" by predicting what effect their
+input will have).
+
+On systems that use systemd, this risk can also be mitigated by
+configuring /etc/systemd/logind.conf to terminate background processes
+when a user logs out (KillUserProcesses=yes), and ensuring that
+potentially malicious users are fully logged-out in preference to using
+fast user switching.
+
+Gamepads in raw HID mode
+------------------------
+
+steam-devices makes /dev/hidraw* devices that correspond to an assortment
+of known gamepads available to locally logged-in users. These include
+popular gamepads from Microsoft (Xbox), Sony (Playstation), Nintendo
+(Switch, etc.) and Valve (Steam Controller and the Steam Deck's built-in
+gamepad), along with various third-party "clone" gamepads compatible
+with those. /dev/hidraw* are equivalent to the level of access to these
+gamepads that would be provided on Windows, and possibly also macOS.
+
+The benefit is that raw HID access allows low-level access to controller
+functionality that is not exposed by the higher-level evdev interface,
+like Nintendo Switch controllers' motion controls, reconfiguring gamepads
+for different modes or behaviours, and updating gamepad firmware.
+
+The security risk is that a malicious local user can open the /dev/hidraw*
+file descriptor, and then keep it open in a background process after
+they have logged out or performed "fast user switching". After another
+local user logs in, the attacker can read whatever input that user
+performs via the game controller (like a strange sort of keylogger),
+reconfigure it for different modes or behaviours, or potentially change
+its behaviour by reprogramming its firmware.
+
+A mitigation to this security risk is that it is uncommon to enter
+secret input such as passwords with a gamepad, except for perhaps
+via an on-screen virtual keyboard, which would require the attacker
+to reconstruct the positions of the virtual keys that were pressed by
+observing gamepad movements; so this is less powerful for the attacker
+than a keylogger (its scope is more like a mouse logger).
+
+Virtual reality and XR devices
+------------------------------
+
+steam-devices makes a few devices represending virtual reality and XR
+peripherals available to locally logged-in users.
+
+The benefit is that this access allows SteamVR to make use of these
+devices, including updating their firmware in some cases.
+
+Again, the security risk is that a malicious local user can open the
+device file descriptor, and then keep it open in a background process
+after they have logged out or performed "fast user switching". After
+another local user logs in, the attacker can continue to read input from
+the device and/or write configuration and potentially firmware to it.
+

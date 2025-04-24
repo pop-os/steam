@@ -193,14 +193,10 @@ if [ "$installed" != "$deb_version" ] || [ -n "$new_installation" ]; then
     dest="${XDG_DATA_HOME}/applications/steam.desktop"
     mkdir -p "${dest%/*}"
     # Adjust proprietary .desktop file for our installation location
-    # Also hotfix some Desktop Action URLs that no longer work, with the
-    # same replacements as in upstream beta 1.0.0.83
     sed \
         -e '1i#!/usr/bin/env xdg-open' \
         -e '/^Exec=/ s,/usr/bin/steam,/usr/games/steam,g' \
         -e 's,^Exec=steam ,Exec=/usr/games/steam ,' \
-        -e '/^Exec=/ s,steam://open/news,steam://openurl/https://store.steampowered.com/news,g' \
-        -e '/^Exec=/ s,steam://url/SteamIDControlPage,steam://url/CommunityHome/,g' \
         -e '/^Actions=/ a Keywords=Games' \
         < "$STEAMDIR/deb-installer/steam-launcher/steam.desktop" \
         > "$target"

@@ -218,4 +218,4 @@ Description: Device support for Steam-related hardware
  and this package should not be installed on systems that are expected to
  have malicious local users.
  The security risks and mitigations are discussed in more detail in
- <file:///usr/share/doc/steam-devices/README.Debian>.
+ <file:///usr/share/doc/steam-devices/README.Debian.gz>.

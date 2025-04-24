@@ -26,6 +26,7 @@ Pre-Depends:
  debconf,
  ${misc:Pre-Depends},
 Depends:
+ default-dbus-session-bus | dbus-session-bus,
  lsof,
  steam-libs (= ${binary:Version}),
  steam-libs-i386 (= ${binary:Version}),

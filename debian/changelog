@@ -1,4 +1,4 @@
-steam-installer (1:1.0.0.82~ds-4) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.82~ds-4) unstable; urgency=medium
 
   [ Simon McVittie ]
   * d/scripts/steam.in: Adjust URLs used for Desktop Actions in
@@ -16,11 +16,12 @@ steam-installer (1:1.0.0.82~ds-4) UNRELEASED; urgency=medium
     installing the steam-devices package (Closes: #1094998)
   * d/control: Add a summary of the supported devices to the
     steam-devices package's description (Closes: #1094934)
+  * Standards-Version: 4.7.2 (no changes required)
 
   [ Remus-Gabriel Chelu ]
   * Add Romanian translation for debconf notes (Closes: #1102149)
 
- -- Simon McVittie <smcv@debian.org>  Thu, 24 Apr 2025 12:53:39 +0100
+ -- Simon McVittie <smcv@debian.org>  Thu, 24 Apr 2025 13:35:59 +0100
 
 steam-installer (1:1.0.0.82~ds-3) unstable; urgency=medium
 

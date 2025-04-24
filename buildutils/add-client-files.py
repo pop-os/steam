@@ -54,6 +54,7 @@ BOOTSTRAP_RUNTIME_AMD64_BIN = (
     'steam-runtime-check-requirements',     # run by steam.sh
     'steam-runtime-identify-library-abi',   # run by setup.sh
     'steam-runtime-launch-client',          # run by s-r-check-requirements
+    'steam-runtime-supervisor',             # run by steam.sh
     'srt-logger',                           # (symlink) run by steam.sh
 )
 BOOTSTRAP_RUNTIME_AMD64_SONAMES = (
@@ -328,6 +329,7 @@ class Main:
         rel: str,
         dest: str,
         executable: bool = False,
+        missing_ok: bool = False,
     ) -> None:
         for d in dirs:
             if not d:
@@ -339,7 +341,8 @@ class Main:
                 self.install(src, dest, executable=executable)
                 return
 
-        raise RuntimeError(f'{rel} not found in {dirs}')
+        if not missing_ok:
+            raise RuntimeError(f'{rel} not found in {dirs}')
 
     def _normalize_tar_entry(
         self,
@@ -468,6 +471,7 @@ class Main:
             'steamdeps.txt',
             os.path.join(tmpdir, 'bootstrap', ''),
             executable=False,
+            missing_ok=True,
         )
         self.install_search(
             (self.client_overlay, client_dir),

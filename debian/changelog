@@ -1,3 +1,27 @@
+steam-installer (1:1.0.0.82~ds-4) UNRELEASED; urgency=medium
+
+  [ Simon McVittie ]
+  * d/scripts/steam.in: Adjust URLs used for Desktop Actions in
+    steam.desktop.
+    In desktop environments like GNOME that support Desktop Actions,
+    the Community and News actions were no longer functional due to
+    changes in the proprietary Steam client. Resolve this by updating
+    their associated URLs to the values used in beta 1.0.0.83 upstream.
+  * d/control: Depend on a D-Bus session bus.
+    This reflects a similar change in Valve's steam-launcher beta 1.0.0.83.
+    Steam increasingly assumes that the session bus is present and can be
+    relied on.
+  * d/control, d/steam-devices.README.Debian:
+    Clarify the security implications and benefit/risk tradeoff of
+    installing the steam-devices package (Closes: #1094998)
+  * d/control: Add a summary of the supported devices to the
+    steam-devices package's description (Closes: #1094934)
+
+  [ Remus-Gabriel Chelu ]
+  * Add Romanian translation for debconf notes (Closes: #1102149)
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 24 Apr 2025 12:53:39 +0100
+
 steam-installer (1:1.0.0.82~ds-3) unstable; urgency=medium
 
   [ Simon McVittie ]

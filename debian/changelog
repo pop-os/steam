@@ -4,8 +4,12 @@ steam-installer (1:1.0.0.83~ds-1) UNRELEASED; urgency=medium
     - Updated Steam client binary, build 1743554648 (2025-04-02)
     - Updated Steam Runtime, build 1.0.20250307.120442
     - Syntactic fixes in AppStream metadata
+  * Revert "d/scripts/steam.in: Adjust URLs used for Desktop Actions in
+    steam.desktop".
+    These have their correct values in the upstream .desktop file now,
+    so we no longer need to hotfix them.
 
- -- Simon McVittie <smcv@debian.org>  Thu, 24 Apr 2025 14:17:49 +0100
+ -- Simon McVittie <smcv@debian.org>  Thu, 24 Apr 2025 14:27:25 +0100
 
 steam-installer (1:1.0.0.82~ds-4) unstable; urgency=medium
 

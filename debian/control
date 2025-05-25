@@ -30,6 +30,7 @@ Depends:
  lsof,
  steam-libs (= ${binary:Version}),
  steam-libs-i386 (= ${binary:Version}),
+ xdg-user-dirs,
  zenity | yad,
  ${misc:Depends},
  ${shlibs:Depends},

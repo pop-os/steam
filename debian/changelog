@@ -1,3 +1,10 @@
+steam-installer (1:1.0.0.83~ds-2) experimental; urgency=medium
+
+  * steam-installer: Add Depends on xdg-user-dirs.
+    Steam uses xdg-user-dir(1) internally. (Closes: #1106489)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 02 Jun 2025 19:23:09 +0100
+
 steam-installer (1:1.0.0.83~ds-1) experimental; urgency=medium
 
   * New upstream beta release

@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.83~ds-3) unstable; urgency=medium
+
+  * Release to unstable, following upstream promotion of 1.0.0.83 to stable
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 19 Jun 2025 10:37:17 +0100
+
 steam-installer (1:1.0.0.83~ds-2) experimental; urgency=medium
 
   * steam-installer: Add Depends on xdg-user-dirs.

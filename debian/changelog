@@ -1,11 +1,11 @@
-steam-installer (1:1.0.0.84~ds-1) UNRELEASED; urgency=medium
+steam-installer (1:1.0.0.84~ds-1) experimental; urgency=medium
 
   * New upstream beta release
     - Updated Steam client binary, build 1751405894 (2025-07-01)
     - Updated Steam Runtime, build 1.0.20250519.130917
     - OARS content/age-rating metadata in Appstream
 
- -- Simon McVittie <smcv@debian.org>  Tue, 19 Aug 2025 19:37:40 +0100
+ -- Simon McVittie <smcv@debian.org>  Tue, 19 Aug 2025 19:41:11 +0100
 
 steam-installer (1:1.0.0.83~ds-3) unstable; urgency=medium
 

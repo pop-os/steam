@@ -34,6 +34,7 @@
   </screenshots>
   <launchable type="desktop-id">steam.desktop</launchable>
   <releases>
+    <release version="1.0.0.84" date="2025-08-19"/>
     <release version="1.0.0.83" date="2025-04-24"/>
     <release version="1.0.0.82" date="2024-10-03"/>
     <release version="1.0.0.81" date="2024-08-15"/>
@@ -49,4 +50,10 @@
     <release version="1.0.0.71" date="2021-07-23"/>
     <release version="1.0.0.70" date="2021-04-07"/>
   </releases>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-info">intense</content_attribute>
+    <content_attribute id="social-audio">intense</content_attribute>
+    <content_attribute id="money-purchasing">intense</content_attribute>
+  </content_rating>
 </component>

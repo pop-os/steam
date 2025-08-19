@@ -54,7 +54,6 @@ BOOTSTRAP_RUNTIME_AMD64_BIN = (
     'steam-runtime-check-requirements',     # run by steam.sh
     'steam-runtime-identify-library-abi',   # run by setup.sh
     'steam-runtime-launch-client',          # run by s-r-check-requirements
-    'steam-runtime-supervisor',             # run by steam.sh
     'srt-logger',                           # (symlink) run by steam.sh
 )
 BOOTSTRAP_RUNTIME_AMD64_SONAMES = (

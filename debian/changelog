@@ -1,3 +1,12 @@
+steam-installer (1:1.0.0.85~ds-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release
+    - Updated Steam client binary, build 1757650573 (2025-09-12)
+    - Updated Steam Runtime, build 1.0.20250616.139563
+    - Updates to steam-devices udev rules
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 30 Sep 2025 22:56:44 +0100
+
 steam-installer (1:1.0.0.84~ds-2) unstable; urgency=medium
 
   * Release to unstable, following upstream promotion of 1.0.0.84 to stable

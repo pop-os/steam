@@ -58,6 +58,9 @@ Description: Valve's Steam digital software delivery system
  .
    dpkg --add-architecture i386; apt update
  .
+ Users of the Nvidia proprietary graphics driver should also install the
+ nvidia-driver-libs:i386 and nvidia-vulkan-icd:i386 packages.
+ .
  Use of Steam is subject to several license agreements and other legal
  terms. Please see <https://store.steampowered.com/subscriber_agreement/>
  and <https://store.steampowered.com/legal/> for more details,

@@ -1,1 +1,1 @@
-subprojects/steam-devices/*.rules ${env:deb_udevdir}/rules.d
+subprojects/steam-devices/*.rules /usr/lib/udev/rules.d/

@@ -1,3 +1,9 @@
+steam-installer (1:1.0.0.85~ds-2pop1) jammy; urgency=medium
+
+  * Pop!_OS backport
+
+ -- Michael Murphy <michael@mmurphy.dev>  Fri, 30 Jan 2026 17:04:07 +0100
+
 steam-installer (1:1.0.0.85~ds-2) unstable; urgency=medium
 
   * d/control: Mention that Nvidia users should install the i386 drivers
